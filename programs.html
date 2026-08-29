@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Programs — Aitherium Foundation</title>
+  <meta name="description" content="The Aitherium Foundation's four programs: open source stewardship, open models, education and the operator doctrine, and community infrastructure.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpolygon points='256,96 400,360 112,360' fill='none' stroke='%231f4fd8' stroke-width='26' stroke-linejoin='round'/%3E%3Ccircle cx='256' cy='262' r='52' fill='%231f4fd8'/%3E%3Ccircle cx='256' cy='262' r='26' fill='%23faf9f7'/%3E%3Ccircle cx='256' cy='262' r='10' fill='%231f4fd8'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-row">
+    <a class="brand" href="index.html">
+      <svg class="mark" viewBox="0 0 512 512" aria-hidden="true" fill="none">
+        <polygon points="256,96 400,360 112,360" stroke="#1f4fd8" stroke-width="26" stroke-linejoin="round"/>
+        <circle cx="256" cy="262" r="52" fill="#1f4fd8"/>
+        <circle cx="256" cy="262" r="26" fill="#faf9f7"/>
+        <circle cx="256" cy="262" r="10" fill="#1f4fd8"/>
+      </svg>
+      Aitherium <span class="org-suffix">Foundation</span>
+    </a>
+    <nav aria-label="Primary">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="about.html">Mission</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="transparency.html">Transparency</a></li>
+        <li><a href="get-involved.html">Get Involved</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a class="btn btn-gold" href="get-involved.html#support">Support</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="container">
+      <p class="tiny">Programs</p>
+      <h1>Four programs, one purpose</h1>
+      <p class="lede">
+        Everything the foundation does maps to one of these programs. Each one
+        is judged by what it publishes, not by what it promises.
+      </p>
+    </div>
+  </section>
+
+  <section id="open-source">
+    <div class="container">
+      <div class="section-head">
+        <span class="tiny">Program 01</span>
+        <h2>Open Source Stewardship</h2>
+        <p>
+          The foundation maintains the open-source core of the platform: an
+          AI-native operating system for agents — AitherOS — and the ecosystem
+          of tools around it. Everything is developed in public, licenced
+          permissively, and runnable on your own hardware.
+        </p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>AitherOS</h3>
+          <p>An open AI-native operating system and agent platform: services,
+          orchestration, memory, identity, and the tools that tie agents to
+          the world. Self-hostable first.</p>
+          <a class="card-link" href="https://github.com/Aitherium/AitherOS" rel="noopener">View source →</a>
+        </div>
+        <div class="card">
+          <h3>awdk — the agent developer kit</h3>
+          <p>Build agent fleets in three lines, on any backend, local or cloud.
+          The foundation's own agents run on the same kit it publishes.</p>
+          <a class="card-link" href="https://github.com/Aitherium/awdk" rel="noopener">View on GitHub →</a>
+        </div>
+        <div class="card">
+          <h3>The aw* ecosystem</h3>
+          <p>A family of small, composable building blocks — skills, tools,
+          memory, search, and more — registered and documented as an ecosystem
+          a stranger can explore and adopt.</p>
+          <a class="card-link" href="https://github.com/Aitherium" rel="noopener">Explore the family →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="open-models">
+    <div class="container">
+      <div class="section-head">
+        <span class="tiny">Program 02</span>
+        <h2>Open Models</h2>
+        <p>
+          The foundation trains and releases models with published weights —
+          from small brains that run entirely on a laptop or phone, to
+          frontier-scale coder weights. The weights are the point: anyone can
+          audit, fine-tune, serve, and keep them.
+        </p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Bonsai</h3>
+          <p>A family of open-weights models designed to run on-device —
+          including conversational brains that work with no connection at all.</p>
+          <a class="card-link" href="https://github.com/Aitherium/awdk" rel="noopener">Served via awdk →</a>
+        </div>
+        <div class="card">
+          <h3>Coder and reasoning weights</h3>
+          <p>Larger open models for coding and reasoning, published with the
+          same openness as the rest of the stack — served through the same
+          self-hostable lanes.</p>
+          <a class="card-link" href="https://github.com/Aitherium" rel="noopener">Browse releases →</a>
+        </div>
+        <div class="card">
+          <h3>Publish, don't hoard</h3>
+          <p>An open model nobody can run is a press release. Every model the
+          foundation ships is loadable through open tooling on ordinary
+          hardware, and the serving stack is open too.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <div class="section-head">
+        <span class="tiny">Program 03</span>
+        <h2>Education &amp; the Operator Doctrine</h2>
+        <p>
+          The foundation's thesis is that the coming wave turns people into
+          operators — directors of their own agents — rather than casualties
+          of automation. That only becomes true if the knowledge to operate is
+          actually taught. This program publishes the teaching.
+        </p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Docs &amp; quick starts</h3>
+          <p>Public documentation covering the platform, its architecture, and
+          its services — written for a person arriving with no prior context.</p>
+          <a class="card-link" href="https://docs.aitherium.com" rel="noopener">Read the docs →</a>
+        </div>
+        <div class="card">
+          <h3>Talks &amp; the blog</h3>
+          <p>Field reports from running an open AI fleet, plus talks and essays
+          on the operator doctrine — what it means to direct agents for a
+          living.</p>
+          <a class="card-link" href="https://blog.aitherium.com" rel="noopener">Read the blog →</a>
+        </div>
+        <div class="card">
+          <h3>The doctrine itself</h3>
+          <p>A distilled operating doctrine — accumulated from years of real
+          sessions — published as a public pack anyone can install and learn
+          from, on any machine.</p>
+          <a class="card-link" href="https://github.com/Aitherium" rel="noopener">Find the packs →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="community">
+    <div class="container">
+      <div class="section-head">
+        <span class="tiny">Program 04</span>
+        <h2>Community Infrastructure</h2>
+        <p>
+          Openness is worthless without a commons to share it in. The
+          foundation runs the public spaces where the community meets, and
+          keeps them open and free of surveillance and paywalls.
+        </p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Chat rooms</h3>
+          <p>Public chat on the open relay — where the builders and the
+          operators actually talk, ask, and ship.</p>
+          <a class="card-link" href="https://relay.aitherium.com" rel="noopener">Join the rooms →</a>
+        </div>
+        <div class="card">
+          <h3>Spaces &amp; forums</h3>
+          <p>Persistent spaces and forums for longer conversations, project
+          homes, and community knowledge that outlives a chat window.</p>
+          <a class="card-link" href="https://aitherium.com/spaces" rel="noopener">Explore spaces →</a>
+        </div>
+        <div class="card">
+          <h3>Public status</h3>
+          <p>The foundation's own operations run on the open platform, and the
+          health of that fleet is a public page — not an internal dashboard.</p>
+          <a class="card-link" href="https://status.aitherium.com" rel="noopener">View status →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container">
+      <h2>Every program needs hands</h2>
+      <p>Code, models, teaching, and community all run on contributors.</p>
+      <a class="btn btn-gold" href="get-involved.html">Get involved</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html">
+          <svg class="mark" viewBox="0 0 512 512" aria-hidden="true" fill="none">
+            <polygon points="256,96 400,360 112,360" stroke="#1f4fd8" stroke-width="26" stroke-linejoin="round"/>
+            <circle cx="256" cy="262" r="52" fill="#1f4fd8"/>
+            <circle cx="256" cy="262" r="26" fill="#f2f0ec"/>
+            <circle cx="256" cy="262" r="10" fill="#1f4fd8"/>
+          </svg>
+          Aitherium <span class="org-suffix">Foundation</span>
+        </a>
+        <p class="footer-blurb">A non-profit steward of open AI infrastructure.
+        Your hardware. Your data. Your agents.</p>
+      </div>
+      <div>
+        <h4>Organization</h4>
+        <ul>
+          <li><a href="about.html">Mission</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="transparency.html">Transparency</a></li>
+          <li><a href="news.html">News</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <ul>
+          <li><a href="https://relay.aitherium.com" rel="noopener">Chat rooms</a></li>
+          <li><a href="https://blog.aitherium.com" rel="noopener">Blog</a></li>
+          <li><a href="https://status.aitherium.com" rel="noopener">Status</a></li>
+          <li><a href="https://github.com/Aitherium" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get involved</h4>
+        <ul>
+          <li><a href="get-involved.html#contribute">Contribute code</a></li>
+          <li><a href="get-involved.html#community">Join the community</a></li>
+          <li><a href="get-involved.html#support">Support the foundation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Aitherium Foundation. Built in the open — <a href="https://github.com/Aitherium/aitherium-org" rel="noopener">this site is open source</a>.</div>
+      <div>Non-profit · Open weights · Open code</div>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
