@@ -30,5 +30,14 @@ fi
      commit -m "$MSG" --quiet \
   && git push origin gh-pages --quiet)
 
+# The published tree must be EXACTLY main's site — nothing foreign. Measured
+# 2026-08-29: a foreign Veil static export (.next/, AGENTS.md, CNAME) appeared
+# on gh-pages mid-session; the wholesale rewrite above swept it, and this
+# re-asserts the invariant after every publish so a repeat cannot be silent.
+FOREIGN=$(git ls-tree --name-only origin/gh-pages | grep -cE '__next|\.next|node_modules|^dist' || true)
+if [ "$FOREIGN" != "0" ]; then
+  echo "FOREIGN ARTIFACTS on gh-pages ($FOREIGN) — publish did not sweep clean" >&2
+  exit 1
+fi
 git worktree remove .publish-tmp
-echo "published → https://aitherium.github.io/aitherium-org/"
+echo "published → https://aitherium.github.io/aitherium-org/ (tree verified == main)"
