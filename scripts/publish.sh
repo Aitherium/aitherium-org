@@ -40,11 +40,31 @@ fi
      commit -m "$MSG" --quiet \
   && git push origin gh-pages --quiet)
 
-# The published tree must be EXACTLY main's site — nothing foreign. Measured
-# 2026-08-29: a foreign Veil static export (.next/, AGENTS.md, CNAME) appeared
-# on gh-pages mid-session; the wholesale rewrite above swept it, and this
-# re-asserts the invariant after every publish so a repeat cannot be silent.
-FOREIGN=$(git ls-tree --name-only origin/gh-pages | grep -cE '__next|\.next|node_modules|^dist' || true)
+# ── Verification (this used to scan NOTHING) ─────────────────────────────
+# The pre-publish fetch above only fills FETCH_HEAD, so `origin/gh-pages` does
+# not resolve on a fresh clone, `git ls-tree` printed "Not a valid object
+# name", grep -c on EMPTY input printed 0, and every publish reported
+# "(tree verified == main)" having verified nothing. Measured live
+# 2026-08-30 — the "gate that scanned nothing" class. Re-fetch into a real
+# ref after the push so the check reads the state that was actually pushed.
+git fetch origin gh-pages:refs/remotes/origin/gh-pages 2>/dev/null || {
+  echo "cannot re-fetch gh-pages after publish — DEAD, not verified" >&2
+  exit 2
+}
+
+# 1) The published tree must be EXACTLY main's tree. Measured 2026-08-29:
+#    a foreign Veil static export (.next/, AGENTS.md, CNAME) appeared on
+#    gh-pages mid-session; the wholesale rewrite above swept it, and this
+#    re-asserts the invariant after every publish so a repeat cannot be silent.
+MAIN_TREE=$(git rev-parse "main^{tree}")
+PAGE_TREE=$(git rev-parse "refs/remotes/origin/gh-pages^{tree}")
+if [ "$MAIN_TREE" != "$PAGE_TREE" ]; then
+  echo "TREE MISMATCH: gh-pages tree $PAGE_TREE != main tree $MAIN_TREE — publish did not land main's site" >&2
+  exit 1
+fi
+
+# 2) No foreign artifacts on top of the exact tree.
+FOREIGN=$(git ls-tree --name-only refs/remotes/origin/gh-pages | grep -cE '__next|\.next|node_modules|^dist' || true)
 if [ "$FOREIGN" != "0" ]; then
   echo "FOREIGN ARTIFACTS on gh-pages ($FOREIGN) — publish did not sweep clean" >&2
   exit 1
