@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <header class="site-header">
   <div class="container nav-row">
@@ -37,7 +38,7 @@
   </div>
 </header>
 
-<main>
+<main id="main">
   <!-- ══════════ Hero ══════════ -->
   <section class="hero">
     <div class="container">
@@ -57,14 +58,55 @@
         </div>
       </div>
       <div class="hero-seal" aria-hidden="true">
+        <!-- The official Aitherium mark (same geometry as the header and the
+             canonical mark in AitherVeil src/components/brand/aitherium-mark.tsx).
+             Replaced 2026-08-30: the previous seal was a stylized variant with a
+             gold ring that the brand guide does not define. -->
         <svg viewBox="0 0 512 512" fill="none">
-          <polygon points="256,80 428,380 84,380" stroke="#1f4fd8" stroke-width="10" stroke-linejoin="round" opacity="0.9"/>
-          <circle cx="256" cy="276" r="92" stroke="#b7791f" stroke-width="8" opacity="0.55"/>
-          <circle cx="256" cy="276" r="58" fill="#1f4fd8" opacity="0.9"/>
-          <circle cx="256" cy="276" r="30" fill="#faf9f7"/>
-          <circle cx="256" cy="276" r="10" fill="#1f4fd8"/>
+          <polygon points="256,96 400,360 112,360" stroke="#1f4fd8" stroke-width="26" stroke-linejoin="round"/>
+          <circle cx="256" cy="262" r="52" fill="#1f4fd8"/>
+          <circle cx="256" cy="262" r="26" fill="#faf9f7"/>
+          <circle cx="256" cy="262" r="10" fill="#1f4fd8"/>
         </svg>
-        <span class="tiny">The delta and the core — the Aitherium mark</span>
+        <span class="tiny">The Aitherium mark — the delta and the core</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ Plain English ══════════ -->
+  <section class="alt plain-english" aria-label="What this means in plain English">
+    <div class="container">
+      <div class="section-head">
+        <span class="tiny">Plain English</span>
+        <h2>What all of this means</h2>
+        <p>
+          This site talks about agents, nodes, and weights. If that sounds
+          like another language, here is the translation — no technical
+          background needed.
+        </p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>An "operating system for agents"</h3>
+          <p>Your computer's operating system (Windows, macOS) runs your
+          programs. An agent operating system does the same for AI: software
+          that runs tasks, remembers things, and uses tools for you — on a
+          machine you own, not a server you rent.</p>
+        </div>
+        <div class="card">
+          <h3>"Nodes" and the "fleet"</h3>
+          <p>A node is simply a computer that has joined the network. The
+          more ordinary people run nodes — laptops, desktops, a box in a
+          closet — the more the network is owned by its users, and the less
+          any one company can switch it off.</p>
+        </div>
+        <div class="card">
+          <h3>"Open weights"</h3>
+          <p>The "weights" are the trained model itself — the part that
+          makes an AI actually work. When weights are published, anyone can
+          run the AI on their own hardware, check what it does, and keep it
+          forever. You own the intelligence instead of renting it.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -87,12 +129,14 @@
             <h3>We build the whole stack in the open</h3>
             <p>
               An operating system for agents — AitherOS — plus the ecosystem
-              of tools around it (the aw* family: skills, memory, search,
-              identity, orchestration). Every line of it is developed in
-              public, under permissive licences, in 30+ repositories a
-              stranger can clone tonight. The foundation's own agents run on
-              the same published code it hands to the world — there is no
-              "open for you, closed for us" split.
+              of tools around it (skills, memory, search, identity,
+              orchestration). Every line of it is developed in public, in
+              50+ repositories a stranger can clone tonight. The core
+              platform is source-available and free for personal use; the
+              tools around it are permissively licensed (MIT and Apache).
+              The foundation's own agents run on the same published code it
+              hands to the world — there is no "open for you, closed for us"
+              split.
             </p>
           </div>
         </li>
@@ -178,7 +222,7 @@
         <div class="card">
           <div class="kicker">03</div>
           <h3>The builders</h3>
-          <p>30+ public repositories, 57 integrated capabilities, and a
+          <p>50+ public repositories, 45+ integrated capabilities, and a
           contribution lane that starts with an issue labeled for newcomers.
           The ecosystem is a living thing — it only grows when people
           contribute.</p>
@@ -302,6 +346,7 @@
       <div>
         <h4>Community</h4>
         <ul>
+          <li><a href="https://discord.gg/kKhgRm9wH" rel="noopener">Discord — the Collective</a></li>
           <li><a href="https://relay.aitherium.com" rel="noopener">Chat rooms</a></li>
           <li><a href="https://blog.aitherium.com" rel="noopener">Blog</a></li>
           <li><a href="https://status.aitherium.com" rel="noopener">Status</a></li>
