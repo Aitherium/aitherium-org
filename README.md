@@ -23,9 +23,21 @@ framework — a static site stays deployable from any machine, forever.
 
 ## Deploy
 
-`push` to `main` → `.github/workflows/pages-deploy.yml` → GitHub Pages at
-`aitherium.org` (custom domain via the Pages settings; DNS CNAME is managed
-from the monorepo's `pages-cnames.yaml` lane).
+**There is no workflow in this repo.** GitHub Pages is configured with
+`build_type: legacy`, `source: gh-pages`, and `gh-pages` is maintained by
+`scripts/publish.sh` — which rewrites it from `main` every time and
+re-asserts the published tree equals `main` (run it after every push to
+`main`):
+
+```bash
+bash scripts/publish.sh "Publish aitherium.org"
+```
+
+Custom domain via the Pages settings; DNS CNAME is managed from the
+monorepo's `pages-cnames.yaml` lane. (This README used to claim a
+`.github/workflows/pages-deploy.yml` auto-deploy; that file never existed —
+a push to `main` without `publish.sh` changes nothing on the live site,
+measured 2026-08-30.)
 
 ## Content rules
 
