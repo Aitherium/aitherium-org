@@ -13,6 +13,16 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 MSG="${1:-Publish aitherium.org}"
 
+# A failed run (e.g. mid-script network error) can leave .publish-tmp behind.
+# Without this sweep the next publish fails with "cannot force update the
+# branch 'gh-pages' used by worktree" — a confusing error that names neither
+# the stale directory nor the fix. Measured 2026-08-29, live.
+if [ -d .publish-tmp ]; then
+  git worktree remove .publish-tmp --force 2>/dev/null || rm -rf .publish-tmp
+  echo "note: removed stale .publish-tmp from a previous failed publish"
+fi
+git worktree prune
+
 git fetch origin gh-pages 2>/dev/null || true
 if ! git worktree add .publish-tmp gh-pages 2>/dev/null; then
   # gh-pages does not exist yet — point it at main and done.
