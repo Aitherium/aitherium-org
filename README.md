@@ -46,5 +46,7 @@ measured 2026-08-30.)
   blog) rather than asserting the foundation's credibility in prose.
 - The blog at blog.aitherium.com is the record; this site links to it
   rather than duplicating it.
-- The Aitherium mark is the delta-and-core glyph, in the foundation's
-  dignified blue (#1f4fd8) on paper (#faf9f7).
+- The logo is the real Aitherium mark — the delta-and-core glyph in the
+  brand's creation gradient (cyan #00c9c9 → indigo #1a83db → violet
+  #907ae9, per brand.yaml gradients.creation), matching the official
+  aitheros-logo.png. Never a flat-colour re-draw.
