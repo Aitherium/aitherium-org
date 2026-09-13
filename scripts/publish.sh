@@ -24,6 +24,14 @@ fi
 git worktree prune
 
 git fetch origin gh-pages 2>/dev/null || true
+# The LOCAL gh-pages branch is what the worktree checks out, and it goes stale
+# the moment another machine publishes: the push below is then non-fast-forward
+# and fails AFTER the commit, with the worktree left behind. Measured 2026-09-13.
+# gh-pages is a deploy branch rewritten from main every time, so its only
+# correct starting point is wherever the remote is right now.
+if git show-ref --verify --quiet refs/remotes/origin/gh-pages; then
+  git branch -f gh-pages origin/gh-pages 2>/dev/null || true
+fi
 if ! git worktree add .publish-tmp gh-pages 2>/dev/null; then
   # gh-pages does not exist yet — point it at main and done.
   git branch -f gh-pages main
