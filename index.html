@@ -34,12 +34,13 @@
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="nav-links">
+        <li><a href="start.html">Start</a></li>
         <li><a href="about.html">Thesis</a></li>
         <li><a href="programs.html">Programs</a></li>
         <li><a href="transparency.html">Transparency</a></li>
         <li><a href="get-involved.html">Get involved</a></li>
         <li><a href="news.html">News</a></li>
-        <li><a class="btn btn-primary" href="get-involved.html#run">Run it on your machine</a></li>
+        <li><a class="btn btn-primary" href="start.html">Build with agents</a></li>
       </ul>
     </nav>
   </div>
@@ -58,12 +59,12 @@
         chasing the bigger brain and built the body</strong>: an operating system for agents that
         runs on hardware you own, in the open, with the foundation running on it first.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="about.html">Read the thesis</a>
-          <a class="btn" href="#stack">See the stack</a>
+          <a class="btn btn-primary" href="start.html">Start building, on your phone</a>
+          <a class="btn" href="about.html">Read the thesis</a>
         </div>
         <div class="install">
-          <div class="term-title">A real model on your own machine, free, offline, on CPU</div>
-          <div class="term"><span class="p">$ </span>pip install awdk <span class="c">&amp;&amp;</span> adk bonsai-local <span class="c"># ~300 MB, serves on :8090</span></div>
+          <div class="term-title">A real model on the phone in your pocket, or the laptop with no GPU</div>
+          <div class="term"><span class="p">$ </span>curl -fsSL https://aitherium.com/phone.sh | bash <span class="c"># Android · Termux</span><br><span class="p">$ </span>pip install awdk <span class="c">&amp;&amp;</span> adk quickstart-local <span class="c"># any laptop, no GPU</span></div>
         </div>
       </div>
       <div class="hero-card" aria-hidden="true">
@@ -110,7 +111,7 @@
         <div class="num"><b>§01</b>The manifesto</div>
         <div>
           <h2>No infinite&nbsp;scaling.</h2>
-          <p>Three claims, each one unfashionable, each one measured before it was written down.</p>
+          <p>Four claims, each one unfashionable, each one measured before it was written down.</p>
         </div>
       </div>
       <ol class="theses">
@@ -141,6 +142,25 @@
             the right unit of AI is a machine in a closet, not a gigawatt campus.</p>
             <p>Slow down. Build responsibly. Use the intelligence that already exists to steer the
             society we have, instead of dragging it in front of the train.</p>
+          </div>
+        </li>
+        <li>
+          <div class="n">two things</div>
+          <div>
+            <h3>Two things can be&nbsp;true.</h3>
+            <p>The race has to stop, because the race itself creates the worst possible conditions
+            for the future of the people it is being run on. The labs have demonstrated, repeatedly,
+            that they cannot be trusted to load all of humanity onto the airplane without landing
+            gear. And the same companies need open source to stop, because they cannot afford to
+            compete with it: the bet was two trillion dollars on models nobody else can afford to
+            run, including them, so that they become as embedded as the electrical grid and the
+            rest of us rent from the tap.</p>
+            <p>In September 2026 the frontier labs began saying the first half themselves:
+            <a href="https://darioamodei.com/post/we-must-pace-the-frontier" rel="noopener">"We must pace the frontier"</a>, with the others
+            agreeing within the hour. We said stop in August. The difference is who gets to keep
+            running while everyone else paces. <strong>Slowing the frontier is only safe if the
+            floor is owned</strong>: open weights, open code, on hardware that answers to the person
+            who bought it.</p>
           </div>
         </li>
         <li>
@@ -473,36 +493,28 @@
       <div class="section-head">
         <div class="num"><b>§08</b>Start</div>
         <div>
-          <h2>Three doors. All of them are on your own&nbsp;hardware.</h2>
+          <h2>The same stack runs on the phone in your pocket and on a cloud&nbsp;swarm.</h2>
+          <p>Pick the hardware you already have. Every rung is the same kit, the same agents, the
+          same code; only the brain's size and the address change. The guided path walks each rung
+          with the exact command, what you will see, and what you just learned.</p>
         </div>
       </div>
-      <div class="paths">
-        <div class="path">
-          <span class="k">01 · a brain</span>
-          <h3>Run a real model on the machine in front of you</h3>
-          <p>No GPU, no API key, no account. A 300 MB image pulls, serves on a local port, and an
-          agent talks to it. Then swap the backend to your GPU or a cloud key without changing a
-          line.</p>
-          <div class="term"><span class="p">$ </span>pip install awdk<br><span class="p">$ </span>adk bonsai-local</div>
-          <a href="https://aitherium.github.io/awdk/" rel="noopener">awdk docs ↗</a>
-        </div>
-        <div class="path">
-          <span class="k">02 · a box</span>
-          <h3>Boot a Linux you can hand to an agent</h3>
-          <p>Immutable base, atomic rollback, no password, zero open ports, rootless containers.
-          Give an agent the whole machine, because the box is the sandbox.</p>
-          <div class="term"><span class="p">$ </span>podman build -t awnix -f Containerfile .</div>
-          <a href="https://aitherium.github.io/awnix/" rel="noopener">awnix docs ↗</a>
-        </div>
-        <div class="path">
-          <span class="k">03 · the codex</span>
-          <h3>Read the operating doctrine</h3>
-          <p>Nineteen laws for running a coding agent so the result survives, each a real failure
-          first, each with its evidence. Ten short chapters from "what is an agent?" to a terminal
-          that answers you.</p>
-          <div class="term"><span class="p">$ </span>pip install awkno <span class="c">&amp;&amp;</span> awkno guide</div>
-          <a href="https://aitherium.github.io/awknowledge/" rel="noopener">The codex ↗</a>
-        </div>
+      <div class="record-wrap"><div class="record">
+        <table>
+          <thead><tr><th>You have</th><th>What runs</th><th>Proof</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>A phone (Android)</td><td>Bonsai 1.7B to 27B on the CPU, 1-bit, sized from your RAM. Your phone's browser then talks to it over loopback; every reply is generated on the device.</td><td class="st live">phone.sh · measured 2026-09-13</td><td><a href="start.html#phone">step 01 ↗</a></td></tr>
+            <tr><td>A laptop, no GPU</td><td>The open 8B orchestrator on plain llama.cpp, or Bonsai-27B 1-bit in 3.8 GB. Offline. Unplug the network and it still answers.</td><td class="st live">awdk quickstart-local</td><td><a href="start.html#laptop">step 02 ↗</a></td></tr>
+            <tr><td>A desktop with a GPU</td><td>In the browser tab through WebGPU, four sizes from 236 MB to 3.6 GB; or vLLM on any 6 GB card.</td><td class="st live">aitherium.com · adk quickstart</td><td><a href="start.html#gpu">step 06 ↗</a></td></tr>
+            <tr><td>A LAN of machines</td><td>One model split across the boxes you own: a 27B across a gaming GPU and an ARM box, a 284B across three memory tiers.</td><td class="st live">23.6 tok/s · 2026-08</td><td><a href="start.html#gpu">step 06 ↗</a></td></tr>
+            <tr><td>A DGX Spark, or a rented H100</td><td>One file walks a box into the mesh as capacity; a rented card joined in June.</td><td class="st live">2026-06-04</td><td><a href="https://blog.aitherium.com/blog/one-model-two-machines-distributed-inference-on-hardware-we-own" rel="noopener">receipt ↗</a></td></tr>
+            <tr><td>A cloud account</td><td>The whole fleet as a boot-verified appliance image; ~260 services offline after first boot, the platform switched off.</td><td class="st live">AMI boot-verified · 2026-08</td><td><a href="programs.html#open-source">program ↗</a></td></tr>
+          </tbody>
+        </table>
+      </div></div>
+      <div class="actions">
+        <a class="btn btn-primary" href="start.html">Start the path</a>
+        <a class="btn" href="https://aitherium.github.io/awknowledge/" rel="noopener">The codex</a>
       </div>
     </div>
   </section>
@@ -559,7 +571,8 @@
       <div>
         <h4>Get involved</h4>
         <ul>
-          <li><a href="get-involved.html#run">Run a brain</a></li>
+          <li><a href="start.html">Start building</a></li>
+          <li><a href="start.html#phone">On your phone</a></li>
           <li><a href="get-involved.html#hardware">Run a node</a></li>
           <li><a href="get-involved.html#contribute">Contribute</a></li>
           <li><a href="get-involved.html#support">Support the foundation</a></li>
