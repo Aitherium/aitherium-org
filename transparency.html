@@ -3,156 +3,136 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Transparency — Aitherium Foundation</title>
-  <meta name="description" content="Aitherium Foundation transparency: open source, open weights, public status, and the record of how the foundation is run.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2300c9c9'/%3E%3Cstop offset='.5' stop-color='%231a83db'/%3E%3Cstop offset='1' stop-color='%23907ae9'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon points='256,96 400,360 112,360' fill='none' stroke='url(%23g)' stroke-width='26' stroke-linejoin='round'/%3E%3Ccircle cx='256' cy='262' r='52' fill='url(%23g)'/%3E%3Ccircle cx='256' cy='262' r='26' fill='%23faf9f7'/%3E%3Ccircle cx='256' cy='262' r='10' fill='url(%23g)'/%3E%3C/svg%3E">
+  <title>The record — Aitherium Foundation</title>
+  <meta name="description" content="What anyone can inspect right now, the licence map as it actually is, and which parts of the commons are deployed versus specified.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Aitherium Foundation">
+  <meta property="og:title" content="The record — Aitherium Foundation">
+  <meta property="og:description" content="What anyone can inspect right now, the licence map as it actually is, and which parts of the commons are deployed versus specified.">
+  <meta property="og:url" content="https://aitherium.org/transparency.html">
+  <meta name="theme-color" content="#000103">
+  <link rel="canonical" href="https://aitherium.org/transparency.html">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Crect width='128' height='128' rx='24' fill='%23000103'/%3E%3Crect x='12' y='12' width='104' height='104' rx='16' fill='none' stroke='%232AD7D7' stroke-width='3'/%3E%3Ctext x='64' y='74' text-anchor='middle' dominant-baseline='central' font-family='Inter,Helvetica,Arial,sans-serif' font-size='58' font-weight='200' fill='%232AD7D7' letter-spacing='-2'%3EAi%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs>
-  <linearGradient id="markGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-    <stop offset="0%" stop-color="#00c9c9"/>
-    <stop offset="50%" stop-color="#1a83db"/>
-    <stop offset="100%" stop-color="#907ae9"/>
-  </linearGradient>
-</defs></svg>
-<a class="skip-link" href="#main">Skip to main content</a>
-
 <header class="site-header">
   <div class="container nav-row">
-    <a class="brand" href="index.html">
-      <svg class="mark" viewBox="0 0 512 512" aria-hidden="true" fill="none">
-        <polygon points="256,96 400,360 112,360" stroke="url(#markGrad)" stroke-width="26" stroke-linejoin="round"/>
-        <circle cx="256" cy="262" r="52" fill="url(#markGrad)"/>
-        <circle cx="256" cy="262" r="26" fill="#faf9f7"/>
-        <circle cx="256" cy="262" r="10" fill="url(#markGrad)"/>
+    <a class="brand" href="index.html" aria-label="Aitherium Foundation home">
+      <svg class="cell" viewBox="0 0 128 128" aria-hidden="true">
+        <rect width="128" height="128" rx="22" fill="#02060D"/>
+        <rect x="10" y="10" width="108" height="108" rx="16" fill="none" stroke="#2AD7D7" stroke-width="4"/>
+        <text x="64" y="76" text-anchor="middle" dominant-baseline="central" font-family="Inter, Helvetica, Arial, sans-serif" font-size="62" font-weight="200" fill="#2AD7D7" letter-spacing="-3">Ai</text>
       </svg>
-      Aitherium <span class="org-suffix">Foundation</span>
+      Aitherium <span class="org">Foundation</span>
     </a>
     <nav aria-label="Primary">
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="nav-links">
-        <li><a href="about.html">Mission</a></li>
+        <li><a href="about.html">Thesis</a></li>
         <li><a href="programs.html">Programs</a></li>
-        <li><a href="transparency.html">Transparency</a></li>
-        <li><a href="get-involved.html">Get Involved</a></li>
+        <li><a href="transparency.html" aria-current="page">Transparency</a></li>
+        <li><a href="get-involved.html">Get involved</a></li>
         <li><a href="news.html">News</a></li>
-        <li><a class="btn btn-gold" href="get-involved.html#support">Support</a></li>
+        <li><a class="btn btn-primary" href="get-involved.html#run">Run it on your machine</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<main id="main">
-  <section class="page-head">
-    <div class="container">
-      <p class="tiny">Transparency</p>
-      <h1>The record is public</h1>
-      <p class="lede">
-        The foundation is accountable to anyone who inspects it — not to its
-        own press releases. Everything below is a link, not a claim.
-      </p>
+<main>
+  <section class="hero" style="padding-bottom:40px">
+    <div class="container" style="display:block">
+      <p class="eyebrow">The record <span class="sep">·</span> Aitherium Foundation</p>
+      <h1>Everything below is a link, not a&nbsp;claim.</h1>
+      <p class="lede">The foundation is accountable to anyone who inspects it, not to its own prose.
+      Where the record does not exist yet, this page says so rather than pretending. That line
+      changes when the record does.</p>
     </div>
   </section>
 
-  <section>
+  <section class="tight" id="surfaces">
     <div class="container">
-      <div class="grid-2">
-        <div>
-          <h2>Open source</h2>
-          <p>
-            The platform's source is published in public repositories — the
-            core is source-available and free for personal use, and the
-            ecosystem around it is permissively licensed. The foundation's
-            own fleet runs on the same published code it hands to strangers —
-            there is no "open for customers, closed for competitors" split.
-          </p>
-          <p><a href="https://github.com/Aitherium" rel="noopener">Browse the public repositories →</a></p>
-        </div>
-        <div>
-          <h2>Open weights</h2>
-          <p>
-            Models released by the foundation carry published weights. That is
-            the difference between owning intelligence and renting it: with the
-            weights, anyone can audit the model, fine-tune it, serve it, and
-            keep it — forever, on their own hardware.
-          </p>
-          <p><a href="programs.html#open-models">See the open models program →</a></p>
-        </div>
-      </div>
+      <span class="kicker">What anyone can inspect right now</span>
+      <div class="record-wrap"><div class="record">
+        <table>
+          <thead><tr><th>Surface</th><th>What it shows</th><th>State</th></tr></thead>
+          <tbody>
+            <tr><td><a href="https://github.com/Aitherium" rel="noopener">Public repositories</a></td><td>76 public repos on the org: source, issues, and the full change record. 49 of them are registered bricks with docs pages.</td><td class="st live">live · 2026-09-13</td></tr>
+            <tr><td><a href="https://blog.aitherium.com" rel="noopener">The blog</a></td><td>243 published field reports, measurements and corrections. This site points at it rather than duplicating it.</td><td class="st live">live · 2026-09-13</td></tr>
+            <tr><td><a href="https://aitherium.github.io/awknowledge/" rel="noopener">The codex</a></td><td>The operating doctrine, its nineteen laws and the evidence behind each.</td><td class="st live">live</td></tr>
+            <tr><td><a href="https://github.com/Aitherium/aitherium-org" rel="noopener">This site</a></td><td>Plain HTML in a public repo. The brick table is rendered from a dated snapshot of the registry, committed alongside the pages.</td><td class="st live">live</td></tr>
+            <tr><td>Annual financial report</td><td>Income, expenses, and how contributed funds were used.</td><td class="st none">not yet published</td></tr>
+            <tr><td>Board &amp; governance record</td><td>Who governs, how they are chosen, and the decisions they make.</td><td class="st none">not yet published</td></tr>
+          </tbody>
+        </table>
+      </div></div>
     </div>
   </section>
 
-  <section class="alt">
+  <section class="tight" id="licences">
     <div class="container">
-      <div class="section-head">
-        <span class="tiny">Public record</span>
-        <h2>What anyone can inspect right now</h2>
-      </div>
-      <table class="data">
-        <thead>
-          <tr><th scope="col">Surface</th><th scope="col">What it shows</th><th scope="col">Status</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><a href="https://aitherium.com/status" rel="noopener">Status page</a></td>
-            <td>Live health of the foundation's own public services</td>
-            <td>Live</td>
-          </tr>
-          <tr>
-            <td><a href="https://github.com/Aitherium" rel="noopener">Public repositories</a></td>
-            <td>Source, issue tracker, and the full change record</td>
-            <td>Live</td>
-          </tr>
-          <tr>
-            <td><a href="https://github.com/Aitherium" rel="noopener">Public documentation</a></td>
-            <td>Architecture and operating manuals, in the open repositories</td>
-            <td>Live</td>
-          </tr>
-          <tr>
-            <td><a href="https://blog.aitherium.com" rel="noopener">Blog</a></td>
-            <td>Field reports from running the platform</td>
-            <td>Live</td>
-          </tr>
-          <tr>
-            <td>Annual financial report</td>
-            <td>Income, expenses, and how contributed funds were used</td>
-            <td>Published each year</td>
-          </tr>
-          <tr>
-            <td>Board &amp; governance record</td>
-            <td>Who governs, how they are chosen, and the decisions they make</td>
-            <td>Published as formed</td>
-          </tr>
-        </tbody>
-      </table>
+      <span class="kicker">Licences, as they actually are</span>
+      <p>"Open source" is not one licence. The map below is the decision record, and the reasoning
+      behind rejecting a source-available licence for the whole estate is published with it: an
+      unenforceable promise chills the users it cannot catch.</p>
+      <div class="record-wrap"><div class="record">
+        <table>
+          <thead><tr><th>Tree</th><th>Licence</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>awgit · awgraph · awrelay · awrepl · awresearch · awrtifact</td><td class="st live">Apache-2.0</td><td>Use, modify, redistribute, patent grant.</td></tr>
+            <tr><td>awskills · awnode · awpredict · awknowledge</td><td class="st live">MIT</td><td>Use, modify, redistribute.</td></tr>
+            <tr><td>awdk · awsh · the platform core</td><td class="st spec">BSL 1.1</td><td>Free for personal and internal use; commercial hosted-service use needs a licence. Converts to Apache-2.0 on 2030-02-07.</td></tr>
+            <tr><td>Other bricks</td><td class="st spec">per repo</td><td>Each repo carries its own LICENSE file; a brick without one is a defect, and a gate looks for it.</td></tr>
+            <tr><td>Model weights</td><td class="st spec">per model</td><td>Governed by each model's own licence and tracked in a catalogue; commercial use is gated per entry.</td></tr>
+          </tbody>
+        </table>
+      </div></div>
     </div>
   </section>
 
-  <section>
+  <section class="tight" id="deployed">
     <div class="container">
-      <div class="section-head">
-        <span class="tiny">Why this page exists</span>
-        <h2>Secrecy is the tax the public pays last</h2>
-        <p>
-          A non-profit that keeps its operations private is a trust without an
-          audit. Every decision the foundation makes — what to open, what to
-          release, how money moves — is a decision the record should show.
-          Where the record does not exist yet, this page says so, rather than
-          pretending.
-        </p>
-      </div>
+      <span class="kicker">The commons: deployed versus specified</span>
+      <p>Honesty about this table is the whole credibility of the thesis. From the AitherNet technical
+      report, 2026-08. "Specified" means the contract is written and the implementation is not.</p>
+      <div class="record-wrap"><div class="record">
+        <table>
+          <thead><tr><th>Capability</th><th>State</th></tr></thead>
+          <tbody>
+            <tr><td>Mandatory scheduling hop: priority tiers, per-backend caps, slot reservation, circuit breaking</td><td class="st live">deployed</td></tr>
+            <tr><td>Identity-based mesh across heterogeneous nodes</td><td class="st live">deployed</td></tr>
+            <tr><td>Content-addressed storage plane with mesh replication</td><td class="st live">deployed</td></tr>
+            <tr><td>Model catalogue with multi-backend routing and per-tenant entitlement</td><td class="st live">deployed</td></tr>
+            <tr><td>Browser (WebGPU) and mobile runtime for small models</td><td class="st live">deployed</td></tr>
+            <tr><td>Constrained-device inference (28.9M parameters on an $8 microcontroller)</td><td class="st live">deployed</td></tr>
+            <tr><td>Transport recovery: reconnect, session identity, window replay</td><td class="st live">deployed</td></tr>
+            <tr><td>Multi-tier mixture-of-experts pool across unified memory, GPU and DDR5</td><td class="st live">deployed</td></tr>
+            <tr><td>Placement feedback loop (routing heat, lookahead, hysteresis)</td><td class="st spec">specified, not implemented</td></tr>
+            <tr><td>Receipt-based verification of untrusted contribution</td><td class="st spec">specified, not implemented</td></tr>
+            <tr><td>Incast-grade transport for hundreds of nodes</td><td class="st spec">specified, scaffolded, unproven</td></tr>
+            <tr><td>Precision map as a first-class artifact property</td><td class="st spec">specified, not implemented</td></tr>
+            <tr><td>The joinable public fabric (any stranger's device contributes and is credited)</td><td class="st spec">the next build</td></tr>
+          </tbody>
+        </table>
+      </div></div>
+      <p class="small" style="margin-top:16px">Threats to validity, stated in the same report: one
+      deployment, one model family, the 98%-compute figure is derived rather than profiled, and
+      nothing yet validates behaviour at a thousand nodes.</p>
     </div>
   </section>
 
-  <section class="cta-band">
+  <section class="ignite">
     <div class="container">
-      <h2>Watch the record yourself</h2>
-      <p>Follow the repositories and the status page — the record updates more
-      often than this site does.</p>
-      <a class="btn btn-gold" href="https://github.com/Aitherium" rel="noopener">Follow on GitHub</a>
+      <h2>Watch the record <em>yourself</em>.</h2>
+      <p>Follow the repositories and the blog. The record updates more often than this page does, and
+      when we are wrong, the correction prints at the same volume.</p>
+      <div class="actions"><a class="btn btn-forge" href="https://github.com/Aitherium" rel="noopener">Follow on GitHub</a><a class="btn" href="https://blog.aitherium.com" rel="noopener">Read the blog</a></div>
     </div>
   </section>
 </main>
@@ -162,47 +142,49 @@
     <div class="footer-grid">
       <div>
         <a class="brand" href="index.html">
-          <svg class="mark" viewBox="0 0 512 512" aria-hidden="true" fill="none">
-            <polygon points="256,96 400,360 112,360" stroke="url(#markGrad)" stroke-width="26" stroke-linejoin="round"/>
-            <circle cx="256" cy="262" r="52" fill="url(#markGrad)"/>
-            <circle cx="256" cy="262" r="26" fill="#f2f0ec"/>
-            <circle cx="256" cy="262" r="10" fill="url(#markGrad)"/>
-          </svg>
-          Aitherium <span class="org-suffix">Foundation</span>
+          <svg class="cell" viewBox="0 0 128 128" aria-hidden="true">
+        <rect width="128" height="128" rx="22" fill="#02060D"/>
+        <rect x="10" y="10" width="108" height="108" rx="16" fill="none" stroke="#2AD7D7" stroke-width="4"/>
+        <text x="64" y="76" text-anchor="middle" dominant-baseline="central" font-family="Inter, Helvetica, Arial, sans-serif" font-size="62" font-weight="200" fill="#2AD7D7" letter-spacing="-3">Ai</text>
+      </svg>
+          Aitherium <span class="org">Foundation</span>
         </a>
-        <p class="footer-blurb">A non-profit steward of open AI infrastructure.
-        Your hardware. Your data. Your agents.</p>
+        <p class="footer-blurb">Ai · 47 · The Element of Creation. An open operating system for
+        agents, built to run on hardware people own, and the foundation that keeps it that way.</p>
       </div>
       <div>
-        <h4>Organization</h4>
+        <h4>Foundation</h4>
         <ul>
-          <li><a href="about.html">Mission</a></li>
+          <li><a href="about.html">The thesis</a></li>
           <li><a href="programs.html">Programs</a></li>
-          <li><a href="transparency.html">Transparency</a></li>
+          <li><a href="transparency.html">The record</a></li>
           <li><a href="news.html">News</a></li>
         </ul>
       </div>
       <div>
-        <h4>Community</h4>
+        <h4>The world</h4>
         <ul>
-          <li><a href="https://relay.aitherium.com" rel="noopener">Chat rooms</a></li>
-          <li><a href="https://blog.aitherium.com" rel="noopener">Blog</a></li>
-          <li><a href="https://aitherium.com/status" rel="noopener">Status</a></li>
           <li><a href="https://github.com/Aitherium" rel="noopener">GitHub</a></li>
+          <li><a href="https://aitherium.github.io/awdk/" rel="noopener">awdk docs</a></li>
+          <li><a href="https://aitherium.github.io/awknowledge/" rel="noopener">The codex</a></li>
+          <li><a href="https://blog.aitherium.com" rel="noopener">Blog</a></li>
+          <li><a href="https://relay.aitherium.com" rel="noopener">The rooms</a></li>
+          <li><a href="https://discord.gg/kKhgRm9wH" rel="noopener">The Collective on Discord</a></li>
         </ul>
       </div>
       <div>
         <h4>Get involved</h4>
         <ul>
-          <li><a href="get-involved.html#contribute">Contribute code</a></li>
-          <li><a href="get-involved.html#community">Join the community</a></li>
+          <li><a href="get-involved.html#run">Run a brain</a></li>
+          <li><a href="get-involved.html#hardware">Run a node</a></li>
+          <li><a href="get-involved.html#contribute">Contribute</a></li>
           <li><a href="get-involved.html#support">Support the foundation</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <div>© 2026 Aitherium Foundation. Built in the open — <a href="https://github.com/Aitherium/aitherium-org" rel="noopener">this site is open source</a>.</div>
-      <div>Non-profit · Open weights · Open code</div>
+      <div>© 2026 Aitherium Foundation · <a href="https://github.com/Aitherium/aitherium-org" rel="noopener">this site is a public repo</a></div>
+      <div><span class="tag">no hyperscale</span> · your hardware · your weights · your agents</div>
     </div>
   </div>
 </footer>

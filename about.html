@@ -3,191 +3,216 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mission — Aitherium Foundation</title>
-  <meta name="description" content="The Aitherium Foundation's mission: steward open AI infrastructure — an open-source agent operating system, open models, and the operator doctrine — built by a community that runs it together.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2300c9c9'/%3E%3Cstop offset='.5' stop-color='%231a83db'/%3E%3Cstop offset='1' stop-color='%23907ae9'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon points='256,96 400,360 112,360' fill='none' stroke='url(%23g)' stroke-width='26' stroke-linejoin='round'/%3E%3Ccircle cx='256' cy='262' r='52' fill='url(%23g)'/%3E%3Ccircle cx='256' cy='262' r='26' fill='%23faf9f7'/%3E%3Ccircle cx='256' cy='262' r='10' fill='url(%23g)'/%3E%3C/svg%3E">
+  <title>The thesis — Aitherium Foundation</title>
+  <meta name="description" content="Why the concentration thesis is wrong on arithmetic, what actually changed, the four problems of distributed inference, and the operator economy.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Aitherium Foundation">
+  <meta property="og:title" content="The thesis — Aitherium Foundation">
+  <meta property="og:description" content="Why the concentration thesis is wrong on arithmetic, what actually changed, the four problems of distributed inference, and the operator economy.">
+  <meta property="og:url" content="https://aitherium.org/about.html">
+  <meta name="theme-color" content="#000103">
+  <link rel="canonical" href="https://aitherium.org/about.html">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Crect width='128' height='128' rx='24' fill='%23000103'/%3E%3Crect x='12' y='12' width='104' height='104' rx='16' fill='none' stroke='%232AD7D7' stroke-width='3'/%3E%3Ctext x='64' y='74' text-anchor='middle' dominant-baseline='central' font-family='Inter,Helvetica,Arial,sans-serif' font-size='58' font-weight='200' fill='%232AD7D7' letter-spacing='-2'%3EAi%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs>
-  <linearGradient id="markGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-    <stop offset="0%" stop-color="#00c9c9"/>
-    <stop offset="50%" stop-color="#1a83db"/>
-    <stop offset="100%" stop-color="#907ae9"/>
-  </linearGradient>
-</defs></svg>
-<a class="skip-link" href="#main">Skip to main content</a>
-
 <header class="site-header">
   <div class="container nav-row">
-    <a class="brand" href="index.html">
-      <svg class="mark" viewBox="0 0 512 512" aria-hidden="true" fill="none">
-        <polygon points="256,96 400,360 112,360" stroke="url(#markGrad)" stroke-width="26" stroke-linejoin="round"/>
-        <circle cx="256" cy="262" r="52" fill="url(#markGrad)"/>
-        <circle cx="256" cy="262" r="26" fill="#faf9f7"/>
-        <circle cx="256" cy="262" r="10" fill="url(#markGrad)"/>
+    <a class="brand" href="index.html" aria-label="Aitherium Foundation home">
+      <svg class="cell" viewBox="0 0 128 128" aria-hidden="true">
+        <rect width="128" height="128" rx="22" fill="#02060D"/>
+        <rect x="10" y="10" width="108" height="108" rx="16" fill="none" stroke="#2AD7D7" stroke-width="4"/>
+        <text x="64" y="76" text-anchor="middle" dominant-baseline="central" font-family="Inter, Helvetica, Arial, sans-serif" font-size="62" font-weight="200" fill="#2AD7D7" letter-spacing="-3">Ai</text>
       </svg>
-      Aitherium <span class="org-suffix">Foundation</span>
+      Aitherium <span class="org">Foundation</span>
     </a>
     <nav aria-label="Primary">
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="nav-links">
-        <li><a href="about.html">Mission</a></li>
+        <li><a href="about.html" aria-current="page">Thesis</a></li>
         <li><a href="programs.html">Programs</a></li>
         <li><a href="transparency.html">Transparency</a></li>
-        <li><a href="get-involved.html">Get Involved</a></li>
+        <li><a href="get-involved.html">Get involved</a></li>
         <li><a href="news.html">News</a></li>
-        <li><a class="btn btn-gold" href="get-involved.html#support">Support</a></li>
+        <li><a class="btn btn-primary" href="get-involved.html#run">Run it on your machine</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<main id="main">
-  <section class="page-head">
-    <div class="container">
-      <p class="tiny">Our mission</p>
-      <h1>Intelligence is infrastructure. Infrastructure should be open.</h1>
-      <p class="lede">
-        The Aitherium Foundation exists to keep the deepest layer of the AI
-        stack — the operating systems, models, and knowledge that agents run
-        on — in the public domain, built in public, governed in public.
-      </p>
+<main>
+  <section class="hero" style="padding-bottom:40px">
+    <div class="container" style="display:block">
+      <p class="eyebrow">The thesis <span class="sep">·</span> Aitherium Foundation</p>
+      <h1>No&nbsp;hyperscale.</h1>
+      <p class="lede">The foundation exists to keep the deepest layer of the AI stack, the operating
+      system, the weights and the knowledge that agents run on, in the hands of the people who run
+      it. Not because concentration is immoral. Because it is <strong>unnecessary</strong>, and we
+      can show our work.</p>
     </div>
   </section>
 
-  <section>
-    <div class="container">
-      <div class="grid-2">
-        <div>
-          <h2>The problem we exist for</h2>
-          <p>
-            The last decade made AI a service: you do not own the model, the
-            weights, the data, or the interface — you rent all four, and the
-            terms can change at any time. The foundation's premise is that
-            intelligence is becoming infrastructure, and infrastructure in a
-            society that values its own independence cannot be a leased
-            subscription held by a handful of companies.
-          </p>
-        </div>
-        <div>
-          <h2>What we do about it</h2>
-          <p>
-            We build and steward the open layer: an agent operating system
-            anyone can run on their own hardware, models whose weights are
-            published, and an operating doctrine that teaches anyone to
-            direct agents themselves. The work is not a demo of openness — the
-            foundation's own fleet runs on it.
-          </p>
-        </div>
+  <section class="tight">
+    <div class="container prose">
+      <h2>The name</h2>
+      <p>In Greek cosmology <em>aither</em> (αἰθήρ) was the primordial light and the upper air: the
+      pure, bright medium the gods breathed, through which the heavens moved and creation flowed. We
+      chose the name deliberately. Aither is the invisible medium that makes creation possible.
+      AitherOS is what that medium looks like when you actually build it: an operating system where
+      agents write, design, code, research and create, with persistent memory, real tools and real
+      infrastructure behind them. The world thinks AI is a chatbot. We are here to show them it is a
+      forge.</p>
+      <p>Four things stand between a person and that forge, and the platform exists to remove each
+      one.</p>
+      <ul>
+        <li><strong>You and your agents.</strong> A chatbot answers questions. An agent does the work.
+        You say what you want; a specialist with memory, tools and a personality works out the how,
+        then goes and does it.</li>
+        <li><strong>You and your infrastructure.</strong> Your hardware is sitting there doing almost
+        nothing. One command stands up the whole stack on a Linux box you own. No datacenter, no
+        landlord, no GPU-hour markup. Sovereignty is an architecture decision.</li>
+        <li><strong>You and your life.</strong> The next billion software users do not have the eyes,
+        hands or patience for dropdown menus. Neither should you. You speak; creation follows.</li>
+        <li><strong>You and a locked-in stack.</strong> Every service is an API. Every agent is
+        addressable. Every tool composes. Open source, open architecture, open infrastructure, built
+        for agents from the ground up rather than bolted on after.</li>
+      </ul>
+
+      <h2>The manifesto</h2>
+      <p>Every AI company could stop training models today. We think they should. The intelligence we
+      already have is enough; the problem was never intelligence, it was the poverty of the
+      environment around it. The industry is running a race with no finish line, bigger models,
+      denser datacenters, infinite scale, and the freight train is pointed at a society that was never
+      asked whether it wanted to be dragged along.</p>
+      <p>We do not believe in infinite scaling. You cannot spin up infinite agents on infinite hardware
+      for zero cost, and human relationships do not scale infinitely either, and that ceiling is
+      good. So we stopped chasing the bigger brain and built the body. The prompt was the spark; the
+      environment was the fuel. The brain is just the plug; we built everything else, on Linux and
+      Python, on hardware you own, in the open. Slow down. Build responsibly. Use the intelligence
+      that already exists to steer our society instead of dragging it in front of the train. And
+      remember what the only durable advantage in this field is: a system that improves itself, on
+      hardware you own, doing work that matters, for longer than anyone else has. The only moat is
+      time.</p>
+
+      <h2>The premise</h2>
+      <p>The last decade made AI a service. You do not own the model, the weights, the data or the
+      interface; you rent all four, and the terms can change on any Tuesday. The industry's own
+      explanation for why it must be this way is a chain: AI requires massive compute, massive
+      compute requires massive capital, massive capital requires massive organisations, therefore AI
+      will be controlled by the handful of companies that already control everything else.</p>
+      <p>Only the first link is physics. The rest are business decisions, and they are already being
+      unwound by the people who lend the money. Banks fund concentration because concentration is
+      predictable and predictable is lendable. When the underwriters' own cost models showed the
+      demand curve for rented GPU-hours flattening against self-hosting costs approaching zero, the
+      loans stopped. That was arithmetic, not sentiment.</p>
+
+      <h2>The arithmetic</h2>
+      <p>A hyperscale GPU-hour has to recoup roughly three to four dollars of fully loaded cost: the
+      chip, the building, the cooling, the land, the staff, the insurance, the cost of capital for an
+      eighteen-month construction timeline. A consumer RTX 5090 costs about two thousand dollars,
+      draws 575 watts, and sits under a desk. It runs an orchestrator model at sixty-five tokens a
+      second, serves several models at once, and fine-tunes a production model in under half an hour.</p>
+      <p>The rented GPU-hour sells compute at a markup that was justifiable when local models could
+      not do the job. Local models can now do the job for the head of the distribution, which is
+      almost all of the work. For a serious agentic workload the breakeven on owning the hardware is
+      measured in months. After that every call is free. Not "pennies". Free. And when inference is
+      free you can afford to be ambitious: a thirty-second awareness loop that never sleeps, a
+      twelve-stage context pipeline, a nightly swarm that fires eighty model calls per coding task and
+      costs the same electricity the idle GPU would have burned anyway.</p>
+      <div class="aside">Every figure above is from a dated field report on the blog, with the
+      hardware and the software named. The receipts section on the front page links each one.</div>
+
+      <h2>What actually changed</h2>
+      <p>Three things, and none of them was a bigger model.</p>
+      <ul>
+        <li><strong>Local models got good enough.</strong> Not to replace the frontier on every task.
+        To handle most production workloads at zero marginal cost. An 8B model on one consumer GPU
+        classifies, routes, summarises, extracts and drafts. A 14B to 32B model plans and dispatches.
+        The 70B and the frontier API fire when something actually needs them.</li>
+        <li><strong>Orchestration became the product.</strong> A well-orchestrated pipeline of small
+        models with a surgically assembled context outperforms one large model with a garbage dump on
+        real agentic work. The orchestration layer, not the model, is where the leverage is, and
+        orchestration runs on hardware you own.</li>
+        <li><strong>The cost of sovereignty dropped to zero.</strong> A Linux box with a GPU now runs
+        a complete stack, inference, orchestration, memory, training, identity, security, with no
+        external dependency at runtime. Not because we promise your data stays home. Because there is
+        no code path that sends it anywhere.</li>
+      </ul>
+
+      <h2>Four problems, not one</h2>
+      <p>Frontier-scale inference on consumer hardware is not one hard problem; it is four
+      independent ones, each with credible open solutions built by different groups, none of which
+      compose. <em>Placement</em>: which machine and tier holds which parameters. <em>Precision</em>:
+      how many bits each tensor gets, driven by a different signal than placement. <em>Verification</em>:
+      whether a stranger's node did the work it claims, provable with signed receipts and no
+      consensus. And <em>distribution</em>: how a device owned by someone who has never opened a
+      terminal joins the fabric safely and automatically.</p>
+      <p>The field concentrates on the first three and assumes the fourth away. We concentrate on the
+      fourth, because the other three presuppose a node that has already joined. A sovereign appliance
+      that isolates contributed work in a virtual machine, so joining never means running a stranger's
+      code on your host. Identity from an OAuth device flow instead of an API key, because contribution
+      must be attributable and a key is not an identity. Tenant scope carried through the whole request
+      path, failing closed where it cannot be determined. Agents that enroll, provision and federate
+      the mesh with no human in the join path. And a graph of meshes, so a household can peer with a
+      lab, a lab with an organisation, and an organisation with a public commons, without any of them
+      surrendering sovereignty to the others.</p>
+      <p>We publish which parts of that are deployed and which are specified but unbuilt. The
+      <a href="transparency.html#deployed">record</a> says so plainly; that honesty is the paper's
+      credibility and ours.</p>
+
+      <h2>The operator</h2>
+      <p>The economic corollary is the part people find hardest to believe. When the cost of writing
+      software collapses, the demand for software does not shrink; it is revealed. There are tens of
+      millions of small businesses running on spreadsheets, whiteboards and "we've always done it this
+      way," each with dozens of processes that were never worth an engineer's hour at a hundred and
+      fifty dollars and are suddenly worth an agent's minute. The work is not writing the software. It
+      is integrating it into one business's unique snowflake of tools, habits and edge cases, and being
+      there at seven on a Tuesday when it breaks.</p>
+      <p>That work distributes because the things it needs do not centralise: trust, local knowledge,
+      domain expertise, presence. A person can hold thirty to fifty of those relationships before the
+      quality degrades. That ceiling is real, and it is good, because it leaves room for the next
+      operator in the next town and the next industry. The equilibrium is not a few companies renting
+      cognition to the world. It is a great many operators, each running their own fleet on hardware in
+      a closet, plugging into composable governance when a client's industry demands it, and calling a
+      frontier model for the five percent of work that needs one.</p>
+      <p>You will not be replaced. You will become an operator. The foundation's job is to make sure
+      the tools you operate with are yours.</p>
+
+      <h2>What the foundation is for</h2>
+      <ul>
+        <li><strong>Steward the open layer.</strong> The operating system for agents and the family
+        of bricks around it are developed in public and run by the foundation's own fleet first. There
+        is no separate internal version.</li>
+        <li><strong>Publish the weights and the recipe.</strong> Models ship with weights that load
+        through open tooling on ordinary hardware, from brains that run in a browser tab to the
+        serving stack for a 284B mixture of experts. And the operating doctrine, mined from real
+        sessions, ships as an installable pack rather than a keynote.</li>
+        <li><strong>Keep the commons joinable.</strong> The network's strength is that no company
+        hosts it. The foundation runs the lanes; the community runs the nodes. The joinable public
+        fabric is the largest open item on our list, and we say so.</li>
+        <li><strong>Refuse the landlord model.</strong> No per-token rent on the head of the
+        distribution. No phone-home in the runtime. No API key where an identity belongs. No claim
+        without an instrument.</li>
+      </ul>
+
+      <h2>The honest part</h2>
+      <p>This is optimistic, bordering on idealistic, and the transition is the risk. Inference is
+      concentrated today, and the people holding the GPUs have leverage they could use to lock in
+      customers before distributed alternatives mature. The window between "AI can displace this
+      work" and "the operator economy can absorb it" could be painful. Our measurements come from one
+      topology and one model family; nothing yet validates behaviour at a thousand nodes.</p>
+      <p>What we have is a structural argument for why the equilibrium is distributed, a stack that
+      already runs on that premise, and a discipline of publishing what we measured rather than what
+      we hoped. Getting to the equilibrium is the hard part. It gets solved by building, not by waiting.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="programs.html">The programs</a>
+        <a class="btn" href="https://blog.aitherium.com/blog/sovereign-deployment-year-of-linux-desktop" rel="noopener">The long version, 2026-03 ↗</a>
       </div>
-    </div>
-  </section>
-
-  <section class="alt">
-    <div class="container">
-      <div class="section-head">
-        <span class="tiny">The machine, in practice</span>
-        <h2>How the work actually happens</h2>
-        <p>
-          A mission without a mechanism is a slogan. Here is the mechanism —
-          the concrete, checkable way the foundation operates every day.
-        </p>
-      </div>
-      <ol class="principles">
-        <li>
-          <span class="n">1</span>
-          <div>
-            <h3>Built in the open, from the inside</h3>
-            <p>
-              The infrastructure that runs the foundation's own work is the
-              same open platform we publish. Every service, every tool, every
-              fix the fleet needs lands in a public repository first. The
-              fleet is the daily stress test: what the foundation runs is
-              what you can run.
-            </p>
-          </div>
-        </li>
-        <li>
-          <span class="n">2</span>
-          <div>
-            <h3>Self-hostable first</h3>
-            <p>
-              Every capability must run on ordinary hardware — a laptop, a
-              workstation, a box in a closet. Hosted services are conveniences,
-              never prerequisites. If a feature only works in our cloud, it is
-              not finished.
-            </p>
-          </div>
-        </li>
-        <li>
-          <span class="n">3</span>
-          <div>
-            <h3>Publish the weights, not just the code</h3>
-            <p>
-              A model without weights is a press release. Models ship with
-              published weights — small on-device brains and larger coder and
-              reasoning models alike — loadable through open tooling on
-              ordinary hardware. The serving stack is open too.
-            </p>
-          </div>
-        </li>
-        <li>
-          <span class="n">4</span>
-          <div>
-            <h3>Publish the recipe, not just the cake</h3>
-            <p>
-              Shipping the software is not enough — we publish the doctrine,
-              the playbooks, and the lessons from running it, so the knowledge
-              compounds outside our walls. The operator doctrine is a real,
-              installable pack distilled from years of real sessions — not a
-              blog post about how smart we are.
-            </p>
-          </div>
-        </li>
-        <li>
-          <span class="n">5</span>
-          <div>
-            <h3>Distribution is the point</h3>
-            <p>
-              A commons nobody runs is a museum. The community's nodes host
-              the network, the community's rooms carry the knowledge, and the
-              community's contributions grow the ecosystem. The foundation
-              keeps the commons open and maintained — the community keeps it
-              alive.
-            </p>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="section-head">
-        <span class="tiny">Why it matters that anyone can run it</span>
-        <h2>Ownership is the guarantee</h2>
-        <p>
-          Every promise about AI safety, alignment, and fairness is only as
-          strong as the ability to check it. With open weights you can audit
-          the model; with open source you can audit the system; with a
-          self-hostable stack you can take your intelligence with you no
-          matter what happens to any company — including this one. The
-          community is the reason that guarantee stays real: a network hosted
-          by thousands of people cannot be switched off by one.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-band">
-    <div class="container">
-      <h2>See the programs this mission takes</h2>
-      <p>Open source stewardship, open models, education, and community
-      infrastructure.</p>
-      <a class="btn btn-gold" href="programs.html">Explore the programs</a>
     </div>
   </section>
 </main>
@@ -197,47 +222,49 @@
     <div class="footer-grid">
       <div>
         <a class="brand" href="index.html">
-          <svg class="mark" viewBox="0 0 512 512" aria-hidden="true" fill="none">
-            <polygon points="256,96 400,360 112,360" stroke="url(#markGrad)" stroke-width="26" stroke-linejoin="round"/>
-            <circle cx="256" cy="262" r="52" fill="url(#markGrad)"/>
-            <circle cx="256" cy="262" r="26" fill="#f2f0ec"/>
-            <circle cx="256" cy="262" r="10" fill="url(#markGrad)"/>
-          </svg>
-          Aitherium <span class="org-suffix">Foundation</span>
+          <svg class="cell" viewBox="0 0 128 128" aria-hidden="true">
+        <rect width="128" height="128" rx="22" fill="#02060D"/>
+        <rect x="10" y="10" width="108" height="108" rx="16" fill="none" stroke="#2AD7D7" stroke-width="4"/>
+        <text x="64" y="76" text-anchor="middle" dominant-baseline="central" font-family="Inter, Helvetica, Arial, sans-serif" font-size="62" font-weight="200" fill="#2AD7D7" letter-spacing="-3">Ai</text>
+      </svg>
+          Aitherium <span class="org">Foundation</span>
         </a>
-        <p class="footer-blurb">A non-profit steward of open AI infrastructure.
-        Your hardware. Your data. Your agents.</p>
+        <p class="footer-blurb">Ai · 47 · The Element of Creation. An open operating system for
+        agents, built to run on hardware people own, and the foundation that keeps it that way.</p>
       </div>
       <div>
-        <h4>Organization</h4>
+        <h4>Foundation</h4>
         <ul>
-          <li><a href="about.html">Mission</a></li>
+          <li><a href="about.html">The thesis</a></li>
           <li><a href="programs.html">Programs</a></li>
-          <li><a href="transparency.html">Transparency</a></li>
+          <li><a href="transparency.html">The record</a></li>
           <li><a href="news.html">News</a></li>
         </ul>
       </div>
       <div>
-        <h4>Community</h4>
+        <h4>The world</h4>
         <ul>
-          <li><a href="https://relay.aitherium.com" rel="noopener">Chat rooms</a></li>
-          <li><a href="https://blog.aitherium.com" rel="noopener">Blog</a></li>
-          <li><a href="https://aitherium.com/status" rel="noopener">Status</a></li>
           <li><a href="https://github.com/Aitherium" rel="noopener">GitHub</a></li>
+          <li><a href="https://aitherium.github.io/awdk/" rel="noopener">awdk docs</a></li>
+          <li><a href="https://aitherium.github.io/awknowledge/" rel="noopener">The codex</a></li>
+          <li><a href="https://blog.aitherium.com" rel="noopener">Blog</a></li>
+          <li><a href="https://relay.aitherium.com" rel="noopener">The rooms</a></li>
+          <li><a href="https://discord.gg/kKhgRm9wH" rel="noopener">The Collective on Discord</a></li>
         </ul>
       </div>
       <div>
         <h4>Get involved</h4>
         <ul>
-          <li><a href="get-involved.html#contribute">Contribute code</a></li>
-          <li><a href="get-involved.html#community">Join the community</a></li>
+          <li><a href="get-involved.html#run">Run a brain</a></li>
+          <li><a href="get-involved.html#hardware">Run a node</a></li>
+          <li><a href="get-involved.html#contribute">Contribute</a></li>
           <li><a href="get-involved.html#support">Support the foundation</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <div>© 2026 Aitherium Foundation. Built in the open — <a href="https://github.com/Aitherium/aitherium-org" rel="noopener">this site is open source</a>.</div>
-      <div>Non-profit · Open weights · Open code</div>
+      <div>© 2026 Aitherium Foundation · <a href="https://github.com/Aitherium/aitherium-org" rel="noopener">this site is a public repo</a></div>
+      <div><span class="tag">no hyperscale</span> · your hardware · your weights · your agents</div>
     </div>
   </div>
 </footer>
