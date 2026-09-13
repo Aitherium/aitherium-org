@@ -214,9 +214,19 @@ AI_CARD = """<div class="hero-card" aria-hidden="true">
 
 def periodic_table() -> str:
     bricks = sorted(BRICKS, key=lambda b: (KIND_ORDER.get(b["kind"], 9), b["id"].lower()))
-    cells = ['      <li><a class="el ai" href="index.html" aria-label="Aitherium, element 47">'
-             '<span class="no">47</span><span class="sy">Ai</span><span class="nm">aitherium</span></a></li>']
-    for i, b in enumerate(bricks, start=1):
+    # Aitherium is element 47 (brand.yaml), so it OCCUPIES slot 47 of the table and the
+    # bricks are numbered around it — a number in a periodic table is a position, and two
+    # cells sharing one was measured as a defect on 2026-09-13 (awtoll also read 47).
+    AI_SLOT = 47
+    ai_cell = ('      <li><a class="el ai" href="index.html" aria-label="Aitherium, element 47">'
+               f'<span class="no">{AI_SLOT}</span><span class="sy">Ai</span><span class="nm">aitherium</span></a></li>')
+    cells = []
+    n = 0
+    for b in bricks:
+        n += 1
+        if n == AI_SLOT:
+            cells.append(ai_cell)
+            n += 1
         sy = SYMBOLS[b["id"]]
         repo = f"{GH}/{b['id']}"
         docs = f"{PAGES}/{b['id']}/" if b.get("pages_ok") else ""
@@ -226,8 +236,10 @@ def periodic_table() -> str:
             f'data-id="{esc(b["id"])}" data-sy="{sy}" data-tagline="{esc(b.get("tagline"))}" '
             f'data-install="{esc(b.get("install"))}" data-repo="{repo}" data-docs="{docs}" '
             f'data-trust="{esc(b.get("instead_of_trusting"))}" data-check="{esc(b.get("you_check"))}">'
-            f'<span class="no">{i}</span><span class="sy">{sy}</span><span class="nm">{esc(b["id"])}</span></a></li>'
+            f'<span class="no">{n}</span><span class="sy">{sy}</span><span class="nm">{esc(b["id"])}</span></a></li>'
         )
+    if len(bricks) < AI_SLOT:
+        cells.append(ai_cell)
     first = next(b for b in bricks if b["id"] == "awnix")
     detail = f"""    <div class="pt-detail" aria-live="polite">
       <div>
