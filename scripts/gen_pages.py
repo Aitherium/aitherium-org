@@ -159,6 +159,7 @@ FOOTER = f"""</main>
           <li><a href="{BLOG}" rel="noopener">Blog</a></li>
           <li><a href="{RELAY}" rel="noopener">The rooms</a></li>
           <li><a href="{DISCORD}" rel="noopener">The Collective on Discord</a></li>
+          <li><a href="https://wizzense.github.io/" rel="noopener">The builder · wizzense</a></li>
         </ul>
       </div>
       <div>
@@ -1132,6 +1133,14 @@ ABOUT = f"""  <section class="hero" style="padding-bottom:40px">
         distribution. No phone-home in the runtime. No API key where an identity belongs. No claim
         without an instrument.</li>
       </ul>
+
+      <h2>Who is behind it</h2>
+      <p>One person, so far. David Parkhurst, <a href="https://wizzense.github.io/" rel="noopener">wizzense</a>:
+      an outcome engineer who has racked the servers, run the OS at 850K-user scale, secured the
+      network, trained the models, scheduled the GPUs and built the dashboard on top, and then
+      built the factory that builds the software. His page is a shell you can type into; every
+      number it prints was measured, and the command that measured it is printed beside it. The
+      foundation exists so that what he built does not depend on him.</p>
 
       <h2>The honest part</h2>
       <p>This is optimistic, bordering on idealistic, and the transition is the risk. Inference is
