@@ -642,7 +642,7 @@ INDEX = f"""  <section class="hero">
         <table>
           <thead><tr><th>You have</th><th>What runs</th><th>Proof</th><th></th></tr></thead>
           <tbody>
-            <tr><td>A phone (Android)</td><td>Bonsai 1.7B to 27B on the CPU, 1-bit, sized from your RAM. Your phone's browser then talks to it over loopback; every reply is generated on the device.</td><td class="st live">phone.sh · measured 2026-09-13</td><td><a href="start.html#phone">step 01 ↗</a></td></tr>
+            <tr><td>A phone (Android)</td><td>Bonsai 1.7B to 27B on the CPU, 1-bit, sized from your RAM. Your phone's browser then talks to it over loopback; every reply is generated on the device.</td><td class="st live"><a href="{BLOG}/blog/a-ternary-llm-on-a-pixel-from-one-pasted-line" rel="noopener">a Pixel · 2026-07-27</a> · phone.sh 2026-09-13</td><td><a href="start.html#phone">step 01 ↗</a></td></tr>
             <tr><td>A laptop, no GPU</td><td>The open 8B orchestrator on plain llama.cpp, or Bonsai-27B 1-bit in 3.8 GB. Offline. Unplug the network and it still answers.</td><td class="st live">awdk quickstart-local</td><td><a href="start.html#laptop">step 02 ↗</a></td></tr>
             <tr><td>A desktop with a GPU</td><td>In the browser tab through WebGPU, four sizes from 236 MB to 3.6 GB; or vLLM on any 6 GB card.</td><td class="st live">aitherium.com · adk quickstart</td><td><a href="start.html#gpu">step 06 ↗</a></td></tr>
             <tr><td>A LAN of machines</td><td>One model split across the boxes you own: a 27B across a gaming GPU and an ARM box, a 284B across three memory tiers.</td><td class="st live">23.6 tok/s · 2026-08</td><td><a href="start.html#gpu">step 06 ↗</a></td></tr>
@@ -737,6 +737,7 @@ START = f"""  <section class="hero" style="padding-bottom:40px">
           <div class="links" style="display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:.78rem">
             <a href="https://f-droid.org/packages/com.termux/" rel="noopener">Termux on F-Droid ↗</a>
             <a href="https://aitherium.com/phone.sh" rel="noopener">read phone.sh before you run it ↗</a>
+            <a href="{BLOG}/blog/a-ternary-llm-on-a-pixel-from-one-pasted-line" rel="noopener">the receipt · a Pixel, 2026-07-27 ↗</a>
           </div>
         </div>
       </div>
