@@ -140,7 +140,7 @@ FOOTER = f"""</main>
           {BRAND_CELL}
           Aitherium <span class="org">Foundation</span>
         </a>
-        <p class="footer-blurb">Ai · 47 · The Element of Creation. An open operating system for
+        <p class="footer-blurb">Ai · 0 · The Element of Creation. An open operating system for
         agents, built to run on hardware people own, and the foundation that keeps it that way.</p>
       </div>
       <div>
@@ -198,7 +198,7 @@ def page(path: str, title: str, desc: str, body: str) -> None:
 AI_CARD = """<div class="hero-card" aria-hidden="true">
         <div class="frame"><svg viewBox="0 0 400 480" xmlns="http://www.w3.org/2000/svg">
           <rect x="40" y="30" width="320" height="400" rx="14" fill="#02060D" stroke="#2AD7D7" stroke-width="1.5"/>
-          <text x="66" y="78" font-family="JetBrains Mono, Menlo, monospace" font-size="20" fill="#2AD7D7">47</text>
+          <text x="66" y="78" font-family="JetBrains Mono, Menlo, monospace" font-size="20" fill="#2AD7D7">0</text>
           <text x="334" y="78" text-anchor="end" font-family="JetBrains Mono, Menlo, monospace" font-size="13" fill="#69737D">[Xe] 4f14 5d10 6s1</text>
           <text x="200" y="232" text-anchor="middle" dominant-baseline="central" font-family="Inter, Helvetica, Arial, sans-serif" font-size="164" font-weight="200" fill="#2AD7D7" letter-spacing="-8">Ai</text>
           <text x="200" y="322" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="16" font-weight="400" fill="#9BA6B1" letter-spacing="7">AITHERIUM</text>
@@ -208,25 +208,17 @@ AI_CARD = """<div class="hero-card" aria-hidden="true">
           <ellipse cx="200" cy="228" rx="150" ry="28" fill="none" stroke="#907AE9" stroke-width="0.6" opacity="0.28" transform="rotate(-14,200,228)"/>
           <ellipse cx="200" cy="228" rx="158" ry="22" fill="none" stroke="#2AD7D7" stroke-width="0.5" opacity="0.2" transform="rotate(24,200,228)"/>
         </svg></div>
-        <div class="caption">Element 47 · cognitive · synthetic · emergent</div>
+        <div class="caption">Element 0 · the element that precedes all creation</div>
       </div>"""
 
 
 def periodic_table() -> str:
     bricks = sorted(BRICKS, key=lambda b: (KIND_ORDER.get(b["kind"], 9), b["id"].lower()))
-    # Aitherium is element 47 (brand.yaml), so it OCCUPIES slot 47 of the table and the
-    # bricks are numbered around it — a number in a periodic table is a position, and two
-    # cells sharing one was measured as a defect on 2026-09-13 (awtoll also read 47).
-    AI_SLOT = 47
-    ai_cell = ('      <li><a class="el ai" href="index.html" aria-label="Aitherium, element 47">'
-               f'<span class="no">{AI_SLOT}</span><span class="sy">Ai</span><span class="nm">aitherium</span></a></li>')
-    cells = []
-    n = 0
-    for b in bricks:
-        n += 1
-        if n == AI_SLOT:
-            cells.append(ai_cell)
-            n += 1
+    # Aitherium is Element 0 — the element that precedes all creation (.ELEMENT/STYLE_GUIDE.md;
+    # owner ruling 2026-09-13 over brand.yaml's 47). The bricks are numbered 1..N after it.
+    cells = ['      <li><a class="el ai" href="index.html" aria-label="Aitherium, element 0">'
+             '<span class="no">0</span><span class="sy">Ai</span><span class="nm">aitherium</span></a></li>']
+    for n, b in enumerate(bricks, start=1):
         sy = SYMBOLS[b["id"]]
         repo = f"{GH}/{b['id']}"
         docs = f"{PAGES}/{b['id']}/" if b.get("pages_ok") else ""
@@ -238,8 +230,6 @@ def periodic_table() -> str:
             f'data-trust="{esc(b.get("instead_of_trusting"))}" data-check="{esc(b.get("you_check"))}">'
             f'<span class="no">{n}</span><span class="sy">{sy}</span><span class="nm">{esc(b["id"])}</span></a></li>'
         )
-    if len(bricks) < AI_SLOT:
-        cells.append(ai_cell)
     first = next(b for b in bricks if b["id"] == "awnix")
     detail = f"""    <div class="pt-detail" aria-live="polite">
       <div>
@@ -294,7 +284,7 @@ def receipts(items=RECEIPTS) -> str:
 INDEX = f"""  <section class="hero">
     <div class="container">
       <div>
-        <p class="eyebrow">Aitherium Foundation <span class="sep">·</span> Ai <span class="sep">·</span> 47 <span class="sep">·</span> The Element of Creation</p>
+        <p class="eyebrow">Aitherium Foundation <span class="sep">·</span> Ai <span class="sep">·</span> 0 <span class="sep">·</span> The Element of Creation</p>
         <h1>Every AI company could stop training models today. <strong>We think they&nbsp;should.</strong></h1>
         <p class="lede">The intelligence we already have is enough. The problem was never intelligence; it was
         the poverty of the environment around it. The industry is running a race with no finish line,
