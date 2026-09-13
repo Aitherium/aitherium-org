@@ -30,7 +30,7 @@ PAGES = "https://aitherium.github.io"
 RELAY = "https://relay.aitherium.com"
 CONTACT = "mailto:foundation@aitherium.org"
 DISCORD = "https://discord.gg/kKhgRm9wH"
-CODEX_PATH = f"{GH}/awknowledge/blob/main/path"
+CODEX_PATH = f"{PAGES}/awknowledge/path"
 PACE = "https://darioamodei.com/post/we-must-pace-the-frontier"
 AIPCON = "https://www.investing.com/news/transcripts/palantir-at-aipcon-11-ai-shifts-from-talk-to-operations-93CH-4896825"
 
@@ -811,8 +811,8 @@ START = f"""  <section class="hero" style="padding-bottom:40px">
           <p><strong>Stuck?</strong> <code>adk doctor</code> names the problem. If the download stops,
           run the same command again; it resumes.</p>
           <div class="links" style="display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:.78rem">
-            <a href="{CODEX_PATH}/01-install-awdk.md" rel="noopener">chapter 1 ↗</a>
-            <a href="{CODEX_PATH}/02-first-brain.md" rel="noopener">chapter 2 ↗</a>
+            <a href="{CODEX_PATH}/01-install-awdk.html" rel="noopener">chapter 1 ↗</a>
+            <a href="{CODEX_PATH}/02-first-brain.html" rel="noopener">chapter 2 ↗</a>
           </div>
         </div>
       </div>
@@ -844,7 +844,7 @@ START = f"""  <section class="hero" style="padding-bottom:40px">
           GPU, or a cloud key you add later. Swap the backend; the agents do not change. That is the
           whole point of the plug.</p>
           <div class="links" style="display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:.78rem">
-            <a href="{CODEX_PATH}/03-talk-to-it.md" rel="noopener">chapter 3 ↗</a>
+            <a href="{CODEX_PATH}/03-talk-to-it.html" rel="noopener">chapter 3 ↗</a>
           </div>
         </div>
       </div>
@@ -881,7 +881,7 @@ START = f"""  <section class="hero" style="padding-bottom:40px">
           filtering and effort routing are already on; you did not configure them. This is the
           same loop the foundation's own fleet runs, pointed at a smaller brain.</p>
           <div class="links" style="display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:.78rem">
-            <a href="{CODEX_PATH}/04-build-an-agent.md" rel="noopener">chapter 4 ↗</a>
+            <a href="{CODEX_PATH}/04-build-an-agent.html" rel="noopener">chapter 4 ↗</a>
             <a href="{PAGES}/awdk/" rel="noopener">awdk docs ↗</a>
           </div>
         </div>
@@ -911,7 +911,7 @@ START = f"""  <section class="hero" style="padding-bottom:40px">
           a self-hosted agent extends a hosted one identically. This is how the operator economy
           gets built: you install a pack for the print shop, not a SaaS subscription.</p>
           <div class="links" style="display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:.78rem">
-            <a href="{CODEX_PATH}/05-agent-packs.md" rel="noopener">chapter 5 ↗</a>
+            <a href="{CODEX_PATH}/05-agent-packs.html" rel="noopener">chapter 5 ↗</a>
             <a href="{GH}/awskills" rel="noopener">awskills ↗</a>
           </div>
         </div>
@@ -940,7 +940,7 @@ START = f"""  <section class="hero" style="padding-bottom:40px">
       <p class="small" style="margin-top:16px"><strong>What you just learned.</strong> Effort routing: the kit
       sends small work to the small brain and only escalates when the job needs it. On a stack
       built this way, more than eighty percent of calls never leave an 8B model.
-      <a href="{CODEX_PATH}/06-your-own-hardware.md" rel="noopener">chapter 6 ↗</a></p>
+      <a href="{CODEX_PATH}/06-your-own-hardware.html" rel="noopener">chapter 6 ↗</a></p>
     </div>
   </section>
 
@@ -982,8 +982,8 @@ START = f"""  <section class="hero" style="padding-bottom:40px">
           and an API key is not an identity.</p>
           <div class="links" style="display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:.78rem">
             <a href="get-involved.html#hardware" rel="noopener">run a node ↗</a>
-            <a href="{CODEX_PATH}/08-many-agents.md" rel="noopener">chapter 8 · many agents, one repo ↗</a>
-            <a href="{CODEX_PATH}/09-omnibox.md" rel="noopener">chapter 9 · a terminal that answers you ↗</a>
+            <a href="{CODEX_PATH}/08-many-agents.html" rel="noopener">chapter 8 · many agents, one repo ↗</a>
+            <a href="{CODEX_PATH}/09-omnibox.html" rel="noopener">chapter 9 · a terminal that answers you ↗</a>
           </div>
         </div>
       </div>
