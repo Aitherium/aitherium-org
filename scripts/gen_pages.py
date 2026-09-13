@@ -32,6 +32,7 @@ CONTACT = "mailto:foundation@aitherium.org"
 DISCORD = "https://discord.gg/kKhgRm9wH"
 CODEX_PATH = f"{GH}/awknowledge/blob/main/path"
 PACE = "https://darioamodei.com/post/we-must-pace-the-frontier"
+AIPCON = "https://www.investing.com/news/transcripts/palantir-at-aipcon-11-ai-shifts-from-talk-to-operations-93CH-4896825"
 
 # Two-letter element symbols. Hand-mapped so none collide.
 SYMBOLS = {
@@ -492,6 +493,32 @@ INDEX = f"""  <section class="hero">
           </div>
         </li>
       </ol>
+
+      <div class="section-head" style="margin-top:72px">
+        <div class="num"><b>§02b</b>the comparison</div>
+        <div>
+          <h2>The good version of&nbsp;Palantir.</h2>
+          <p>The most expensive AI company on earth now sells the argument on this page. At its own
+          conference in September 2026, Palantir had L3Harris say that fine-tuned open models
+          outperformed the frontier at a fraction of the cost, and its CEO has been asking why
+          anyone charges by the token for something that valuable if the customer could own the
+          means of production instead. He is right. Here is where we part company.</p>
+        </div>
+      </div>
+      <div class="ledger-wrap"><div class="ledger">
+        <table>
+          <thead><tr><th>The claim</th><th>Their version</th><th>Ours</th></tr></thead>
+          <tbody>
+            <tr><td>Own the means of production</td><td class="old">a closed platform, sold per deployment to governments and the largest enterprises</td><td class="new">the same architecture as open code: pip install, on the machine in a print shop's back room</td></tr>
+            <tr><td>Fine-tuned open models beat the frontier at a fraction of the cost</td><td class="old">a case study on a slide</td><td class="new">the only moat is time: scheduled retraining on hardware you own, in the open, behind fail-closed gates</td></tr>
+            <tr><td>Hermetically sealed, no internet, every flow permissioned</td><td class="old">their operators, their network, their terms</td><td class="new">the sovereign appliance: zero open ports, boots with the cable unplugged, tenancy fails closed, agents own their box</td></tr>
+            <tr><td>The model is a commodity; the value moves up the stack</td><td class="old">so pay for the stack</td><td class="new">so the stack is the commons: 49 public bricks, each useful to a stranger alone</td></tr>
+            <tr><td>Someone should build a profiler for the harness</td><td class="old">someone should</td><td class="new">awtoll: what every tool call costs you in context, measured from your own transcripts</td></tr>
+            <tr><td>Who gets it</td><td class="old">the customers who can afford Palantir</td><td class="new">the operator with a laptop, and the businesses in their town</td></tr>
+          </tbody>
+          <tfoot><tr><td colspan="3">Their claims: Palantir AIPCon 11, 2026-09. Ours: <a href="index.html#receipts">the receipts</a>, <a href="transparency.html#deployed">deployed versus specified</a>, and <a href="{GH}/awtoll" rel="noopener">awtoll</a>.</td></tr></tfoot>
+        </table>
+      </div></div>
     </div>
   </section>
 
@@ -1099,6 +1126,21 @@ ABOUT = f"""  <section class="hero" style="padding-bottom:40px">
       <p>We publish which parts of that are deployed and which are specified but unbuilt. The
       <a href="transparency.html#deployed">record</a> says so plainly; that honesty is the paper's
       credibility and ours.</p>
+
+      <h2>The good version of Palantir</h2>
+      <p>The most expensive AI company on earth now sells this page's argument. At its own
+      conference in September 2026 it had a defence contractor say that fine-tuned open models
+      beat the frontier at a fraction of the cost, and its CEO keeps asking why anyone charges by
+      the token for something that valuable when the customer could own the means of production.
+      He is right about all of it. The difference is the last clause of each sentence. They sell
+      that architecture closed, per deployment, to governments and the largest enterprises. We
+      publish it: the same sealed, permissioned, retraining-on-your-own-hardware stack, as open
+      code a stranger can install on a laptop, aimed at the operator with thirty clients in their
+      town rather than the customer with thirty billion in revenue. Enterprises that run it this
+      way report token costs of a few hundred dollars a month and the real spend moving into the
+      harness that builds the applications; that is why one of our bricks is a profiler for the
+      harness. When the model is a commodity, the stack is where the value goes, and a stack that
+      is a commons cannot become the next landlord.</p>
 
       <h2>The operator</h2>
       <p>The economic corollary is the part people find hardest to believe. When the cost of writing
