@@ -22,7 +22,7 @@ periodic table, and links to the record instead of asserting credibility in pros
 Tokens come from the brand's content design system (`.ELEMENT/DESIGN.md` in the
 platform monorepo): the void `#000103`, one cyan `#2AD7D7`, forge orange `#FF8950`
 used once per page, Inter at thin display weights, JetBrains Mono for anything
-measured. The periodic-table motif is the brand's own — Aitherium is element 47, "Ai",
+measured. The periodic-table motif is the brand's own — Aitherium is element 0, "Ai",
 The Element of Creation. No glass, no gradient text, no feature grids.
 
 ## Stack
