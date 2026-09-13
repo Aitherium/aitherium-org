@@ -30,6 +30,8 @@ PAGES = "https://aitherium.github.io"
 RELAY = "https://relay.aitherium.com"
 CONTACT = "mailto:foundation@aitherium.org"
 DISCORD = "https://discord.gg/kKhgRm9wH"
+CODEX_PATH = f"{GH}/awknowledge/blob/main/path"
+PACE = "https://darioamodei.com/post/we-must-pace-the-frontier"
 
 # Two-letter element symbols. Hand-mapped so none collide.
 SYMBOLS = {
@@ -67,6 +69,7 @@ BRAND_CELL = """<svg class="cell" viewBox="0 0 128 128" aria-hidden="true">
       </svg>"""
 
 NAV = [
+    ("start.html", "Start"),
     ("about.html", "Thesis"),
     ("programs.html", "Programs"),
     ("transparency.html", "Transparency"),
@@ -105,7 +108,7 @@ def header(current: str) -> str:
     for href, label in NAV:
         cur = ' aria-current="page"' if href == current else ""
         items.append(f'        <li><a href="{href}"{cur}>{label}</a></li>')
-    items.append('        <li><a class="btn btn-primary" href="get-involved.html#run">Run it on your machine</a></li>')
+    items.append('        <li><a class="btn btn-primary" href="start.html">Build with agents</a></li>')
     return f"""<header class="site-header">
   <div class="container nav-row">
     <a class="brand" href="index.html" aria-label="Aitherium Foundation home">
@@ -163,7 +166,8 @@ FOOTER = f"""</main>
       <div>
         <h4>Get involved</h4>
         <ul>
-          <li><a href="get-involved.html#run">Run a brain</a></li>
+          <li><a href="start.html">Start building</a></li>
+          <li><a href="start.html#phone">On your phone</a></li>
           <li><a href="get-involved.html#hardware">Run a node</a></li>
           <li><a href="get-involved.html#contribute">Contribute</a></li>
           <li><a href="get-involved.html#support">Support the foundation</a></li>
@@ -287,12 +291,12 @@ INDEX = f"""  <section class="hero">
         chasing the bigger brain and built the body</strong>: an operating system for agents that
         runs on hardware you own, in the open, with the foundation running on it first.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="about.html">Read the thesis</a>
-          <a class="btn" href="#stack">See the stack</a>
+          <a class="btn btn-primary" href="start.html">Start building, on your phone</a>
+          <a class="btn" href="about.html">Read the thesis</a>
         </div>
         <div class="install">
-          <div class="term-title">A real model on your own machine, free, offline, on CPU</div>
-          <div class="term"><span class="p">$ </span>pip install awdk <span class="c">&amp;&amp;</span> adk bonsai-local <span class="c"># ~300 MB, serves on :8090</span></div>
+          <div class="term-title">A real model on the phone in your pocket, or the laptop with no GPU</div>
+          <div class="term"><span class="p">$ </span>curl -fsSL https://aitherium.com/phone.sh | bash <span class="c"># Android · Termux</span><br><span class="p">$ </span>pip install awdk <span class="c">&amp;&amp;</span> adk quickstart-local <span class="c"># any laptop, no GPU</span></div>
         </div>
       </div>
       {AI_CARD}
@@ -325,7 +329,7 @@ INDEX = f"""  <section class="hero">
         <div class="num"><b>§01</b>The manifesto</div>
         <div>
           <h2>No infinite&nbsp;scaling.</h2>
-          <p>Three claims, each one unfashionable, each one measured before it was written down.</p>
+          <p>Four claims, each one unfashionable, each one measured before it was written down.</p>
         </div>
       </div>
       <ol class="theses">
@@ -356,6 +360,25 @@ INDEX = f"""  <section class="hero">
             the right unit of AI is a machine in a closet, not a gigawatt campus.</p>
             <p>Slow down. Build responsibly. Use the intelligence that already exists to steer the
             society we have, instead of dragging it in front of the train.</p>
+          </div>
+        </li>
+        <li>
+          <div class="n">two things</div>
+          <div>
+            <h3>Two things can be&nbsp;true.</h3>
+            <p>The race has to stop, because the race itself creates the worst possible conditions
+            for the future of the people it is being run on. The labs have demonstrated, repeatedly,
+            that they cannot be trusted to load all of humanity onto the airplane without landing
+            gear. And the same companies need open source to stop, because they cannot afford to
+            compete with it: the bet was two trillion dollars on models nobody else can afford to
+            run, including them, so that they become as embedded as the electrical grid and the
+            rest of us rent from the tap.</p>
+            <p>In September 2026 the frontier labs began saying the first half themselves:
+            <a href="{PACE}" rel="noopener">"We must pace the frontier"</a>, with the others
+            agreeing within the hour. We said stop in August. The difference is who gets to keep
+            running while everyone else paces. <strong>Slowing the frontier is only safe if the
+            floor is owned</strong>: open weights, open code, on hardware that answers to the person
+            who bought it.</p>
           </div>
         </li>
         <li>
@@ -608,36 +631,28 @@ INDEX = f"""  <section class="hero">
       <div class="section-head">
         <div class="num"><b>§08</b>Start</div>
         <div>
-          <h2>Three doors. All of them are on your own&nbsp;hardware.</h2>
+          <h2>The same stack runs on the phone in your pocket and on a cloud&nbsp;swarm.</h2>
+          <p>Pick the hardware you already have. Every rung is the same kit, the same agents, the
+          same code; only the brain's size and the address change. The guided path walks each rung
+          with the exact command, what you will see, and what you just learned.</p>
         </div>
       </div>
-      <div class="paths">
-        <div class="path">
-          <span class="k">01 · a brain</span>
-          <h3>Run a real model on the machine in front of you</h3>
-          <p>No GPU, no API key, no account. A 300 MB image pulls, serves on a local port, and an
-          agent talks to it. Then swap the backend to your GPU or a cloud key without changing a
-          line.</p>
-          <div class="term"><span class="p">$ </span>pip install awdk<br><span class="p">$ </span>adk bonsai-local</div>
-          <a href="{PAGES}/awdk/" rel="noopener">awdk docs ↗</a>
-        </div>
-        <div class="path">
-          <span class="k">02 · a box</span>
-          <h3>Boot a Linux you can hand to an agent</h3>
-          <p>Immutable base, atomic rollback, no password, zero open ports, rootless containers.
-          Give an agent the whole machine, because the box is the sandbox.</p>
-          <div class="term"><span class="p">$ </span>podman build -t awnix -f Containerfile .</div>
-          <a href="{PAGES}/awnix/" rel="noopener">awnix docs ↗</a>
-        </div>
-        <div class="path">
-          <span class="k">03 · the codex</span>
-          <h3>Read the operating doctrine</h3>
-          <p>Nineteen laws for running a coding agent so the result survives, each a real failure
-          first, each with its evidence. Ten short chapters from "what is an agent?" to a terminal
-          that answers you.</p>
-          <div class="term"><span class="p">$ </span>pip install awkno <span class="c">&amp;&amp;</span> awkno guide</div>
-          <a href="{PAGES}/awknowledge/" rel="noopener">The codex ↗</a>
-        </div>
+      <div class="record-wrap"><div class="record">
+        <table>
+          <thead><tr><th>You have</th><th>What runs</th><th>Proof</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>A phone (Android)</td><td>Bonsai 1.7B to 27B on the CPU, 1-bit, sized from your RAM. Your phone's browser then talks to it over loopback; every reply is generated on the device.</td><td class="st live">phone.sh · measured 2026-09-13</td><td><a href="start.html#phone">step 01 ↗</a></td></tr>
+            <tr><td>A laptop, no GPU</td><td>The open 8B orchestrator on plain llama.cpp, or Bonsai-27B 1-bit in 3.8 GB. Offline. Unplug the network and it still answers.</td><td class="st live">awdk quickstart-local</td><td><a href="start.html#laptop">step 02 ↗</a></td></tr>
+            <tr><td>A desktop with a GPU</td><td>In the browser tab through WebGPU, four sizes from 236 MB to 3.6 GB; or vLLM on any 6 GB card.</td><td class="st live">aitherium.com · adk quickstart</td><td><a href="start.html#gpu">step 06 ↗</a></td></tr>
+            <tr><td>A LAN of machines</td><td>One model split across the boxes you own: a 27B across a gaming GPU and an ARM box, a 284B across three memory tiers.</td><td class="st live">23.6 tok/s · 2026-08</td><td><a href="start.html#gpu">step 06 ↗</a></td></tr>
+            <tr><td>A DGX Spark, or a rented H100</td><td>One file walks a box into the mesh as capacity; a rented card joined in June.</td><td class="st live">2026-06-04</td><td><a href="{BLOG}/blog/one-model-two-machines-distributed-inference-on-hardware-we-own" rel="noopener">receipt ↗</a></td></tr>
+            <tr><td>A cloud account</td><td>The whole fleet as a boot-verified appliance image; ~260 services offline after first boot, the platform switched off.</td><td class="st live">AMI boot-verified · 2026-08</td><td><a href="programs.html#open-source">program ↗</a></td></tr>
+          </tbody>
+        </table>
+      </div></div>
+      <div class="actions">
+        <a class="btn btn-primary" href="start.html">Start the path</a>
+        <a class="btn" href="{PAGES}/awknowledge/" rel="noopener">The codex</a>
       </div>
     </div>
   </section>
@@ -651,6 +666,312 @@ INDEX = f"""  <section class="hero">
       <div class="actions">
         <a class="btn btn-forge" href="get-involved.html">Get involved</a>
         <a class="btn" href="transparency.html">Inspect the record</a>
+      </div>
+    </div>
+  </section>
+"""
+
+START = f"""  <section class="hero" style="padding-bottom:40px">
+    <div class="container" style="display:block">
+      <p class="eyebrow">Start <span class="sep">·</span> Aitherium Foundation</p>
+      <h1>Build with agents. Start on the machine in your&nbsp;pocket.</h1>
+      <p class="lede">Eight steps, in order. Every one runs on hardware you already own, needs no
+      account, and says three things: what you need, what you type, and what you will see. A step
+      that does not say what you will see is a hope, not a lesson. Total: an afternoon. Step one is
+      ten minutes.</p>
+      <div class="pt-legend" style="margin-top:22px">
+        <a href="#phone" style="--k:#FF8950">01 · phone</a>
+        <a href="#laptop" style="--k:#2AD7D7">02 · laptop, no GPU</a>
+        <a href="#talk" style="--k:#2AD7D7">03 · talk to it</a>
+        <a href="#agent" style="--k:#70DDB1">04 · your first agent</a>
+        <a href="#packs" style="--k:#70DDB1">05 · packs</a>
+        <a href="#gpu" style="--k:#907AE9">06 · GPU, LAN, cloud key</a>
+        <a href="#browser" style="--k:#907AE9">07 · in the browser</a>
+        <a href="#mesh" style="--k:#EAB532">08 · join the mesh</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight" id="phone">
+    <div class="container">
+      <div class="section-head">
+        <div class="num"><b>01</b>the phone · 10 min</div>
+        <div>
+          <h2>A real model, on your phone, generating every reply on the&nbsp;device.</h2>
+          <p><strong>You need:</strong> an Android phone and a Linux shell on it: Termux from
+          F-Droid, or the Linux Terminal built into Android 16 on a Pixel. About 2.2 GB of free
+          RAM for the smallest brain, 7.4 GB for the biggest. No root. No account.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <div class="term-title">Type this</div>
+          <div class="term"><span class="p">$ </span>curl -fsSL https://aitherium.com/phone.sh | bash</div>
+          <p style="margin-top:16px"><strong>You will see:</strong> the script measure your RAM and pick a
+          Bonsai size (1.7B, 4B, 8B or 27B), install a prebuilt llama.cpp (no compiling; that was
+          version one and it took forty minutes), download the weights from our mirror, start a
+          server on <code>127.0.0.1:8080</code>, and print a summary that begins
+          <em>Bonsai-… is serving</em>. Re-running is safe; every step skips when already done.</p>
+          <p><strong>Then:</strong> open the phone's browser at
+          <a href="https://elysium.aitherium.com" rel="noopener">elysium.aitherium.com</a> or
+          <a href="https://aitherium.com" rel="noopener">aitherium.com</a>. Both probe your local
+          server on their own; the model chip flips from "no node" to yours, and from then on every
+          reply is generated on the phone. No sign-in, because there is nothing to sign in to.</p>
+          <div class="term-title" style="margin-top:14px">Check it by hand</div>
+          <div class="term"><span class="p">$ </span>curl -s http://127.0.0.1:8080/v1/chat/completions -H 'Content-Type: application/json' -d '{{"messages":[{{"role":"user","content":"hi"}}],"max_tokens":128}}'</div>
+        </div>
+        <div>
+          <p><strong>What you just learned.</strong> A model is a file of numbers plus a program
+          that runs them. Bonsai stores each number in about one bit, which is why a 27-billion-number
+          brain fits in a phone's memory, and llama.cpp maps the file instead of copying it, which is
+          why the phone does not kill it. The server speaks the same API the big labs charge for,
+          on a port only your phone can see.</p>
+          <p><strong>Two honest notes.</strong> Bonsai is a reasoning model: it thinks before it
+          answers, and on a phone the thinking is most of the wait. Cap it with
+          <code>"reasoning_effort":"low"</code> per request, or start the server with
+          <code>--reasoning-budget 512</code>. And a phone cannot run these weights inside the
+          browser tab itself; a tab's GPU budget is a fraction of what they need. That is why the
+          server and the browser live on the same device and talk over loopback.</p>
+          <p><strong>iPhone:</strong> no path today. We say so rather than pretend.</p>
+          <div class="links" style="display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:.78rem">
+            <a href="https://f-droid.org/packages/com.termux/" rel="noopener">Termux on F-Droid ↗</a>
+            <a href="https://aitherium.com/phone.sh" rel="noopener">read phone.sh before you run it ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight" id="laptop">
+    <div class="container">
+      <div class="section-head">
+        <div class="num"><b>02</b>the laptop · 20 min</div>
+        <div>
+          <h2>The same brain on a laptop with no&nbsp;GPU.</h2>
+          <p><strong>You need:</strong> Python (from python.org; on Windows tick "Add python.exe to
+          PATH"), about 6 GB of free disk, and a few minutes of download. No GPU, no API key.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <div class="term-title">Install the kit</div>
+          <div class="term"><span class="p">$ </span>pip install awdk</div>
+          <p style="margin-top:12px"><strong>You will see:</strong> <code>Successfully installed awdk …</code>
+          with a version number.</p>
+          <div class="term-title" style="margin-top:14px">Start a brain</div>
+          <div class="term"><span class="p">$ </span>adk quickstart-local</div>
+          <p style="margin-top:12px"><strong>You will see:</strong> five numbered steps, <code>[1/5] Detecting
+          hardware…</code> through <code>[5/5]</code>: it detects your CPU and memory, picks a backend
+          (plain llama.cpp with no dependencies, or Ollama if you already have it), downloads a model
+          sized for you, asks it a question and checks an answer comes back, then registers it. It
+          ends with an address like <code>http://localhost:8200/v1</code> and <code>Config saved</code>.
+          A failed check fails the command; quickstart means proven working.</p>
+          <div class="term-title" style="margin-top:14px">Optional · the 1-bit brain, 27B in 3.8 GB</div>
+          <div class="term"><span class="p">$ </span>adk bonsai-local <span class="c"># needs Docker; ~40 min the first time, seconds after</span></div>
+        </div>
+        <div>
+          <p><strong>No Python, or none you trust?</strong> One line sets up an isolated environment
+          and runs the wizard:</p>
+          <div class="term"><span class="p">$ </span>curl -fsSL https://aitherium.com/install.sh | sh <span class="c"># macOS / Linux / WSL</span></div>
+          <div class="term" style="margin-top:8px"><span class="p">&gt; </span>powershell -ExecutionPolicy ByPass -c "irm https://aitherium.com/install.ps1 | iex" <span class="c"># Windows</span></div>
+          <p style="margin-top:16px"><strong>What you just learned.</strong> "8B" is eight billion numbers. At
+          sixteen bits each that is 16 GB, too big for most laptops; quantised to four bits it is
+          about 4.5 GB and almost as good, and at one bit a 27B brain fits in 3.8 GB. The kit picks
+          the trade that fits your machine so you do not have to. Unplug the network after this
+          step. It still answers.</p>
+          <p><strong>Stuck?</strong> <code>adk doctor</code> names the problem. If the download stops,
+          run the same command again; it resumes.</p>
+          <div class="links" style="display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:.78rem">
+            <a href="{CODEX_PATH}/01-install-awdk.md" rel="noopener">chapter 1 ↗</a>
+            <a href="{CODEX_PATH}/02-first-brain.md" rel="noopener">chapter 2 ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight" id="talk">
+    <div class="container">
+      <div class="section-head">
+        <div class="num"><b>03</b>talk to it · 5 min</div>
+        <div>
+          <h2>Ask it one question. Then open a&nbsp;chat.</h2>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <div class="term"><span class="p">$ </span>adk backend test</div>
+          <p style="margin-top:12px"><strong>You will see:</strong> <code>Provider: …</code>, one line of
+          <code>Response: …</code> from your brain, and <code>Status: OK</code>. If it says FAILED,
+          the brain from step 02 is not running; <code>adk backend status</code> shows what the kit
+          expects and <code>adk quickstart-local</code> restarts it.</p>
+          <div class="term" style="margin-top:14px"><span class="p">$ </span>adk start</div>
+          <p style="margin-top:12px"><strong>You will see:</strong> a chat, zero config, against the brain you
+          just started. Everything you type stays on the machine.</p>
+        </div>
+        <div>
+          <p><strong>What you just learned.</strong> The kit does not care which brain is on the
+          other end. The same commands work against the phone's server, the laptop's llama.cpp, a
+          GPU, or a cloud key you add later. Swap the backend; the agents do not change. That is the
+          whole point of the plug.</p>
+          <div class="links" style="display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:.78rem">
+            <a href="{CODEX_PATH}/03-talk-to-it.md" rel="noopener">chapter 3 ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight" id="agent">
+    <div class="container">
+      <div class="section-head">
+        <div class="num"><b>04</b>your first agent · 15 min</div>
+        <div>
+          <h2>A brain, plus tools, plus a job. Three files. You will watch it use a&nbsp;tool.</h2>
+          <p>A chatbot answers. An agent acts: it can run a command, read a file, send a message,
+          and decide what to do next based on what happened. The difference is tools.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <div class="term"><span class="p">$ </span>adk init my-agent<br><span class="p">$ </span>cd my-agent<br><span class="p">$ </span>python agent.py</div>
+          <p style="margin-top:12px"><strong>You will see:</strong> <code>Created AitherADK project at my-agent/</code>,
+          three files named (<code>agent.py</code>, <code>config.yaml</code>, <code>tools.py</code>), and
+          then one greeting printed by your agent. It was asked to say hello to the world, and it
+          had a <code>hello</code> tool to do it with, so it called the tool.</p>
+          <p>Now open <code>agent.py</code>, change the question at the bottom, run it again. Then add
+          a second tool: any Python function with a docstring, decorated the same way.</p>
+          <div class="term-title" style="margin-top:14px">Optional · run it as a service</div>
+          <div class="term"><span class="p">$ </span>adk run <span class="c"># Starting AitherADK server — identity: my-agent, port: 8080</span></div>
+        </div>
+        <div>
+          <div class="term-title">agent.py, as scaffolded</div>
+          <div class="term"><span class="c">&quot;&quot;&quot;My AitherADK agent.&quot;&quot;&quot;</span><br><br>from adk import AitherAgent, tool<br><br>agent = AitherAgent("my-agent")<br><br><br>@agent.tool<br>def hello(name: str) -&gt; str:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="c">&quot;&quot;&quot;Greet someone by name.&quot;&quot;&quot;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;return f"Hello, {{name}}!"<br><br><br>async def main():<br>&nbsp;&nbsp;&nbsp;&nbsp;response = await agent.chat("Say hello to the world")<br>&nbsp;&nbsp;&nbsp;&nbsp;print(response.content)<br><br><br>if __name__ == "__main__":<br>&nbsp;&nbsp;&nbsp;&nbsp;import asyncio<br>&nbsp;&nbsp;&nbsp;&nbsp;asyncio.run(main())</div>
+          <p style="margin-top:14px"><strong>What you just learned.</strong> The docstring is the tool's
+          description; the brain reads it to decide when to call the function. Memory, safety
+          filtering and effort routing are already on; you did not configure them. This is the
+          same loop the foundation's own fleet runs, pointed at a smaller brain.</p>
+          <div class="links" style="display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:.78rem">
+            <a href="{CODEX_PATH}/04-build-an-agent.md" rel="noopener">chapter 4 ↗</a>
+            <a href="{PAGES}/awdk/" rel="noopener">awdk docs ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight" id="packs">
+    <div class="container">
+      <div class="section-head">
+        <div class="num"><b>05</b>packs · 15 min</div>
+        <div>
+          <h2>Someone already built the agent you want. Install&nbsp;it.</h2>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <div class="term"><span class="p">$ </span>adk packs<br><span class="p">$ </span>adk install pack:&lt;name&gt;</div>
+          <p style="margin-top:12px"><strong>You will see:</strong> a table of packs, each with a name and a
+          one-line purpose; then the pack applied to your agent. Names are case-sensitive; copy
+          them exactly. An empty table means the bundled catalogue is missing:
+          <code>pip install --force-reinstall awdk</code> restores it.</p>
+        </div>
+        <div>
+          <p><strong>What you just learned.</strong> A pack is a whole agent in one file: its brain
+          settings, its tools, its skills, its personality. Packs compose, and a pack that extends
+          a self-hosted agent extends a hosted one identically. This is how the operator economy
+          gets built: you install a pack for the print shop, not a SaaS subscription.</p>
+          <div class="links" style="display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:.78rem">
+            <a href="{CODEX_PATH}/05-agent-packs.md" rel="noopener">chapter 5 ↗</a>
+            <a href="{GH}/awskills" rel="noopener">awskills ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight" id="gpu">
+    <div class="container">
+      <div class="section-head">
+        <div class="num"><b>06</b>more hardware</div>
+        <div>
+          <h2>A GPU, a LAN, or a cloud key. Same agents, same&nbsp;code.</h2>
+        </div>
+      </div>
+      <div class="record-wrap"><div class="record">
+        <table>
+          <thead><tr><th>You have</th><th>Type this</th><th>You get</th></tr></thead>
+          <tbody>
+            <tr><td>A GPU with 6 GB or more</td><td><code>adk quickstart</code></td><td>vLLM or Ollama auto-detected, models pulled, ready to chat. TurboQuant 4-bit runs on cards as small as 6 GB.</td></tr>
+            <tr><td>A whole LAN of machines</td><td><code>adk deploy grid</code></td><td>One model spread across the boxes you own, routed by effort. We split a 27B across a gaming GPU and an ARM box over an ordinary LAN, and it answered.</td></tr>
+            <tr><td>Just an API key</td><td><code>adk quickstart --cloud</code></td><td>Anthropic, OpenAI or DeepSeek as the brain. Cloud as overflow: keep the key for the long tail and serve the rest locally.</td></tr>
+          </tbody>
+        </table>
+      </div></div>
+      <p class="small" style="margin-top:16px"><strong>What you just learned.</strong> Effort routing: the kit
+      sends small work to the small brain and only escalates when the job needs it. On a stack
+      built this way, more than eighty percent of calls never leave an 8B model.
+      <a href="{CODEX_PATH}/06-your-own-hardware.md" rel="noopener">chapter 6 ↗</a></p>
+    </div>
+  </section>
+
+  <section class="tight" id="browser">
+    <div class="container">
+      <div class="section-head">
+        <div class="num"><b>07</b>in the browser</div>
+        <div>
+          <h2>On a desktop with a GPU, the page is the&nbsp;runtime.</h2>
+          <p>Open <a href="https://aitherium.com" rel="noopener">aitherium.com</a> on a desktop with a
+          WebGPU-capable browser and a GPU. The on-device Bonsai brains load into the tab itself,
+          four sizes from 236 MB to 3.6 GB, chosen by what your machine can hold. No install, no
+          account, no terminal. A phone tab cannot hold the weights; that is what step 01 is for.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight" id="mesh">
+    <div class="container">
+      <div class="section-head">
+        <div class="num"><b>08</b>join the mesh · optional</div>
+        <div>
+          <h2>Make your machine a named piece of the&nbsp;infrastructure.</h2>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <div class="term"><span class="p">$ </span>adk up</div>
+          <p style="margin-top:12px"><strong>You will see:</strong> a device-code prompt in your browser (identity,
+          not an API key), then your node registered: persistent agent, a tunnel, autostart, visible
+          in the fleet within about a minute. On the phone, <code>phone.sh</code> offers the same
+          step at the end, and it is not needed for the phone's own browser.</p>
+        </div>
+        <div>
+          <p><strong>What you just learned.</strong> A node is a computer that has joined the
+          network. The more ordinary people run one, the more the network is owned by its users and
+          the less any one company can switch it off. Contribution is attributable to an identity,
+          and an API key is not an identity.</p>
+          <div class="links" style="display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:.78rem">
+            <a href="get-involved.html#hardware" rel="noopener">run a node ↗</a>
+            <a href="{CODEX_PATH}/08-many-agents.md" rel="noopener">chapter 8 · many agents, one repo ↗</a>
+            <a href="{CODEX_PATH}/09-omnibox.md" rel="noopener">chapter 9 · a terminal that answers you ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ignite">
+    <div class="container">
+      <h2>Then teach <em>someone</em>.</h2>
+      <p>Walk into the print shop that spends four hours a week on invoices. Deploy their agent,
+      configured for their workflow, on a box in their back room. Be there at seven on a Tuesday
+      when it breaks. That is the work, there is more of it than any company can serve, and it does
+      not centralise. The rooms are where the people doing it already are.</p>
+      <div class="actions">
+        <a class="btn btn-forge" href="{RELAY}" rel="noopener">Join the rooms</a>
+        <a class="btn" href="{DISCORD}" rel="noopener">The Collective on Discord</a>
+        <a class="btn" href="{BLOG}/blog/you-wont-be-replaced-youll-become-an-operator" rel="noopener">The operator essay</a>
       </div>
     </div>
   </section>
@@ -906,7 +1227,8 @@ PROGRAMS = f"""  <section class="hero" style="padding-bottom:40px">
           prompts across 3,183 sessions, re-measured on held-out data.</p>
           <div class="items">
             <div class="item"><h4>The path</h4><p>Ten short chapters from "what is an agent?" to a
-            terminal that answers you, with the command to type beside every idea.</p><a class="more" href="{PAGES}/awknowledge/" rel="noopener">start ↗</a></div>
+            terminal that answers you, with the command to type beside every idea. This site's
+            <a href="start.html">Start</a> page is the phone-first front door to it.</p><a class="more" href="{PAGES}/awknowledge/" rel="noopener">the codex ↗</a></div>
             <div class="item"><h4>The laws</h4><p>Nineteen laws for running a coding agent so the
             result survives. Each was a real failure first; each carries its evidence.</p><a class="more" href="{GH}/awknowledge" rel="noopener">read ↗</a></div>
             <div class="item"><h4>The man page</h4><p>Every brick, stack and law, offline, on your
@@ -1060,7 +1382,9 @@ GET_INVOLVED = f"""  <section class="hero" style="padding-bottom:40px">
         <div class="num"><b>01</b>run it</div>
         <div>
           <h2>Run a real model on your own&nbsp;machine.</h2>
-          <p>No GPU, no API key, no account. Pick the row that matches what you have.</p>
+          <p>No GPU, no API key, no account. Pick the row that matches what you have; the
+          <a href="start.html">guided path</a> walks every row with what you will see at each step,
+          starting on a phone.</p>
         </div>
       </div>
       <div class="record-wrap"><div class="record">
@@ -1216,6 +1540,9 @@ def main() -> None:
          "Every AI company could stop training models today. We think they should. No infinite scaling: an "
          "open operating system for agents on hardware you own, the weights and doctrine to run it, and "
          "the foundation that keeps it that way.", INDEX)
+    page("start.html", "Start building — Aitherium Foundation",
+         "Build with agents, starting on the phone in your pocket: eight steps on hardware you own, "
+         "each with what you need, what you type, and what you will see.", START)
     page("about.html", "The thesis — Aitherium Foundation",
          "Why the concentration thesis is wrong on arithmetic, what actually changed, the four problems of "
          "distributed inference, and the operator economy.", ABOUT)
