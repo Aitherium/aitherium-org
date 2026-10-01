@@ -22,7 +22,13 @@ periodic table, and links to the record instead of asserting credibility in pros
 Tokens come from the brand's content design system (`.ELEMENT/DESIGN.md` in the
 platform monorepo): the void `#000103`, one cyan `#2AD7D7`, forge orange `#FF8950`
 used once per page, Inter at thin display weights, JetBrains Mono for anything
-measured. The periodic-table motif is the brand's own — Aitherium is element 0, "Ai",
+measured.
+
+**Appearance.** Light is the default; dark is the visitor's explicit choice from the
+menubar switch (kept in `localStorage`, applied by an inline `<head>` script before first
+paint). `prefers-color-scheme` is deliberately not followed. Both palettes live in
+`theme.css` with identical token names; `kit/` stays vendored verbatim and is overridden
+there, never edited. No colour literal belongs anywhere else. The periodic-table motif is the brand's own — Aitherium is element 0, "Ai",
 The Element of Creation. No glass, no gradient text, no feature grids.
 
 ## Stack

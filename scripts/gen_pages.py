@@ -72,7 +72,7 @@ MARK = ('<svg class="fk-mark" viewBox="0 0 512 512" fill="none" aria-hidden="tru
         '<g transform="translate(256 256) scale(0.86) translate(-256 -256)">'
         '<polygon points="256,96 400,360 112,360" stroke="currentColor" stroke-width="26" '
         'stroke-linejoin="round"/><circle cx="256" cy="262" r="52" fill="currentColor"/>'
-        '<circle cx="256" cy="262" r="26" fill="#050507"/>'
+        '<circle class="eye" cx="256" cy="262" r="26"/>'
         '<circle cx="256" cy="262" r="10" fill="currentColor"/></g></svg>')
 
 OS_URL = "https://aitherium.com/"
@@ -103,6 +103,24 @@ NAV = [
 ]
 
 
+# Light is the default appearance; dark is the visitor's explicit choice, never inferred
+# from prefers-color-scheme. This runs in <head>, after the stylesheets, so the stored
+# choice is on <html> before first paint (no dark flash) and theme-color is read from the
+# tokens rather than typed here. It must never contain a closing script tag.
+THEME_BOOT = """<script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem('aitherium-theme')}catch(e){}
+  d.setAttribute('data-theme',t==='dark'?'dark':'light');
+  var m=document.createElement('meta');m.name='theme-color';
+  m.content=getComputedStyle(d).getPropertyValue('--fk-bg').trim();document.head.appendChild(m);})();</script>"""
+
+THEME_SWITCH = ('<button class="fk-theme" type="button" data-theme-toggle aria-pressed="false" '
+                'aria-label="Dark mode" title="Dark mode">'
+                '<svg class="moon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13.5 9.6A5.5 5.5 0 0 1 6.4 2.5a5.5 5.5 0 1 0 7.1 7.1z" '
+                'stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>'
+                '<svg class="sun" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.4"/>'
+                '<path d="M8 1v1.6M8 13.4V15M1 8h1.6M13.4 8H15M3 3l1.1 1.1M11.9 11.9L13 13M3 13l1.1-1.1M11.9 4.1L13 3" '
+                'stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>')
+
+
 def head(title: str, desc: str, path: str) -> str:
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -116,13 +134,14 @@ def head(title: str, desc: str, path: str) -> str:
   <meta property="og:title" content="{esc(title)}">
   <meta property="og:description" content="{esc(desc)}">
   <meta property="og:url" content="https://aitherium.org/{path}">
-  <meta name="theme-color" content="#050507">
   <link rel="canonical" href="https://aitherium.org/{path}">
   <link rel="icon" href="{FAVICON}">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="kit/tokens.css">
   <link rel="stylesheet" href="kit/frame.css">
+  <link rel="stylesheet" href="theme.css">
   <link rel="stylesheet" href="styles.css">
+  {THEME_BOOT}
 </head>
 <body>
 """
@@ -144,6 +163,7 @@ def header(current: str) -> str:
   <a class="fk-k" href="#fk-about" data-fk-spotlight aria-label="Search (Ctrl K)"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.4"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span>⌘K</span></a>
   <span class="fk-live"><i class="fk-dot" aria-hidden="true"></i><span>live</span></span>
   <time class="fk-clock" data-fk-clock></time>
+  {THEME_SWITCH}
   <a class="fk-signon" href="{OS_URL}">Sign on</a>
   <a class="fk-ignite" href="{OS_URL}">ignite <span aria-hidden="true">→</span></a>
 </header>
@@ -213,14 +233,14 @@ def page(path: str, title: str, desc: str, body: str) -> None:
 
 AI_CARD = """<div class="hero-card" aria-hidden="true">
         <div class="frame"><svg viewBox="0 0 400 480" xmlns="http://www.w3.org/2000/svg">
-          <rect x="40" y="30" width="320" height="400" rx="14" fill="#050507" stroke="#5EC9CC" stroke-width="1.5"/>
-          <text x="66" y="78" font-family="JetBrains Mono, Menlo, monospace" font-size="20" fill="#5EC9CC">0</text>
-          <text x="200" y="232" text-anchor="middle" dominant-baseline="central" font-family="Inter, Helvetica, Arial, sans-serif" font-size="164" font-weight="200" fill="#5EC9CC" letter-spacing="-8">Ai</text>
-          <text x="200" y="322" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="16" font-weight="400" fill="rgba(237,239,245,.55)" letter-spacing="7">AITHERIUM</text>
-          <line x1="66" y1="384" x2="334" y2="384" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
-          <text x="200" y="408" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10.5" fill="rgba(237,239,245,.35)" letter-spacing="4">THE ELEMENT OF CREATION</text>
-          <ellipse cx="200" cy="228" rx="150" ry="28" fill="none" stroke="rgba(237,239,245,.55)" stroke-width="0.6" opacity="0.28" transform="rotate(-14,200,228)"/>
-          <ellipse cx="200" cy="228" rx="158" ry="22" fill="none" stroke="#5EC9CC" stroke-width="0.5" opacity="0.2" transform="rotate(24,200,228)"/>
+          <rect class="c-card" x="40" y="30" width="320" height="400" rx="14" stroke-width="1.5"/>
+          <text x="66" y="78" font-family="JetBrains Mono, Menlo, monospace" font-size="20" class="c-accent">0</text>
+          <text x="200" y="232" text-anchor="middle" dominant-baseline="central" font-family="Inter, Helvetica, Arial, sans-serif" font-size="164" font-weight="200" class="c-accent" letter-spacing="-8">Ai</text>
+          <text x="200" y="322" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="16" font-weight="400" class="c-name" letter-spacing="7">AITHERIUM</text>
+          <line x1="66" y1="384" x2="334" y2="384" class="c-rule" stroke-width="1"/>
+          <text x="200" y="408" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10.5" class="c-tag" letter-spacing="4">THE ELEMENT OF CREATION</text>
+          <ellipse cx="200" cy="228" rx="150" ry="28" class="c-orbit" stroke-width="0.6" opacity="0.28" transform="rotate(-14,200,228)"/>
+          <ellipse cx="200" cy="228" rx="158" ry="22" class="c-orbit-accent" stroke-width="0.5" opacity="0.2" transform="rotate(24,200,228)"/>
         </svg></div>
         <div class="caption">Element 0 · the element that precedes all creation</div>
       </div>"""
@@ -258,11 +278,11 @@ def periodic_table() -> str:
       </div>
     </div>"""
     return f"""    <div class="pt-legend">
-      <span style="--k:#5EC9CC">base</span>
-      <span style="--k:#5EC9CC">runtime</span>
-      <span style="--k:#EDEFF5">corpus</span>
-      <span style="--k:rgba(237,239,245,.55)">tool</span>
-      <span style="--k:rgba(237,239,245,.35)">{len(bricks)} public · measured {MEASURED}</span>
+      <span style="--k:var(--cyan)">base</span>
+      <span style="--k:var(--cyan)">runtime</span>
+      <span style="--k:var(--tx)">corpus</span>
+      <span style="--k:var(--tx-2)">tool</span>
+      <span style="--k:var(--tx-dim)">{len(bricks)} public · measured {MEASURED}</span>
     </div>
     <ul class="pt">
 {chr(10).join(cells)}
@@ -722,14 +742,14 @@ START = f"""  <section class="hero" style="padding-bottom:40px">
       that does not say what you will see is a hope, not a lesson. Total: an afternoon. Step one is
       ten minutes.</p>
       <div class="pt-legend" style="margin-top:22px">
-        <a href="#phone" style="--k:#5EC9CC">01 · phone</a>
-        <a href="#laptop" style="--k:#5EC9CC">02 · laptop, no GPU</a>
-        <a href="#talk" style="--k:#5EC9CC">03 · talk to it</a>
-        <a href="#agent" style="--k:#EDEFF5">04 · your first agent</a>
-        <a href="#packs" style="--k:#EDEFF5">05 · packs</a>
-        <a href="#gpu" style="--k:rgba(237,239,245,.55)">06 · GPU, LAN, cloud key</a>
-        <a href="#browser" style="--k:rgba(237,239,245,.55)">07 · in the browser</a>
-        <a href="#mesh" style="--k:rgba(237,239,245,.55)">08 · join the mesh</a>
+        <a href="#phone" style="--k:var(--cyan)">01 · phone</a>
+        <a href="#laptop" style="--k:var(--cyan)">02 · laptop, no GPU</a>
+        <a href="#talk" style="--k:var(--cyan)">03 · talk to it</a>
+        <a href="#agent" style="--k:var(--tx)">04 · your first agent</a>
+        <a href="#packs" style="--k:var(--tx)">05 · packs</a>
+        <a href="#gpu" style="--k:var(--tx-2)">06 · GPU, LAN, cloud key</a>
+        <a href="#browser" style="--k:var(--tx-2)">07 · in the browser</a>
+        <a href="#mesh" style="--k:var(--tx-2)">08 · join the mesh</a>
       </div>
     </div>
   </section>
