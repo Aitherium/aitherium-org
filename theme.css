@@ -23,8 +23,8 @@
   --fk-surface: #FFFFFF;                 /* window, menubar, dock, cards */
   --fk-raise: #F0F2F5;                   /* raised */
   --fk-ink: #0E1116;
-  --fk-dim: rgba(14,17,22,.58);
-  --fk-faint: rgba(14,17,22,.50);
+  --fk-dim: rgba(14,17,22,.64);
+  --fk-faint: rgba(14,17,22,.60);
   --fk-hairline: rgba(14,17,22,.10);
   --fk-accent: #1E9EA2;                  /* fills, rules, the mark */
   --fk-accent-ink: #137A7E;              /* the accent as TEXT */
