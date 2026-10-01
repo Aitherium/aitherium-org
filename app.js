@@ -6,6 +6,32 @@
 (function () {
   'use strict';
 
+  // ── light / dark ─────────────────────────────────────────────────────
+  // Light is the default; the head script already applied any stored choice
+  // before first paint. This only wires the menubar switch and persists it.
+  var root = document.documentElement;
+  var KEY = 'aitherium-theme';
+  function syncSwitch(btn) {
+    var dark = root.getAttribute('data-theme') === 'dark';
+    btn.setAttribute('aria-pressed', String(dark));
+    var label = dark ? 'Light mode' : 'Dark mode';
+    btn.setAttribute('aria-label', label);
+    btn.setAttribute('title', label);
+  }
+  function setTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    try { window.localStorage.setItem(KEY, theme); } catch (e) { /* private mode: session only */ }
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', getComputedStyle(root).getPropertyValue('--fk-bg').trim());
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-theme-toggle]'), function (btn) {
+    syncSwitch(btn);
+    btn.addEventListener('click', function () {
+      setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+      syncSwitch(btn);
+    });
+  });
+
   // ── mobile nav ───────────────────────────────────────────────────────
   var toggle = document.querySelector('.nav-toggle');
   var links = document.getElementById('nav-links');
