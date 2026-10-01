@@ -1,0 +1,89 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   AITHERIUM FOUNDATION — the two appearances
+   LIGHT is the default: a visitor who has not chosen sees light, whatever their
+   OS prefers (prefers-color-scheme is deliberately NOT followed). DARK is the
+   family kit's own palette, chosen with the menubar switch; the choice is kept
+   in localStorage and applied by an inline script in <head> before first paint.
+
+   Both sets carry IDENTICAL token names. Every colour on the site comes from
+   here: kit/tokens.css stays vendored verbatim and is overridden, not edited.
+   Loaded after kit/frame.css and before styles.css.
+
+   Contrast (WCAG 2.x, light): ink on surface 18.9:1 · dim on surface 4.62:1,
+   on ground 4.53:1 · accent-ink on surface 5.1:1, on ground 4.8:1 · ink on the
+   accent fill 5.8:1. The accent FILL (#1E9EA2) is 3.25:1 on white, so it is
+   used for fills, rules and marks; text in the accent uses --fk-accent-ink.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* light — the default (also what a reader with JS off gets) */
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;
+  --fk-bg: #F6F7F9;                      /* ground */
+  --fk-surface: #FFFFFF;                 /* window, menubar, dock, cards */
+  --fk-raise: #F0F2F5;                   /* raised */
+  --fk-ink: #0E1116;
+  --fk-dim: rgba(14,17,22,.58);
+  --fk-faint: rgba(14,17,22,.50);
+  --fk-hairline: rgba(14,17,22,.10);
+  --fk-accent: #1E9EA2;                  /* fills, rules, the mark */
+  --fk-accent-ink: #137A7E;              /* the accent as TEXT */
+  --fk-on-accent: #0E1116;               /* text on an accent fill */
+  --fk-accent-glow: rgba(30,158,162,.22);
+  --fk-accent-wash: rgba(30,158,162,.08);
+  --fk-accent-line: rgba(30,158,162,.40);
+  --fk-selection: rgba(30,158,162,.22);
+  --fk-scrim: rgba(14,17,22,.40);
+  --fk-shadow: rgba(14,17,22,.18);
+}
+
+/* dark — the family kit's palette, unchanged */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --fk-bg: #050507;
+  --fk-surface: #050507;
+  --fk-raise: rgba(255,255,255,.025);
+  --fk-ink: #EDEFF5;
+  --fk-dim: rgba(237,239,245,.55);
+  --fk-faint: rgba(237,239,245,.35);
+  --fk-hairline: rgba(255,255,255,.08);
+  --fk-accent: #5EC9CC;
+  --fk-accent-ink: #5EC9CC;
+  --fk-on-accent: #050507;
+  --fk-accent-glow: rgba(94,201,204,.35);
+  --fk-accent-wash: rgba(94,201,204,.08);
+  --fk-accent-line: rgba(94,201,204,.35);
+  --fk-selection: rgba(94,201,204,.28);
+  --fk-scrim: rgba(5,5,7,.86);
+  --fk-shadow: rgba(0,0,0,.6);
+}
+
+/* ── the kit frame, re-pointed at the tokens it has no name for ─────────── */
+::selection { background: var(--fk-selection); color: var(--fk-ink); }
+.fk-menubar, .fk-window, .fk-dock, .fk-spot-box { background: var(--fk-surface); }
+.fk-skip:focus { background: var(--fk-surface); }
+.fk-ignite, .fk-ignite:hover { color: var(--fk-on-accent); }
+.fk-spot { background: var(--fk-scrim); }
+.fk-spot-box { box-shadow: 0 0 0 1px var(--fk-accent-wash), 0 24px 80px var(--fk-shadow); }
+.fk-spot li[aria-selected="true"] a .t { color: var(--fk-accent-ink); }
+.fk-family a:hover .n { color: var(--fk-accent-ink); }
+/* the mark's eye is cut out of whatever it sits on */
+.fk-mark .eye { fill: var(--fk-surface); }
+
+/* ── the light/dark switch ─────────────────────────────────────────────────
+   Hidden until the head script has run: with JS off there is nothing to
+   switch, and the page is simply light. */
+.fk-theme {
+  display: none; align-items: center; justify-content: center;
+  width: 28px; height: 28px; padding: 0; border: 1px solid var(--fk-hairline); border-radius: 999px;
+  background: none; color: var(--fk-dim); cursor: pointer;
+}
+html[data-theme] .fk-theme { display: inline-flex; }
+.fk-theme:hover { color: var(--fk-ink); border-color: var(--fk-accent-line); }
+.fk-theme svg { width: 14px; height: 14px; }
+/* show the moon in light (the switch goes TO dark) and the sun in dark */
+.fk-theme .sun, :root[data-theme="dark"] .fk-theme .moon { display: none; }
+:root[data-theme="dark"] .fk-theme .sun { display: block; }
+.fk-about .fk-mark .eye { fill: var(--fk-bg); }
+/* on a phone the menubar has no room to spare: the switch drops its ring */
+@media (max-width: 760px) { .fk-theme { width: 22px; height: 22px; border: 0; } }

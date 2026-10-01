@@ -9,16 +9,19 @@
 
 :root {
   /* the family kit's palette (kit/tokens.css); the names are this sheet's own */
+  /* every value is a theme token (theme.css): light by default, dark on request */
   --void: var(--fk-bg);
-  --surface: var(--fk-bg);
+  --surface: var(--fk-surface);
   --raised: var(--fk-raise);
   --border: var(--fk-hairline);
   --border-soft: var(--fk-hairline);
-  --cyan: var(--fk-accent);
-  --cyan-dim: rgba(94,201,204,.08);
-  --cyan-line: rgba(94,201,204,.35);
+  --cyan: var(--fk-accent-ink);       /* the accent as text, rules, borders */
+  --cyan-fill: var(--fk-accent);      /* the accent as a fill */
+  --on-cyan: var(--fk-on-accent);     /* text on that fill */
+  --cyan-dim: var(--fk-accent-wash);
+  --cyan-line: var(--fk-accent-line);
   /* ONE accent: what used to be forge/creation/gold/violet/danger are ink levels */
-  --forge: var(--fk-accent);
+  --forge: var(--fk-accent-ink);
   --creation: var(--fk-ink);
   --gold: var(--fk-dim);
   --danger: var(--fk-dim);
@@ -39,7 +42,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; color-scheme: dark; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   background: var(--void);
@@ -53,7 +56,7 @@ body {
 }
 
 
-::selection { background: var(--cyan); color: var(--void); }
+::selection { background: var(--fk-selection); color: var(--tx); }
 :focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 3px; }
 
 a { color: var(--cyan); text-decoration: none; }
@@ -97,7 +100,7 @@ blockquote p { color: var(--tx); font-size: 1.15rem; font-weight: 300; }
 /* ── header ───────────────────────────────────────────────────────────── */
 .site-header {
   position: sticky; top: 0; z-index: 30;
-  background: var(--fk-bg);
+  background: var(--surface);
   border-bottom: 1px solid var(--border-soft);
 }
 .nav-row { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 24px; }
@@ -107,10 +110,10 @@ blockquote p { color: var(--tx); font-size: 1.15rem; font-weight: 300; }
 .brand .org { color: var(--tx-dim); font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; margin-left: 2px; }
 .nav-links { list-style: none; margin: 0; padding: 0; display: flex; gap: 6px; align-items: center; }
 .nav-links a { display: inline-block; padding: 8px 12px; color: var(--tx-2); font-size: 0.92rem; font-weight: 400; border-radius: var(--r-sm); }
-.nav-links a:hover { color: var(--tx); text-decoration: none; background: rgba(255,255,255,.025); }
+.nav-links a:hover { color: var(--tx); text-decoration: none; background: var(--raised); }
 .nav-links a[aria-current="page"] { color: var(--cyan); }
 .nav-links a.btn { margin-left: 8px; }
-.nav-links a.btn-primary, .nav-links a.btn-primary:hover { color: var(--void); background: var(--cyan); }
+.nav-links a.btn-primary, .nav-links a.btn-primary:hover { color: var(--on-cyan); background: var(--cyan-fill); }
 .nav-toggle { display: none; background: none; border: 1px solid var(--border); border-radius: var(--r-sm); width: 42px; height: 38px; cursor: pointer; padding: 0; }
 .nav-toggle span { display: block; width: 18px; height: 1px; background: var(--tx); margin: 4px auto; transition: 0.2s var(--ease); }
 @media (max-width: 860px) {
@@ -133,10 +136,10 @@ blockquote p { color: var(--tx); font-size: 1.15rem; font-weight: 300; }
   transition: all 0.2s var(--ease); cursor: pointer; white-space: nowrap;
 }
 .btn:hover { text-decoration: none; border-color: var(--cyan-line); color: var(--cyan); }
-.btn-primary { background: var(--cyan); color: var(--void); border-color: var(--cyan); }
-.btn-primary:hover { color: var(--void); box-shadow: 0 0 0 3px var(--cyan-dim); }
-.btn-forge { background: var(--forge); color: var(--void); border-color: var(--forge); }
-.btn-forge:hover { color: var(--void); box-shadow: 0 0 0 3px var(--cyan-dim); }
+.btn-primary { background: var(--cyan-fill); color: var(--on-cyan); border-color: var(--cyan-fill); }
+.btn-primary:hover { color: var(--on-cyan); box-shadow: 0 0 0 3px var(--cyan-dim); }
+.btn-forge { background: var(--cyan-fill); color: var(--on-cyan); border-color: var(--cyan-fill); }
+.btn-forge:hover { color: var(--on-cyan); box-shadow: 0 0 0 3px var(--cyan-dim); }
 .btn .arr { font-family: var(--mono); }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 28px 0 0; }
 
@@ -173,6 +176,14 @@ section.tight { padding: 64px 0; }
    it sits on .frame (the svg box only) so the caption below does not stretch it */
 .hero-card .frame::before { content: none; }
 .hero-card .glow { animation: elpulse 3.2s ease-in-out infinite; }
+/* the card's colours are tokens, so it reads on either ground */
+.hero-card .c-card { fill: var(--fk-surface); stroke: var(--fk-accent); }
+.hero-card .c-accent { fill: var(--fk-accent); }
+.hero-card .c-name { fill: var(--fk-dim); }
+.hero-card .c-rule { stroke: var(--fk-hairline); }
+.hero-card .c-tag { fill: var(--fk-faint); }
+.hero-card .c-orbit { fill: none; stroke: var(--fk-dim); }
+.hero-card .c-orbit-accent { fill: none; stroke: var(--fk-accent); }
 .hero-card .caption { font-family: var(--mono); font-size: 0.68rem; color: var(--tx-dim); letter-spacing: 0.12em; text-transform: uppercase; text-align: center; margin-top: 14px; }
 @keyframes elpulse { 0%, 100% { opacity: 0.45; } 50% { opacity: 1; } }
 .hero-card .frame::before { animation: elpulse 3.2s ease-in-out infinite; }
