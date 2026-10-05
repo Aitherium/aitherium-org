@@ -61,19 +61,15 @@ def esc(s: object) -> str:
 # kit/spotlight.js, vendored verbatim from the family kit; never hand-edit them):
 # the same menubar, window, About this OS panel and dock as every other surface
 # in the family. One accent, the triangle-eye mark as the only ornament.
-FAVICON = ("data:image/svg+xml,"
-           "%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E"
-           "%3Cpolygon points='256,110 390,350 122,350' fill='none' stroke='%235EC9CC' "
-           "stroke-width='30' stroke-linejoin='round'/%3E"
-           "%3Ccircle cx='256' cy='262' r='50' fill='%235EC9CC'/%3E"
-           "%3Ccircle cx='256' cy='262' r='24' fill='%23050507'/%3E%3C/svg%3E")
+# The current Aither mark (the Iris cut of the Element mark, AitherOS #11707), copied
+# verbatim from the monorepo's brand kit into brand/: aither-icon.svg is the app icon
+# with its tile (favicon AND chrome: the bare glyph is unreadable at 18 px on the light theme), aither-mark.svg the glyph alone (dark fields). The triangle-eye
+# of 2026-08 is retired; never redraw the mark here, re-copy it.
+FAVICON = "brand/aither-icon.svg"
+TOUCH_ICON = "brand/aither-icon-192.png"
+OG_IMAGE = "https://aitherium.org/brand/aither-icon-512.png"
 
-MARK = ('<svg class="fk-mark" viewBox="0 0 512 512" fill="none" aria-hidden="true">'
-        '<g transform="translate(256 256) scale(0.86) translate(-256 -256)">'
-        '<polygon points="256,96 400,360 112,360" stroke="currentColor" stroke-width="26" '
-        'stroke-linejoin="round"/><circle cx="256" cy="262" r="52" fill="currentColor"/>'
-        '<circle class="eye" cx="256" cy="262" r="26"/>'
-        '<circle cx="256" cy="262" r="10" fill="currentColor"/></g></svg>')
+MARK = '<img class="fk-mark" src="brand/aither-icon.svg" alt="" aria-hidden="true">'
 
 OS_URL = "https://aitherium.com/"
 
@@ -136,6 +132,11 @@ def head(title: str, desc: str, path: str) -> str:
   <meta property="og:url" content="https://aitherium.org/{path}">
   <link rel="canonical" href="https://aitherium.org/{path}">
   <link rel="icon" href="{FAVICON}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{TOUCH_ICON}">
+  <link rel="apple-touch-icon" href="{TOUCH_ICON}">
+  <meta property="og:image" content="{OG_IMAGE}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="{OG_IMAGE}">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="kit/tokens.css">
   <link rel="stylesheet" href="kit/frame.css">
