@@ -33,8 +33,9 @@ The Element of Creation. No glass, no gradient text, no feature grids.
 
 ## Stack
 
-Plain HTML + CSS + one small JS file (mobile nav, and the periodic table's detail
-panel). Every page is complete with JavaScript off. **There is no build step at deploy
+Plain HTML + CSS + one small JS file (mobile nav, the periodic table's detail
+panel, and the "Built on open source" credits on `about.html`, fetched live from
+`https://aitherium.com/ecosystem.json` `built_on` and left hidden if that fetch fails). Every page is complete with JavaScript off. **There is no build step at deploy
 time.** `scripts/gen_pages.py` exists so the shared chrome cannot drift across six
 files and so the brick table is rendered from a dated snapshot of the ecosystem
 registry (`scripts/bricks.json`) rather than typed by hand; run it, commit the output.
