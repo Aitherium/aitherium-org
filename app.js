@@ -65,9 +65,14 @@
         var rows = 0;
         list.forEach(function (c) {
           if (!c || typeof c.name !== 'string' || !c.name) return;
+          // Second layer: the public copy is already filtered upstream, but a
+          // studied-only `reference` entry must never render here even if that
+          // filter regresses, and an unverified licence is never printed.
+          if (c.state === 'reference' || c.status === 'reference') return;
+          if (c.license_verified === false) c = Object.assign({}, c, { license: '' });
           var tr = document.createElement('tr');
           var name = document.createElement('td');
-          if (typeof c.upstream === 'string' && /^https?:\/\//i.test(c.upstream)) {
+          if (typeof c.upstream === 'string' && /^https:\/\//i.test(c.upstream)) {
             var a = document.createElement('a');
             a.href = c.upstream;
             a.rel = 'noopener';
