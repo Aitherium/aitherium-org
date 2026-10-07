@@ -348,6 +348,8 @@ section.tight { padding: 64px 0; }
 
 .prose h2 { margin: 56px 0 18px; font-size: clamp(1.6rem, 3vw, 2.2rem); }
 .prose h2:first-child { margin-top: 0; }
+.prose [data-built-on] { margin-top: 56px; }
+.prose [data-built-on] .record { margin-top: 22px; }
 .prose h3 { margin: 32px 0 10px; }
 .prose p { font-size: 1.05rem; line-height: 1.7; }
 .prose ul { color: var(--tx-2); max-width: var(--measure); padding-left: 1.2em; }

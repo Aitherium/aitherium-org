@@ -27,6 +27,9 @@ BRICKS = SNAP["bricks"]
 BLOG = "https://blog.aitherium.com"
 GH = "https://github.com/Aitherium"
 PAGES = "https://aitherium.github.io"
+# The credits (about.html#built-on) are read live from the registry's public copy;
+# nothing about them is typed into this file.
+BUILT_ON_SRC = "https://aitherium.com/ecosystem.json"
 RELAY = "https://relay.aitherium.com"
 CONTACT = "mailto:foundation@aitherium.org"
 DISCORD = "https://discord.gg/kKhgRm9wH"
@@ -1211,6 +1214,20 @@ ABOUT = f"""  <section class="hero" style="padding-bottom:40px">
         distribution. No phone-home in the runtime. No API key where an identity belongs. No claim
         without an instrument.</li>
       </ul>
+
+      <div id="built-on" data-built-on="{BUILT_ON_SRC}" hidden>
+        <h2>Built on open source</h2>
+        <p>The foundation stands on these projects. A commons is only honest if it names the
+        commons it was built from, so this list is not typed here: it is read live from the
+        <a href="{BUILT_ON_SRC}" rel="noopener">ecosystem registry</a>, the same record the stack
+        is built from, and a licence prints only where it was checked against the upstream.</p>
+        <div class="record-wrap"><div class="record">
+          <table>
+            <thead><tr><th>Project</th><th>What it does here</th><th>Licence</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div></div>
+      </div>
 
       <h2>Who is behind it</h2>
       <p>One person, so far. David Parkhurst, <a href="https://wizzense.github.io/" rel="noopener">wizzense</a>:

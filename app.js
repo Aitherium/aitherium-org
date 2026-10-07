@@ -48,6 +48,53 @@
     });
   }
 
+  // ── built on open source ─────────────────────────────────────────────
+  // The credits are not a hand-kept list: they are read live from the
+  // ecosystem registry's public copy (built_on: name, upstream,
+  // integrated_as, optional license). The block ships `hidden` and is only
+  // revealed once at least one row rendered, so a failed fetch or an absent
+  // field leaves no empty box and no error text. Remote strings go in
+  // through textContent only; links must be http(s).
+  var credits = document.querySelector('[data-built-on]');
+  if (credits && window.fetch) {
+    var rowsEl = credits.querySelector('tbody');
+    window.fetch(credits.getAttribute('data-built-on'), { credentials: 'omit' })
+      .then(function (r) { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+      .then(function (data) {
+        var list = data && Array.isArray(data.built_on) ? data.built_on : [];
+        var rows = 0;
+        list.forEach(function (c) {
+          if (!c || typeof c.name !== 'string' || !c.name) return;
+          // Second layer: the public copy is already filtered upstream, but a
+          // studied-only `reference` entry must never render here even if that
+          // filter regresses, and an unverified licence is never printed.
+          if (c.state === 'reference' || c.status === 'reference') return;
+          if (c.license_verified === false) c = Object.assign({}, c, { license: '' });
+          var tr = document.createElement('tr');
+          var name = document.createElement('td');
+          if (typeof c.upstream === 'string' && /^https:\/\//i.test(c.upstream)) {
+            var a = document.createElement('a');
+            a.href = c.upstream;
+            a.rel = 'noopener';
+            a.textContent = c.name;
+            name.appendChild(a);
+          } else {
+            name.textContent = c.name;
+          }
+          var what = document.createElement('td');
+          what.textContent = typeof c.integrated_as === 'string' ? c.integrated_as : '';
+          var lic = document.createElement('td');
+          lic.className = 'st';
+          lic.textContent = typeof c.license === 'string' ? c.license : '';
+          tr.appendChild(name); tr.appendChild(what); tr.appendChild(lic);
+          rowsEl.appendChild(tr);
+          rows++;
+        });
+        if (rows) credits.hidden = false;
+      })
+      .catch(function () { /* stays hidden: no box, no error text */ });
+  }
+
   // ── the periodic table ───────────────────────────────────────────────
   var table = document.querySelector('.pt');
   var detail = document.querySelector('.pt-detail');
