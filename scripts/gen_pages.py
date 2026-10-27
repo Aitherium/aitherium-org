@@ -27,12 +27,11 @@ BRICKS = SNAP["bricks"]
 BLOG = "https://blog.aitherium.com"
 GH = "https://github.com/Aitherium"
 PAGES = "https://aitherium.github.io"
-# The credits (about.html#built-on) are read live from the registry's public copy;
-# nothing about them is typed into this file.
-BUILT_ON_SRC = "https://aitherium.com/ecosystem.json"
 RELAY = "https://relay.aitherium.com"
 CONTACT = "mailto:foundation@aitherium.org"
 DISCORD = "https://discord.gg/kKhgRm9wH"
+SPONSOR = "https://github.com/sponsors/Aitherium"
+SPONSOR_PAGE = "https://aitherium.com/sponsor/"
 CODEX_PATH = f"{PAGES}/awknowledge/path"
 PACE = "https://darioamodei.com/post/we-must-pace-the-frontier"
 AIPCON = "https://www.investing.com/news/transcripts/palantir-at-aipcon-11-ai-shifts-from-talk-to-operations-93CH-4896825"
@@ -60,37 +59,17 @@ def esc(s: object) -> str:
 
 # ── chrome ────────────────────────────────────────────────────────────────────
 
-# The chrome is the Aitherium family kit (kit/tokens.css, kit/frame.css,
-# kit/spotlight.js, vendored verbatim from the family kit; never hand-edit them):
-# the same menubar, window, About this OS panel and dock as every other surface
-# in the family. One accent, the triangle-eye mark as the only ornament.
-# The current Aither mark (the Iris cut of the Element mark, AitherOS #11707), copied
-# verbatim from the monorepo's brand kit into brand/: aither-icon.svg is the app icon
-# with its tile (favicon AND chrome: the bare glyph is unreadable at 18 px on the light theme), aither-mark.svg the glyph alone (dark fields). The triangle-eye
-# of 2026-08 is retired; never redraw the mark here, re-copy it.
-FAVICON = "brand/aither-icon.svg"
-TOUCH_ICON = "brand/aither-icon-192.png"
-OG_IMAGE = "https://aitherium.org/brand/aither-icon-512.png"
+FAVICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E"
+           "%3Crect width='128' height='128' rx='24' fill='%23000103'/%3E"
+           "%3Crect x='12' y='12' width='104' height='104' rx='16' fill='none' stroke='%232AD7D7' stroke-width='3'/%3E"
+           "%3Ctext x='64' y='74' text-anchor='middle' dominant-baseline='central' font-family='Inter,Helvetica,Arial,sans-serif' "
+           "font-size='58' font-weight='200' fill='%232AD7D7' letter-spacing='-2'%3EAi%3C/text%3E%3C/svg%3E")
 
-MARK = '<img class="fk-mark" src="brand/aither-icon.svg" alt="" aria-hidden="true">'
-
-OS_URL = "https://aitherium.com/"
-
-#: The family, as every surface's About this OS panel lists it.
-FAMILY = [
-    ("Aitherium", "the company", "https://aitherium.com/about", False),
-    ("AitherOS", "the OS", OS_URL, False),
-    ("awnix", "the base", f"{PAGES}/awnix/", True),
-    ("awdk", "the SDK", f"{PAGES}/awdk/", True),
-    ("awsh", "the shell", f"{PAGES}/awsh/", True),
-    ("aw* bricks", "the frameworks", f"{PAGES}/", True),
-    ("The Studio", "build apps, agents, workflows", "https://aitherium.com/studio", False),
-]
-
-DOCK = [
-    ("bricks", f"{PAGES}/"), ("awdk", f"{PAGES}/awdk/"), ("awsh", f"{PAGES}/awsh/"),
-    ("awnix", f"{PAGES}/awnix/"), ("guide", f"{PAGES}/awknowledge/"), ("journal", f"{BLOG}/"),
-]
+BRAND_CELL = """<svg class="cell" viewBox="0 0 128 128" aria-hidden="true">
+        <rect width="128" height="128" rx="22" fill="#02060D"/>
+        <rect x="10" y="10" width="108" height="108" rx="16" fill="none" stroke="#2AD7D7" stroke-width="4"/>
+        <text x="64" y="76" text-anchor="middle" dominant-baseline="central" font-family="Inter, Helvetica, Arial, sans-serif" font-size="62" font-weight="200" fill="#2AD7D7" letter-spacing="-3">Ai</text>
+      </svg>"""
 
 NAV = [
     ("start.html", "Start"),
@@ -100,24 +79,6 @@ NAV = [
     ("get-involved.html", "Get involved"),
     ("news.html", "News"),
 ]
-
-
-# Light is the default appearance; dark is the visitor's explicit choice, never inferred
-# from prefers-color-scheme. This runs in <head>, after the stylesheets, so the stored
-# choice is on <html> before first paint (no dark flash) and theme-color is read from the
-# tokens rather than typed here. It must never contain a closing script tag.
-THEME_BOOT = """<script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem('aitherium-theme')}catch(e){}
-  d.setAttribute('data-theme',t==='dark'?'dark':'light');
-  var m=document.createElement('meta');m.name='theme-color';
-  m.content=getComputedStyle(d).getPropertyValue('--fk-bg').trim();document.head.appendChild(m);})();</script>"""
-
-THEME_SWITCH = ('<button class="fk-theme" type="button" data-theme-toggle aria-pressed="false" '
-                'aria-label="Dark mode" title="Dark mode">'
-                '<svg class="moon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13.5 9.6A5.5 5.5 0 0 1 6.4 2.5a5.5 5.5 0 1 0 7.1 7.1z" '
-                'stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>'
-                '<svg class="sun" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.4"/>'
-                '<path d="M8 1v1.6M8 13.4V15M1 8h1.6M13.4 8H15M3 3l1.1 1.1M11.9 11.9L13 13M3 13l1.1-1.1M11.9 4.1L13 3" '
-                'stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>')
 
 
 def head(title: str, desc: str, path: str) -> str:
@@ -133,94 +94,95 @@ def head(title: str, desc: str, path: str) -> str:
   <meta property="og:title" content="{esc(title)}">
   <meta property="og:description" content="{esc(desc)}">
   <meta property="og:url" content="https://aitherium.org/{path}">
+  <meta name="theme-color" content="#000103">
   <link rel="canonical" href="https://aitherium.org/{path}">
   <link rel="icon" href="{FAVICON}">
-  <link rel="icon" type="image/png" sizes="192x192" href="{TOUCH_ICON}">
-  <link rel="apple-touch-icon" href="{TOUCH_ICON}">
-  <meta property="og:image" content="{OG_IMAGE}">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:image" content="{OG_IMAGE}">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="kit/tokens.css">
-  <link rel="stylesheet" href="kit/frame.css">
-  <link rel="stylesheet" href="theme.css">
   <link rel="stylesheet" href="styles.css">
-  {THEME_BOOT}
 </head>
 <body>
 """
 
 
 def header(current: str) -> str:
-    here = ' aria-current="page"'
-    links = "".join(
-        f'<a href="{href}"{here if href == current else ""}>{label}</a>'
-        for href, label in NAV)
-    # "Sign on" is the Foundation's door into AitherOS Online; "ignite" is the family's one
-    # primary action (owner 2026-09-27: never "Enter").
-    title = "index" if current == "index.html" else current.removesuffix(".html")
-    return f"""<a class="fk-skip" href="#fk-main">Skip to content</a>
-<header class="fk-menubar" role="banner">
-  <a class="fk-brand" href="index.html" aria-label="Aitherium Foundation home">{MARK}<span class="fk-app">Foundation</span></a>
-  <span class="fk-sp"></span>
-  <nav class="fk-links" aria-label="Foundation">{links}</nav>
-  <a class="fk-k" href="#fk-about" data-fk-spotlight aria-label="Search (Ctrl K)"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.4"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span>⌘K</span></a>
-  <span class="fk-live"><i class="fk-dot" aria-hidden="true"></i><span>live</span></span>
-  <time class="fk-clock" data-fk-clock></time>
-  {THEME_SWITCH}
-  <a class="fk-signon" href="{OS_URL}">Sign on</a>
-  <a class="fk-ignite" href="{OS_URL}">ignite <span aria-hidden="true">→</span></a>
+    items = []
+    for href, label in NAV:
+        cur = ' aria-current="page"' if href == current else ""
+        items.append(f'        <li><a href="{href}"{cur}>{label}</a></li>')
+    items.append('        <li><a class="btn btn-primary" href="start.html">Build with agents</a></li>')
+    return f"""<header class="site-header">
+  <div class="container nav-row">
+    <a class="brand" href="index.html" aria-label="Aitherium Foundation home">
+      {BRAND_CELL}
+      Aitherium <span class="org">Foundation</span>
+    </a>
+    <nav aria-label="Primary">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+{chr(10).join(items)}
+      </ul>
+    </nav>
+  </div>
 </header>
 
-<main class="fk-window" id="fk-main">
-  <div class="fk-titlebar"><span class="fk-title"><b>foundation</b> — /{title}</span></div>
-  <div class="fk-body">
+<main>
 """
 
 
-def _about() -> str:
-    family = "".join(
-        f'<a href="{href}"><span class="n{" m" if mono else ""}">{esc(name)}</span>'
-        f'<span class="r">{esc(role)}</span></a>'
-        for name, role, href, mono in FAMILY)
-    pages = " · ".join(f'<a href="{href}">{label.lower()}</a>' for href, label in NAV)
-    return f"""<footer class="fk-about" id="fk-about" aria-labelledby="fk-about-h">
-  <div class="fk-about-hd">{MARK}<h2 id="fk-about-h">About this OS</h2></div>
-  <p class="fk-brandlines"><span>Aitherium · the element of creation</span><span>Aither — the medium creation moves through</span></p>
-  <div class="fk-family">{family}</div>
-  <p class="fk-colophon">the foundation: {pages} · <a href="{OS_URL}">sign on</a><br>
-  the world: <a href="{GH}" rel="noopener">github</a> · <a href="{PAGES}/awknowledge/" rel="noopener">the codex</a> ·
-  <a href="{RELAY}" rel="noopener">the rooms</a> · <a href="{DISCORD}" rel="noopener">the collective on discord</a> ·
-  <a href="https://wizzense.github.io/" rel="noopener">the builder · wizzense</a> · <a href="{CONTACT}">contact</a><br>
-  © 2026 Aitherium Foundation · <a href="{GH}/aitherium-org" rel="noopener">this site is a public repo</a> ·
-  no hyperscale · your hardware · your weights · your agents</p>
-</footer>"""
+FOOTER = f"""</main>
 
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html">
+          {BRAND_CELL}
+          Aitherium <span class="org">Foundation</span>
+        </a>
+        <p class="footer-blurb">Ai · 0 · The Element of Creation. An open operating system for
+        agents, built to run on hardware people own, and the foundation that keeps it that way.</p>
+      </div>
+      <div>
+        <h4>Foundation</h4>
+        <ul>
+          <li><a href="about.html">The thesis</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="transparency.html">The record</a></li>
+          <li><a href="news.html">News</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>The world</h4>
+        <ul>
+          <li><a href="{GH}" rel="noopener">GitHub</a></li>
+          <li><a href="{PAGES}/awdk/" rel="noopener">awdk docs</a></li>
+          <li><a href="{PAGES}/awknowledge/" rel="noopener">The codex</a></li>
+          <li><a href="{BLOG}" rel="noopener">Blog</a></li>
+          <li><a href="{RELAY}" rel="noopener">The rooms</a></li>
+          <li><a href="{DISCORD}" rel="noopener">The Collective on Discord</a></li>
+          <li><a href="https://wizzense.github.io/" rel="noopener">The builder · wizzense</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get involved</h4>
+        <ul>
+          <li><a href="start.html">Start building</a></li>
+          <li><a href="start.html#phone">On your phone</a></li>
+          <li><a href="get-involved.html#hardware">Run a node</a></li>
+          <li><a href="get-involved.html#contribute">Contribute</a></li>
+          <li><a href="get-involved.html#support">Support the foundation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Aitherium Foundation · <a href="{GH}/aitherium-org" rel="noopener">this site is a public repo</a></div>
+      <div><span class="tag">no hyperscale</span> · your hardware · your weights · your agents</div>
+    </div>
+  </div>
+</footer>
 
-def _dock() -> str:
-    tiles = "".join(f'<a href="{href}">{label}</a>' for label, href in DOCK)
-    return (f'<nav class="fk-dock" aria-label="The family"><a href="{OS_URL}" aria-label="AitherOS">'
-            f'{MARK}</a><span class="fk-sep" aria-hidden="true"></span>{tiles}</nav>')
-
-
-def _index() -> str:
-    import json as _json
-    items = [{"t": label, "h": href, "k": "foundation", "d": ""} for href, label in NAV]
-    items.append({"t": "Sign on", "h": OS_URL, "k": "foundation", "d": "AitherOS Online"})
-    items += [{"t": n, "h": h, "k": "family", "d": r} for n, r, h, _ in FAMILY]
-    items.append({"t": "journal", "h": f"{BLOG}/", "k": "family", "d": "how it is built"})
-    data = _json.dumps(items, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
-    return f'<script type="application/json" id="fk-index">{data}</script>'
-
-
-def footer() -> str:
-    return f"""  </div>
-</main>
-
-{_about()}
-{_dock()}
-{_index()}
-<script src="kit/spotlight.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
@@ -228,7 +190,7 @@ def footer() -> str:
 
 
 def page(path: str, title: str, desc: str, body: str) -> None:
-    html = head(title, desc, path) + header(path) + body + footer()
+    html = head(title, desc, path) + header(path) + body + FOOTER
     (ROOT / path).write_text(html, encoding="utf-8", newline="\n")
     print(f"wrote {path} ({len(html):,} bytes)")
 
@@ -237,14 +199,14 @@ def page(path: str, title: str, desc: str, body: str) -> None:
 
 AI_CARD = """<div class="hero-card" aria-hidden="true">
         <div class="frame"><svg viewBox="0 0 400 480" xmlns="http://www.w3.org/2000/svg">
-          <rect class="c-card" x="40" y="30" width="320" height="400" rx="14" stroke-width="1.5"/>
-          <text x="66" y="78" font-family="JetBrains Mono, Menlo, monospace" font-size="20" class="c-accent">0</text>
-          <text x="200" y="232" text-anchor="middle" dominant-baseline="central" font-family="Inter, Helvetica, Arial, sans-serif" font-size="164" font-weight="200" class="c-accent" letter-spacing="-8">Ai</text>
-          <text x="200" y="322" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="16" font-weight="400" class="c-name" letter-spacing="7">AITHERIUM</text>
-          <line x1="66" y1="384" x2="334" y2="384" class="c-rule" stroke-width="1"/>
-          <text x="200" y="408" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10.5" class="c-tag" letter-spacing="4">THE ELEMENT OF CREATION</text>
-          <ellipse cx="200" cy="228" rx="150" ry="28" class="c-orbit" stroke-width="0.6" opacity="0.28" transform="rotate(-14,200,228)"/>
-          <ellipse cx="200" cy="228" rx="158" ry="22" class="c-orbit-accent" stroke-width="0.5" opacity="0.2" transform="rotate(24,200,228)"/>
+          <rect x="40" y="30" width="320" height="400" rx="14" fill="#02060D" stroke="#2AD7D7" stroke-width="1.5"/>
+          <text x="66" y="78" font-family="JetBrains Mono, Menlo, monospace" font-size="20" fill="#2AD7D7">0</text>
+          <text x="200" y="232" text-anchor="middle" dominant-baseline="central" font-family="Inter, Helvetica, Arial, sans-serif" font-size="164" font-weight="200" fill="#2AD7D7" letter-spacing="-8">Ai</text>
+          <text x="200" y="322" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="16" font-weight="400" fill="#9BA6B1" letter-spacing="7">AITHERIUM</text>
+          <line x1="66" y1="384" x2="334" y2="384" stroke="#162330" stroke-width="1"/>
+          <text x="200" y="408" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10.5" fill="#69737D" letter-spacing="4">THE ELEMENT OF CREATION</text>
+          <ellipse cx="200" cy="228" rx="150" ry="28" fill="none" stroke="#907AE9" stroke-width="0.6" opacity="0.28" transform="rotate(-14,200,228)"/>
+          <ellipse cx="200" cy="228" rx="158" ry="22" fill="none" stroke="#2AD7D7" stroke-width="0.5" opacity="0.2" transform="rotate(24,200,228)"/>
         </svg></div>
         <div class="caption">Element 0 · the element that precedes all creation</div>
       </div>"""
@@ -282,11 +244,11 @@ def periodic_table() -> str:
       </div>
     </div>"""
     return f"""    <div class="pt-legend">
-      <span style="--k:var(--cyan)">base</span>
-      <span style="--k:var(--cyan)">runtime</span>
-      <span style="--k:var(--tx)">corpus</span>
-      <span style="--k:var(--tx-2)">tool</span>
-      <span style="--k:var(--tx-dim)">{len(bricks)} public · measured {MEASURED}</span>
+      <span style="--k:#FF8950">base</span>
+      <span style="--k:#2AD7D7">runtime</span>
+      <span style="--k:#70DDB1">corpus</span>
+      <span style="--k:#907AE9">tool</span>
+      <span style="--k:#69737D">{len(bricks)} public · measured {MEASURED}</span>
     </div>
     <ul class="pt">
 {chr(10).join(cells)}
@@ -746,14 +708,14 @@ START = f"""  <section class="hero" style="padding-bottom:40px">
       that does not say what you will see is a hope, not a lesson. Total: an afternoon. Step one is
       ten minutes.</p>
       <div class="pt-legend" style="margin-top:22px">
-        <a href="#phone" style="--k:var(--cyan)">01 · phone</a>
-        <a href="#laptop" style="--k:var(--cyan)">02 · laptop, no GPU</a>
-        <a href="#talk" style="--k:var(--cyan)">03 · talk to it</a>
-        <a href="#agent" style="--k:var(--tx)">04 · your first agent</a>
-        <a href="#packs" style="--k:var(--tx)">05 · packs</a>
-        <a href="#gpu" style="--k:var(--tx-2)">06 · GPU, LAN, cloud key</a>
-        <a href="#browser" style="--k:var(--tx-2)">07 · in the browser</a>
-        <a href="#mesh" style="--k:var(--tx-2)">08 · join the mesh</a>
+        <a href="#phone" style="--k:#FF8950">01 · phone</a>
+        <a href="#laptop" style="--k:#2AD7D7">02 · laptop, no GPU</a>
+        <a href="#talk" style="--k:#2AD7D7">03 · talk to it</a>
+        <a href="#agent" style="--k:#70DDB1">04 · your first agent</a>
+        <a href="#packs" style="--k:#70DDB1">05 · packs</a>
+        <a href="#gpu" style="--k:#907AE9">06 · GPU, LAN, cloud key</a>
+        <a href="#browser" style="--k:#907AE9">07 · in the browser</a>
+        <a href="#mesh" style="--k:#EAB532">08 · join the mesh</a>
       </div>
     </div>
   </section>
@@ -1215,20 +1177,6 @@ ABOUT = f"""  <section class="hero" style="padding-bottom:40px">
         without an instrument.</li>
       </ul>
 
-      <div id="built-on" data-built-on="{BUILT_ON_SRC}" hidden>
-        <h2>Built on open source</h2>
-        <p>The foundation stands on these projects. A commons is only honest if it names the
-        commons it was built from, so this list is not typed here: it is read live from the
-        <a href="{BUILT_ON_SRC}" rel="noopener">ecosystem registry</a>, the same record the stack
-        is built from, and a licence prints only where it was checked against the upstream.</p>
-        <div class="record-wrap"><div class="record">
-          <table>
-            <thead><tr><th>Project</th><th>What it does here</th><th>Licence</th></tr></thead>
-            <tbody></tbody>
-          </table>
-        </div></div>
-      </div>
-
       <h2>Who is behind it</h2>
       <p>One person, so far. David Parkhurst, <a href="https://wizzense.github.io/" rel="noopener">wizzense</a>:
       an outcome engineer who has racked the servers, run the OS at 850K-user scale, secured the
@@ -1401,6 +1349,26 @@ TRANSPARENCY = f"""  <section class="hero" style="padding-bottom:40px">
             <tr><td><a href="{GH}/aitherium-org" rel="noopener">This site</a></td><td>Plain HTML in a public repo. The brick table is rendered from a dated snapshot of the registry, committed alongside the pages.</td><td class="st live">live</td></tr>
             <tr><td>Annual financial report</td><td>Income, expenses, and how contributed funds were used.</td><td class="st none">not yet published</td></tr>
             <tr><td>Board &amp; governance record</td><td>Who governs, how they are chosen, and the decisions they make.</td><td class="st none">not yet published</td></tr>
+          </tbody>
+        </table>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="tight" id="support-rail">
+    <div class="container">
+      <span class="kicker">The support rail</span>
+      <p>Sponsorship is open. The money record is a chain, not a summary: every gift is an entry,
+      amounts stay in the private ledger by rule, and anyone can check that the record was not
+      altered after it was published.</p>
+      <div class="record-wrap"><div class="record">
+        <table>
+          <thead><tr><th>Surface</th><th>What it shows</th><th>State</th></tr></thead>
+          <tbody>
+            <tr><td><a href="{SPONSOR}" rel="noopener">GitHub Sponsors</a></td><td>Four tiers, monthly and one-time. Sponsorship is not equity, governance, or a token.</td><td class="st live">live · 2026-10-27</td></tr>
+            <tr><td><a href="data/money-record.json" rel="noopener">Money record</a></td><td>Period, tier catalog, sponsor count, and the hash of every entry. No revenue figures.</td><td class="st live">live</td></tr>
+            <tr><td><a href="data/awseal.json" rel="noopener">The seal</a></td><td>An Ed25519 signature over the record directory, so a reader can prove the bytes did not move.</td><td class="st live">live</td></tr>
+            <tr><td>Funds administered by</td><td>Aitherium LLC for now. Contributions are not tax-deductible; the vehicle is decided before any electoral activity.</td><td class="st spec">stated</td></tr>
           </tbody>
         </table>
       </div></div>
@@ -1587,11 +1555,12 @@ GET_INVOLVED = f"""  <section class="hero" style="padding-bottom:40px">
   <section class="ignite" id="support">
     <div class="container">
       <h2>Support the <em>foundation</em>.</h2>
-      <p>Contributions fund the training runs, the hardware, and the people who keep the open layer
-      maintained. Giving is recorded in the public record; where that record does not exist yet, the
-      transparency page says so. For sponsorship or major giving, the conversation starts with an
-      email.</p>
-      <div class="actions"><a class="btn btn-forge" href="{CONTACT}">foundation@aitherium.org</a><a class="btn" href="transparency.html">The record</a></div>
+      <p>Contributions fund the compute, the hardware and the maintenance that keep the open layer
+      running. Sponsor monthly or once, from $5; every gift is entered in the money record, and the
+      record carries the chain, not the amounts. Contributions go to Aitherium LLC for now and are
+      not tax-deductible. For major giving, the conversation still starts with an email.</p>
+      <div class="actions"><a class="btn btn-forge" href="{SPONSOR}" rel="noopener">Sponsor on GitHub</a><a class="btn" href="{SPONSOR_PAGE}" rel="noopener">Sponsor page</a><a class="btn" href="transparency.html#support-rail">The money record</a></div>
+      <p class="small" style="margin-top:14px">Major giving: <a href="{CONTACT}">foundation@aitherium.org</a></p>
     </div>
   </section>
 """

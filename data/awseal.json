@@ -1,0 +1,13 @@
+{
+  "created": "2026-10-27T15:06:13+00:00",
+  "files": {
+    "awseal-pubkey.hex": "6b3f6674f9e68aeb11453998785d63eeb6a49cc16d172545d692cb1ccf89c7c7",
+    "money-record.json": "b55c5571e16169a0868e90e83ff0a8f3a98bbdb43a791ebd7a38661123fb4e86"
+  },
+  "meta": {},
+  "public_key": "ee9521f8eb7a90ba91a6a0298e29dce03d3bb5af9ea50fc10b4c707f0644b11c",
+  "signature": "5e3a90ee733e5f8bf17d67f3727a98be3d68d544c318ae19f6e3cfb3f6518f923d1fd2151210f5ba731f295d81534041c43dbcb7b51169c2880c0a667ccefa0b",
+  "subject": "Aitherium Foundation money record",
+  "tree_digest": "980310599c429cfb304487f00feffe7cc614091f49434a09ec6c8a2e2be7754e",
+  "version": 1
+}
