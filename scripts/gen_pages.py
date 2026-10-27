@@ -304,8 +304,8 @@ RECEIPTS = [
     ("28.9M", "params", "A language model running on an <strong>$8 microcontroller</strong>. That is the floor of the edge role: a node too small to hold an expert can still route, sense and draft.", "AitherNet report, 2026-08", f"{GH}"),
     ("36M", "lines / 10 mo", "The software factory, measured: every repo, deduped by root commit, author-filtered, lockfiles and vendored code stripped. The instrument ships in the repo with a self-test.", "2026-08-14", f"{BLOG}/blog/i-measured-my-software-factory-36-million-lines-in-10-months"),
     ("27,939", "prompts", "The operator doctrine is <strong>mined from 3,183 real sessions over 210 days</strong>, re-measured on held-out data, and published as an installable pack rather than a blog post about being smart.", "awknowledge", f"{PAGES}/awknowledge/"),
-    (str(len(BRICKS)), "public bricks", "Of 79 registered. Each installs on its own, runs offline, needs no account. Every repo and docs page above answered 200 the day this was written.", f"registry, {MEASURED}", f"{GH}"),
-    ("243", "published posts", "Field reports, doctrine and corrections, in the order they happened. The blog is the record; this site points at it.", f"counted {MEASURED}", BLOG),
+    (str(len(BRICKS)), "documented bricks", "Of 91 registered. Each installs on its own, runs offline, needs no account. Every repo and docs page above answered 200 the day this was written.", f"registry, {MEASURED}", f"{GH}"),
+    ("321", "published posts", "Field reports, doctrine and corrections, in the order they happened. The blog is the record; this site points at it.", "counted 2026-10-27", BLOG),
 ]
 
 
@@ -552,7 +552,7 @@ INDEX = f"""  <section class="hero">
             <tr><td>Own the means of production</td><td class="old">a closed platform, sold per deployment to governments and the largest enterprises</td><td class="new">the same architecture as open code: pip install, on the machine in a print shop's back room</td></tr>
             <tr><td>Fine-tuned open models beat the frontier at a fraction of the cost</td><td class="old">a case study on a slide</td><td class="new">the only moat is time: scheduled retraining on hardware you own, in the open, behind fail-closed gates</td></tr>
             <tr><td>Hermetically sealed, no internet, every flow permissioned</td><td class="old">their operators, their network, their terms</td><td class="new">the sovereign appliance: zero open ports, boots with the cable unplugged, tenancy fails closed, agents own their box</td></tr>
-            <tr><td>The model is a commodity; the value moves up the stack</td><td class="old">so pay for the stack</td><td class="new">so the stack is the commons: 49 public bricks, each useful to a stranger alone</td></tr>
+            <tr><td>The model is a commodity; the value moves up the stack</td><td class="old">so pay for the stack</td><td class="new">so the stack is the commons: {len(BRICKS)} documented bricks, each useful to a stranger alone</td></tr>
             <tr><td>Someone should build a profiler for the harness</td><td class="old">someone should</td><td class="new">awtoll: what every tool call costs you in context, measured from your own transcripts</td></tr>
             <tr><td>Who gets it</td><td class="old">the customers who can afford Palantir</td><td class="new">the operator with a laptop, and the businesses in their town</td></tr>
           </tbody>
@@ -1275,7 +1275,7 @@ PROGRAMS = f"""  <section class="hero" style="padding-bottom:40px">
         <div>
           <h2>The operating system for agents</h2>
           <p>A Linux you can hand to an agent, the runtimes it works in, and the tools it works with:
-          {len(BRICKS)} public bricks, each installable on its own, each running offline, each
+          {len(BRICKS)} documented bricks, each installable on its own, each running offline, each
           replacing something you would have to trust with something you can check. The foundation's
           own fleet runs on exactly this code.</p>
           <div class="items">
@@ -1359,7 +1359,7 @@ PROGRAMS = f"""  <section class="hero" style="padding-bottom:40px">
             conversations.</p><a class="more" href="{RELAY}" rel="noopener">the relay ↗</a> &nbsp; <a class="more" href="{DISCORD}" rel="noopener">Discord ↗</a></div>
             <div class="item"><h4>The nodes</h4><p>A laptop, a workstation, a box in a closet. One
             command installs the stack and the node registers itself.</p><a class="more" href="get-involved.html#hardware">run a node ↗</a></div>
-            <div class="item"><h4>The builders</h4><p>Seventy-odd public repositories and a
+            <div class="item"><h4>The builders</h4><p>Ninety public repositories and a
             contribution lane that starts with an issue.</p><a class="more" href="{GH}" rel="noopener">GitHub ↗</a></div>
             <div class="item"><h4>The record</h4><p>What is deployed, what is specified, what is not
             yet published. Updated when reality changes.</p><a class="more" href="transparency.html">inspect ↗</a></div>
@@ -1397,10 +1397,11 @@ TRANSPARENCY = f"""  <section class="hero" style="padding-bottom:40px">
         <table>
           <thead><tr><th>Surface</th><th>What it shows</th><th>State</th></tr></thead>
           <tbody>
-            <tr><td><a href="{GH}" rel="noopener">Public repositories</a></td><td>76 public repos on the org: source, issues, and the full change record. {len(BRICKS)} of them are registered bricks with docs pages.</td><td class="st live">live · {MEASURED}</td></tr>
-            <tr><td><a href="{BLOG}" rel="noopener">The blog</a></td><td>243 published field reports, measurements and corrections. This site points at it rather than duplicating it.</td><td class="st live">live · {MEASURED}</td></tr>
+            <tr><td><a href="{GH}" rel="noopener">Public repositories</a></td><td>90 public repos on the org: source, issues, and the full change record. {len(BRICKS)} of them are registered bricks with docs pages.</td><td class="st live">live · 2026-10-27</td></tr>
+            <tr><td><a href="{BLOG}" rel="noopener">The blog</a></td><td>321 published field reports, measurements and corrections. This site points at it rather than duplicating it.</td><td class="st live">live · 2026-10-27</td></tr>
             <tr><td><a href="{PAGES}/awknowledge/" rel="noopener">The codex</a></td><td>The operating doctrine, its nineteen laws and the evidence behind each.</td><td class="st live">live</td></tr>
             <tr><td><a href="{GH}/aitherium-org" rel="noopener">This site</a></td><td>Plain HTML in a public repo. The brick table is rendered from a dated snapshot of the registry, committed alongside the pages.</td><td class="st live">live</td></tr>
+            <tr><td><a href="#support-rail">Money record</a></td><td>Every sponsorship entry, chained and sealed; amounts stay in the private ledger. <a href="data/money-record.json">JSON</a> · <a href="data/awseal.json">seal</a></td><td class="st live">live · monthly</td></tr>
             <tr><td>Annual financial report</td><td>Income, expenses, and how contributed funds were used.</td><td class="st none">not yet published</td></tr>
             <tr><td>Board &amp; governance record</td><td>Who governs, how they are chosen, and the decisions they make.</td><td class="st none">not yet published</td></tr>
           </tbody>
@@ -1471,7 +1472,7 @@ TRANSPARENCY = f"""  <section class="hero" style="padding-bottom:40px">
             <tr><td>Receipt-based verification of untrusted contribution</td><td class="st spec">specified, not implemented</td></tr>
             <tr><td>Incast-grade transport for hundreds of nodes</td><td class="st spec">specified, scaffolded, unproven</td></tr>
             <tr><td>Precision map as a first-class artifact property</td><td class="st spec">specified, not implemented</td></tr>
-            <tr><td>The joinable public fabric (any stranger's device contributes and is credited)</td><td class="st spec">the next build</td></tr>
+            <tr><td>The joinable public fabric (any stranger's device contributes and is credited)</td><td class="st spec">deployed in part: invites, join and node registration are live (updated 2026-10-27); the credit half is still specified</td></tr>
           </tbody>
         </table>
       </div></div>
@@ -1583,7 +1584,7 @@ GET_INVOLVED = f"""  <section class="hero" style="padding-bottom:40px">
         </div>
       </div>
       <div class="items" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">
-        <div class="item"><h4>The bricks</h4><p>{len(BRICKS)} public repositories, each small enough to read in an evening.</p><a class="more" href="{GH}" rel="noopener">github.com/Aitherium ↗</a></div>
+        <div class="item"><h4>The bricks</h4><p>{len(BRICKS)} documented bricks, each small enough to read in an evening.</p><a class="more" href="{GH}" rel="noopener">github.com/Aitherium ↗</a></div>
         <div class="item"><h4>awdk</h4><p>The runtime most other bricks pair with. Issues and pull requests welcome.</p><a class="more" href="{GH}/awdk" rel="noopener">source ↗</a></div>
         <div class="item"><h4>The codex</h4><p>A law is a real failure with its evidence. If you have one, it belongs here.</p><a class="more" href="{GH}/awknowledge" rel="noopener">source ↗</a></div>
         <div class="item"><h4>This website</h4><p>Plain HTML, deliberately. A typo fix and a new page are both welcome.</p><a class="more" href="{GH}/aitherium-org" rel="noopener">source ↗</a></div>
