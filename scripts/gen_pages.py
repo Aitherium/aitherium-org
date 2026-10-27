@@ -33,6 +33,8 @@ BUILT_ON_SRC = "https://aitherium.com/ecosystem.json"
 RELAY = "https://relay.aitherium.com"
 CONTACT = "mailto:foundation@aitherium.org"
 DISCORD = "https://discord.gg/kKhgRm9wH"
+SPONSOR = "https://github.com/sponsors/Aitherium"
+SPONSOR_PAGE = "https://aitherium.com/sponsor/"
 CODEX_PATH = f"{PAGES}/awknowledge/path"
 PACE = "https://darioamodei.com/post/we-must-pace-the-frontier"
 AIPCON = "https://www.investing.com/news/transcripts/palantir-at-aipcon-11-ai-shifts-from-talk-to-operations-93CH-4896825"
@@ -1407,6 +1409,26 @@ TRANSPARENCY = f"""  <section class="hero" style="padding-bottom:40px">
     </div>
   </section>
 
+  <section class="tight" id="support-rail">
+    <div class="container">
+      <span class="kicker">The support rail</span>
+      <p>Sponsorship is open. The money record is a chain, not a summary: every gift is an entry,
+      amounts stay in the private ledger by rule, and anyone can check that the record was not
+      altered after it was published.</p>
+      <div class="record-wrap"><div class="record">
+        <table>
+          <thead><tr><th>Surface</th><th>What it shows</th><th>State</th></tr></thead>
+          <tbody>
+            <tr><td><a href="{SPONSOR}" rel="noopener">GitHub Sponsors</a></td><td>Four tiers, monthly and one-time. Sponsorship is not equity, governance, or a token.</td><td class="st live">live · 2026-10-27</td></tr>
+            <tr><td><a href="data/money-record.json" rel="noopener">Money record</a></td><td>Period, tier catalog, sponsor count, and the hash of every entry. No revenue figures.</td><td class="st live">live</td></tr>
+            <tr><td><a href="data/awseal.json" rel="noopener">The seal</a></td><td>An Ed25519 signature over the record directory, so a reader can prove the bytes did not move.</td><td class="st live">live</td></tr>
+            <tr><td>Funds administered by</td><td>Aitherium LLC for now. Contributions are not tax-deductible; the vehicle is decided before any electoral activity.</td><td class="st spec">stated</td></tr>
+          </tbody>
+        </table>
+      </div></div>
+    </div>
+  </section>
+
   <section class="tight" id="licences">
     <div class="container">
       <span class="kicker">Licences, as they actually are</span>
@@ -1587,11 +1609,12 @@ GET_INVOLVED = f"""  <section class="hero" style="padding-bottom:40px">
   <section class="ignite" id="support">
     <div class="container">
       <h2>Support the <em>foundation</em>.</h2>
-      <p>Contributions fund the training runs, the hardware, and the people who keep the open layer
-      maintained. Giving is recorded in the public record; where that record does not exist yet, the
-      transparency page says so. For sponsorship or major giving, the conversation starts with an
-      email.</p>
-      <div class="actions"><a class="btn btn-forge" href="{CONTACT}">foundation@aitherium.org</a><a class="btn" href="transparency.html">The record</a></div>
+      <p>Contributions fund the compute, the hardware and the maintenance that keep the open layer
+      running. Sponsor monthly or once, from $5; every gift is entered in the money record, and the
+      record carries the chain, not the amounts. Contributions go to Aitherium LLC for now and are
+      not tax-deductible. For major giving, the conversation still starts with an email.</p>
+      <div class="actions"><a class="btn btn-forge" href="{SPONSOR}" rel="noopener">Sponsor on GitHub</a><a class="btn" href="{SPONSOR_PAGE}" rel="noopener">Sponsor page</a><a class="btn" href="transparency.html#support-rail">The money record</a></div>
+      <p class="small" style="margin-top:14px">Major giving: <a href="{CONTACT}">foundation@aitherium.org</a></p>
     </div>
   </section>
 """
