@@ -1,0 +1,62 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   AITHERIUM FAMILY KIT — tokens (static flavour)   @family-kit v1
+   One palette for every static page in the family: the org hub, every aw*
+   brick's Pages site, the awdk docs, the Guide. Values are the same as the
+   React flavour of the kit on aitherium.com; a parity check (FK001) asserts
+   the two agree.
+
+   Rules this sheet exists to hold: ONE accent, no gradients, no glass, Inter
+   for the product voice and JetBrains Mono for the system voice.
+   This file is INLINED VERBATIM into public pages: name no internal path here.
+   ═══════════════════════════════════════════════════════════════════════════ */
+:root{
+  /* palette */
+  --fk-bg:#050507;
+  --fk-ink:#EDEFF5;
+  --fk-dim:rgba(237,239,245,.55);
+  --fk-faint:rgba(237,239,245,.35);
+  --fk-hairline:rgba(255,255,255,.08);
+  --fk-raise:rgba(255,255,255,.025);
+  --fk-accent:#5EC9CC;
+  --fk-accent-glow:rgba(94,201,204,.35);
+  --fk-accent-wash:rgba(94,201,204,.08);
+
+  /* type */
+  --fk-sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --fk-mono:'JetBrains Mono',ui-monospace,'SF Mono','Cascadia Mono',Menlo,Consolas,'Liberation Mono',monospace;
+
+  /* shape + motion */
+  --fk-radius:12px;
+  --fk-radius-sm:8px;
+  --fk-ease:cubic-bezier(.2,.8,.2,1);
+  --fk-menubar-h:44px;
+  --fk-maxw:1180px;
+  --fk-dock-h:52px;
+
+  /* Aliases, so content written against older class contracts and the
+     constellation widget (which themes off --ink/--dim/--line/--panel) land on
+     THIS palette instead of their own fallbacks. Every one is the same colour
+     as a --fk-* token above; none is a second accent. */
+  --background:var(--fk-bg);
+  --foreground:var(--fk-ink);
+  --surface:var(--fk-raise);
+  --surface-2:var(--fk-raise);
+  --tx-2:var(--fk-dim);
+  --tx-muted:var(--fk-faint);
+  --border:var(--fk-hairline);
+  --accent:var(--fk-accent);
+  --accent-a04:rgba(94,201,204,.04);
+  --accent-a10:rgba(94,201,204,.10);
+  --accent-a30:rgba(94,201,204,.30);
+  --accent-a50:rgba(94,201,204,.50);
+  --accent-glow:var(--fk-accent-glow);
+  --cyan:var(--fk-accent);
+  --ink:var(--fk-ink);
+  --dim:var(--fk-dim);
+  --line:var(--fk-hairline);
+  --panel:var(--fk-bg);
+  --warn:var(--fk-dim);
+  --font:var(--fk-sans);
+  --sans:var(--fk-sans);
+  --mono:var(--fk-mono);
+}

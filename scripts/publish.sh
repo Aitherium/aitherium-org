@@ -11,6 +11,9 @@
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
+# Cloudflare caches assets for hours: a page must name the exact asset version it
+# was written for, or visitors get new HTML with old CSS/JS (2026-10-01).
+python scripts/stamp_assets.py --check || { echo "run: python scripts/stamp_assets.py, commit, then publish"; exit 1; }
 MSG="${1:-Publish aitherium.org}"
 
 # A failed run (e.g. mid-script network error) can leave .publish-tmp behind.

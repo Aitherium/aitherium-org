@@ -8,36 +8,41 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 
 :root {
-  --void: #000103;
-  --surface: #02060D;
-  --raised: #040C15;
-  --border: #162330;
-  --border-soft: #0d1620;
-  --cyan: #2AD7D7;
-  --cyan-dim: rgba(42, 215, 215, 0.14);
-  --cyan-line: rgba(42, 215, 215, 0.35);
-  --forge: #FF8950;
-  --creation: #70DDB1;
-  --gold: #EAB532;
-  --danger: #FF9189;
-  --violet: #907AE9;
-  --tx: #EEEEEE;
-  --tx-2: #9BA6B1;
-  --tx-dim: #69737D;
+  /* the family kit's palette (kit/tokens.css); the names are this sheet's own */
+  /* every value is a theme token (theme.css): light by default, dark on request */
+  --void: var(--fk-bg);
+  --surface: var(--fk-surface);
+  --raised: var(--fk-raise);
+  --border: var(--fk-hairline);
+  --border-soft: var(--fk-hairline);
+  --cyan: var(--fk-accent-ink);       /* the accent as text, rules, borders */
+  --cyan-fill: var(--fk-accent);      /* the accent as a fill */
+  --on-cyan: var(--fk-on-accent);     /* text on that fill */
+  --cyan-dim: var(--fk-accent-wash);
+  --cyan-line: var(--fk-accent-line);
+  /* ONE accent: what used to be forge/creation/gold/violet/danger are ink levels */
+  --forge: var(--fk-accent-ink);
+  --creation: var(--fk-ink);
+  --gold: var(--fk-dim);
+  --danger: var(--fk-dim);
+  --violet: var(--fk-dim);
+  --tx: var(--fk-ink);
+  --tx-2: var(--fk-dim);
+  --tx-dim: var(--fk-faint);
 
-  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --sans: var(--fk-sans);
+  --mono: var(--fk-mono);
 
   --maxw: 1180px;
   --measure: 62ch;
   --r-sm: 6px;
   --r-md: 10px;
-  --r-lg: 16px;
-  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --r-lg: 12px;
+  --ease: var(--fk-ease);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; color-scheme: dark; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   background: var(--void);
@@ -50,19 +55,8 @@ body {
   overflow-x: hidden;
 }
 
-/* a faint measurement grid, fading out below the fold — the only ambient */
-body::before {
-  content: "";
-  position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  background-image:
-    linear-gradient(rgba(42,215,215,0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(42,215,215,0.045) 1px, transparent 1px);
-  background-size: 72px 72px;
-  -webkit-mask-image: radial-gradient(ellipse 70% 45% at 50% 0%, #000 10%, transparent 70%);
-          mask-image: radial-gradient(ellipse 70% 45% at 50% 0%, #000 10%, transparent 70%);
-}
 
-::selection { background: var(--cyan); color: var(--void); }
+::selection { background: var(--fk-selection); color: var(--tx); }
 :focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 3px; }
 
 a { color: var(--cyan); text-decoration: none; }
@@ -106,8 +100,7 @@ blockquote p { color: var(--tx); font-size: 1.15rem; font-weight: 300; }
 /* ── header ───────────────────────────────────────────────────────────── */
 .site-header {
   position: sticky; top: 0; z-index: 30;
-  background: rgba(0,1,3,0.78);
-  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  background: var(--surface);
   border-bottom: 1px solid var(--border-soft);
 }
 .nav-row { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 24px; }
@@ -117,10 +110,10 @@ blockquote p { color: var(--tx); font-size: 1.15rem; font-weight: 300; }
 .brand .org { color: var(--tx-dim); font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; margin-left: 2px; }
 .nav-links { list-style: none; margin: 0; padding: 0; display: flex; gap: 6px; align-items: center; }
 .nav-links a { display: inline-block; padding: 8px 12px; color: var(--tx-2); font-size: 0.92rem; font-weight: 400; border-radius: var(--r-sm); }
-.nav-links a:hover { color: var(--tx); text-decoration: none; background: rgba(255,255,255,0.03); }
+.nav-links a:hover { color: var(--tx); text-decoration: none; background: var(--raised); }
 .nav-links a[aria-current="page"] { color: var(--cyan); }
 .nav-links a.btn { margin-left: 8px; }
-.nav-links a.btn-primary, .nav-links a.btn-primary:hover { color: var(--void); background: var(--cyan); }
+.nav-links a.btn-primary, .nav-links a.btn-primary:hover { color: var(--on-cyan); background: var(--cyan-fill); }
 .nav-toggle { display: none; background: none; border: 1px solid var(--border); border-radius: var(--r-sm); width: 42px; height: 38px; cursor: pointer; padding: 0; }
 .nav-toggle span { display: block; width: 18px; height: 1px; background: var(--tx); margin: 4px auto; transition: 0.2s var(--ease); }
 @media (max-width: 860px) {
@@ -143,10 +136,10 @@ blockquote p { color: var(--tx); font-size: 1.15rem; font-weight: 300; }
   transition: all 0.2s var(--ease); cursor: pointer; white-space: nowrap;
 }
 .btn:hover { text-decoration: none; border-color: var(--cyan-line); color: var(--cyan); }
-.btn-primary { background: var(--cyan); color: var(--void); border-color: var(--cyan); }
-.btn-primary:hover { background: #4fe0e0; color: var(--void); border-color: #4fe0e0; }
-.btn-forge { background: var(--forge); color: var(--void); border-color: var(--forge); }
-.btn-forge:hover { background: #ff9d6f; border-color: #ff9d6f; color: var(--void); }
+.btn-primary { background: var(--cyan-fill); color: var(--on-cyan); border-color: var(--cyan-fill); }
+.btn-primary:hover { color: var(--on-cyan); box-shadow: 0 0 0 3px var(--cyan-dim); }
+.btn-forge { background: var(--cyan-fill); color: var(--on-cyan); border-color: var(--cyan-fill); }
+.btn-forge:hover { color: var(--on-cyan); box-shadow: 0 0 0 3px var(--cyan-dim); }
 .btn .arr { font-family: var(--mono); }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 28px 0 0; }
 
@@ -181,8 +174,16 @@ section.tight { padding: 64px 0; }
 .hero-card svg { width: 100%; height: auto; display: block; position: relative; z-index: 1; }
 /* the glow is a compositor-cheap opacity pulse on a static shadow, not an SVG blur filter;
    it sits on .frame (the svg box only) so the caption below does not stretch it */
-.hero-card .frame::before { content: ""; position: absolute; left: 10%; right: 10%; top: 6.25%; bottom: 10.4%; border-radius: 14px; box-shadow: 0 0 48px 6px rgba(42,215,215,0.28); pointer-events: none; z-index: 0; }
+.hero-card .frame::before { content: none; }
 .hero-card .glow { animation: elpulse 3.2s ease-in-out infinite; }
+/* the card's colours are tokens, so it reads on either ground */
+.hero-card .c-card { fill: var(--fk-surface); stroke: var(--fk-accent); }
+.hero-card .c-accent { fill: var(--fk-accent); }
+.hero-card .c-name { fill: var(--fk-dim); }
+.hero-card .c-rule { stroke: var(--fk-hairline); }
+.hero-card .c-tag { fill: var(--fk-faint); }
+.hero-card .c-orbit { fill: none; stroke: var(--fk-dim); }
+.hero-card .c-orbit-accent { fill: none; stroke: var(--fk-accent); }
 .hero-card .caption { font-family: var(--mono); font-size: 0.68rem; color: var(--tx-dim); letter-spacing: 0.12em; text-transform: uppercase; text-align: center; margin-top: 14px; }
 @keyframes elpulse { 0%, 100% { opacity: 0.45; } 50% { opacity: 1; } }
 .hero-card .frame::before { animation: elpulse 3.2s ease-in-out infinite; }
@@ -306,7 +307,7 @@ section.tight { padding: 64px 0; }
 
 /* ── ignition band (forge orange, once per page) ──────────────────────── */
 .ignite { border-top: 1px solid var(--border-soft); padding: 88px 0; position: relative; overflow: hidden; }
-.ignite::before { content: ""; position: absolute; inset: 0; background: radial-gradient(700px 320px at 20% 100%, rgba(255,137,80,0.12), transparent 70%); pointer-events: none; }
+.ignite::before { content: none; }
 .ignite h2 { font-size: clamp(2rem, 4.4vw, 3.4rem); max-width: 18ch; margin-bottom: 18px; }
 .ignite h2 em { color: var(--forge); font-style: normal; font-weight: 300; }
 .ignite p { max-width: 54ch; }
@@ -347,6 +348,8 @@ section.tight { padding: 64px 0; }
 
 .prose h2 { margin: 56px 0 18px; font-size: clamp(1.6rem, 3vw, 2.2rem); }
 .prose h2:first-child { margin-top: 0; }
+.prose [data-built-on] { margin-top: 56px; }
+.prose [data-built-on] .record { margin-top: 22px; }
 .prose h3 { margin: 32px 0 10px; }
 .prose p { font-size: 1.05rem; line-height: 1.7; }
 .prose ul { color: var(--tx-2); max-width: var(--measure); padding-left: 1.2em; }
@@ -366,3 +369,12 @@ section.tight { padding: 64px 0; }
 .footer-bottom .tag { color: var(--cyan); }
 @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
+
+/* ── the family kit ─────────────────────────────────────────────────────
+   The body sits inside the kit window, whose own padding and hairline replace
+   this sheet's first section rule. The Element 0 card stays: it is the brand. */
+.fk-body > section:first-child, .fk-body > .hero { border-top: 0; }
+/* "Sign on" is the Foundation's quiet door into AitherOS Online: a text link beside
+   the one primary action, and it stays visible on a phone where the page links fold away. */
+.fk-signon { font: 400 13px/1 var(--fk-sans); color: var(--fk-dim); text-decoration: none; white-space: nowrap; }
+.fk-signon:hover { color: var(--fk-ink); text-decoration: none; }
