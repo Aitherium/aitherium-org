@@ -193,7 +193,7 @@ def _about() -> str:
   <p class="fk-colophon">the foundation: {pages} · <a href="{OS_URL}">sign on</a><br>
   the world: <a href="{GH}" rel="noopener">github</a> · <a href="{PAGES}/awknowledge/" rel="noopener">the codex</a> ·
   <a href="{RELAY}" rel="noopener">the rooms</a> · <a href="{DISCORD}" rel="noopener">the collective on discord</a> ·
-  <a href="https://wizzense.github.io/" rel="noopener">the builder · wizzense</a> · <a href="{CONTACT}">contact</a><br>
+  <a href="https://wizzense.github.io/" rel="noopener">the builder · wizzense</a> · <a href="https://aitherium.com/trust/" rel="noopener">trust &amp; security</a> · <a href="{CONTACT}">contact</a><br>
   © 2026 Aitherium Foundation · <a href="{GH}/aitherium-org" rel="noopener">this site is a public repo</a> ·
   no hyperscale · your hardware · your weights · your agents</p>
 </footer>"""
