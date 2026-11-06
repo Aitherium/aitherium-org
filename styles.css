@@ -89,15 +89,34 @@ blockquote p { color: var(--tx); font-size: 1.15rem; font-weight: 300; }
   color: var(--cyan); margin: 0 0 22px;
 }
 .eyebrow .sep { color: var(--tx-dim); }
-/* The lab's operating motto, directly under the thesis line. Sits in the
-   display face at a size between the h1 and the lede so it reads as a
-   statement, not a label. */
-.motto {
-  font-family: var(--mono); font-size: 0.9rem; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--tx-dim); margin: -6px 0 20px;
+/* THE LAB FRONT DOOR (2026-11-06). The operating motto is the headline, the
+   record sits directly under it, and the foundation's thesis moves to a stance
+   block that still opens the page's argument. `.lab-record` is deliberately NOT
+   `.record` -- that class is the money-record table further down the page. */
+.hero h1.lab { text-transform: uppercase; letter-spacing: -0.015em;
+  font-size: clamp(2.1rem, 4.6vw, 4.05rem); line-height: 1.04; }
+.hero h1.lab strong { display: block; font-weight: inherit; }
+/* The lab headline is two long phrases; give it the width to set as two lines
+   instead of three, and let the mark card give up the difference. */
+@media (min-width: 901px) {
+  .hero .container:has(h1.lab) { grid-template-columns: minmax(0, 1.75fr) minmax(230px, 0.55fr); gap: 44px; }
 }
-.motto::before { content: ""; display: inline-block; width: 22px; height: 1px; margin-right: 12px;
-  vertical-align: middle; background: var(--cyan); }
+.lab-record {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 30px;
+  margin: 30px 0 6px; padding-top: 22px; border-top: 1px solid var(--border);
+}
+.lab-record b {
+  display: block; font-family: var(--mono); font-size: 1.5rem; font-weight: 500; letter-spacing: -0.01em;
+}
+.lab-record small {
+  display: block; margin-top: 5px; font-family: var(--mono); font-size: 0.66rem;
+  letter-spacing: 0.13em; text-transform: uppercase; color: var(--tx-dim);
+}
+.stance {
+  margin-top: 30px; padding-left: 18px; border-left: 2px solid var(--cyan); max-width: 64ch;
+}
+.stance strong:first-child { display: block; margin-bottom: 8px; }
+@media (min-width: 720px) { .lab-record { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .kicker {
   font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--tx-dim); margin: 0 0 12px; display: block;
