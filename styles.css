@@ -89,6 +89,15 @@ blockquote p { color: var(--tx); font-size: 1.15rem; font-weight: 300; }
   color: var(--cyan); margin: 0 0 22px;
 }
 .eyebrow .sep { color: var(--tx-dim); }
+/* The lab's operating motto, directly under the thesis line. Sits in the
+   display face at a size between the h1 and the lede so it reads as a
+   statement, not a label. */
+.motto {
+  font-family: var(--mono); font-size: 0.9rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--tx-dim); margin: -6px 0 20px;
+}
+.motto::before { content: ""; display: inline-block; width: 22px; height: 1px; margin-right: 12px;
+  vertical-align: middle; background: var(--cyan); }
 .kicker {
   font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--tx-dim); margin: 0 0 12px; display: block;
