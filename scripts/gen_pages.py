@@ -1421,6 +1421,7 @@ TRANSPARENCY = f"""  <section class="hero" style="padding-bottom:40px">
           <thead><tr><th>Surface</th><th>What it shows</th><th>State</th></tr></thead>
           <tbody>
             <tr><td><a href="{SPONSOR}" rel="noopener">GitHub Sponsors</a></td><td>Four tiers, monthly and one-time. Sponsorship is not equity, governance, or a token.</td><td class="st live">live · 2026-10-27</td></tr>
+            <tr><td><a href="research.html">Research sponsorship</a></td><td>For organisations: quarterly evaluation reports, early access, named credit. Agreed by email; entered in the same record.</td><td class="st spec">by agreement</td></tr>
             <tr><td><a href="data/money-record.json" rel="noopener">Money record</a></td><td>Period, tier catalog, sponsor count, and the hash of every entry. No revenue figures.</td><td class="st live">live</td></tr>
             <tr><td><a href="data/awseal.json" rel="noopener">The seal</a></td><td>An Ed25519 signature over the record directory, so a reader can prove the bytes did not move.</td><td class="st live">live</td></tr>
             <tr><td>Funds administered by</td><td>Aitherium LLC for now. Contributions are not tax-deductible; the vehicle is decided before any electoral activity.</td><td class="st spec">stated</td></tr>
@@ -1615,7 +1616,133 @@ GET_INVOLVED = f"""  <section class="hero" style="padding-bottom:40px">
       record carries the chain, not the amounts. Contributions go to Aitherium LLC for now and are
       not tax-deductible. For major giving, the conversation still starts with an email.</p>
       <div class="actions"><a class="btn btn-forge" href="{SPONSOR}" rel="noopener">Sponsor on GitHub</a><a class="btn" href="{SPONSOR_PAGE}" rel="noopener">Sponsor page</a><a class="btn" href="transparency.html#support-rail">The money record</a></div>
-      <p class="small" style="margin-top:14px">Major giving: <a href="{CONTACT}">foundation@aitherium.org</a></p>
+      <p class="small" style="margin-top:14px">Major giving: <a href="{CONTACT}">foundation@aitherium.org</a> · Organisations: <a href="research.html">sponsor the research</a></p>
+    </div>
+  </section>
+"""
+
+# ── research (sponsor the lab) ────────────────────────────────────────────────
+# Every number below carries its date and a public link. Numbers that are not public
+# (spend, the private monorepo) say how they were counted. Nothing here compares us
+# with a named organisation; the work stands on its own record.
+
+RESULTS = [
+    # (what, the measured line, date, link label, href)
+    ("A 1-bit model in a browser tab",
+     "All four Bonsai sizes run on WebGPU with no server: 236 MB to 3.6 GB. Each size is checked "
+     "against llama.cpp on the byte-identical GGUF. Decode, full range across every run on one "
+     "RTX 5090: 1.7B 17 to 36 tok/s, 27B 4.6 to 13 tok/s.",
+     "2026-07-28", "the report", f"{BLOG}/blog/all-four-bonsai-sizes-now-run-in-your-browser"),
+    ("A ternary 27B on one consumer GPU",
+     "PrismML's Bonsai 2 27B against Bonsai 1 on one RTX 5090: 0.9165 against 0.7821 on our "
+     "benchmark, every item answered, in 44% of the tokens.",
+     "2026-09-19", "the benchmark", f"{BLOG}/blog/bonsai-2-on-a-5090-better-answers-at-half-the-tokens"),
+    ("Fine-tuning with a gate that can say no",
+     "LoRA on Bonsai 2 27B from prepared base to served adapter on one rented GPU; the prepared "
+     "base matches the served model (top-1 agreement 1.000, mean KL 0.00002). Every adapter is "
+     "scored against its own base with a paired interval, and the ones that did not clear it "
+     "were not shipped. The talk shows the ties and the losses too.",
+     "2026-10-07", "the pipeline", f"{BLOG}/blog/fine-tuning-bonsai-2-27b-end-to-end"),
+    ("One SVD joins two embedding spaces",
+     "We tested a new JEPA result on our own data the day it landed: one closed-form rotation "
+     "joins a 384-d browser embedder to a 1024-d platform embedder at 96% recall@1 with 1,000 "
+     "pairs, and choosing positives the paper's way beat masking in 3 of 3 seeds.",
+     "2026-11-10", "the test", f"{BLOG}/blog/one-svd-joins-two-embedding-spaces-testing-the-platonic-jepa-paper-on-our-own-os"),
+    ("Benchmarks anyone can rerun",
+     "A model benchmark split across free GitHub-hosted runners, one item per job, 65 at once, "
+     "with a combine step that reproduces the single-run score exactly.",
+     "2026-11-10", "the workflow", f"{BLOG}/blog/benchmark-a-local-model-on-github-runners"),
+]
+
+
+def results() -> str:
+    rows = "".join(
+        f'<tr><td>{esc(what)}</td><td>{esc(line)}</td><td class="st live">'
+        f'<a href="{href}" rel="noopener">{esc(label)} · {d}</a></td></tr>'
+        for what, line, d, label, href in RESULTS)
+    return f"""      <div class="record-wrap"><div class="record">
+        <table>
+          <thead><tr><th>Result</th><th>What was measured</th><th>Record</th></tr></thead>
+          <tbody>{rows}</tbody>
+        </table>
+      </div></div>"""
+
+
+RESEARCH = f"""  <section class="hero" style="padding-bottom:40px">
+    <div class="container" style="display:block">
+      <p class="eyebrow">Sponsor the research <span class="sep">·</span> Aitherium Foundation</p>
+      <h1>A small lab that publishes its&nbsp;measurements.</h1>
+      <p class="lede">We run small and 1-bit models on hardware people already own, and we publish
+      what we measure: the wins, the ties, and the runs our own gates rejected. Sponsorship buys
+      more of that work, on a schedule, with your name on the reports it pays for.</p>
+    </div>
+  </section>
+
+  <section class="tight" id="results">
+    <div class="container">
+      <span class="kicker">What we have shipped · each with its date and its record</span>
+{results()}
+    </div>
+  </section>
+
+  <section class="tight" id="how">
+    <div class="container two-col">
+      <div>
+        <span class="kicker">How the lab runs</span>
+        <h2>Output, not&nbsp;headcount.</h2>
+      </div>
+      <div>
+        <p>One founder directs many agent sessions that write, review and merge the platform. In
+        October 2026 that meant <strong>3,323 pull requests merged</strong> into our main
+        repository (counted with GitHub search on 2026-11-13; the repository is private, the
+        count method is not). The compute is a home lab, an RTX 5090 and a DGX Spark, plus GPUs
+        rented by the hour for training, each rental entered in a ledger and released when the
+        job ends.</p>
+        <p>Public, and checkable by anyone: <a href="{GH}" rel="noopener">107 public
+        repositories</a>, packages on PyPI, and every post on <a href="{BLOG}" rel="noopener">the
+        journal</a> dated and linked to its run.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight" id="not-yet">
+    <div class="container">
+      <span class="kicker">What we have not done, so you do not have to ask</span>
+      <div class="record-wrap"><div class="record">
+        <table>
+          <thead><tr><th>Claim we do not make</th><th>Where it stands</th></tr></thead>
+          <tbody>
+            <tr><td>A fine-tune that beats its base</td><td>Not yet. Our best adapter tied its base inside the interval, so it was not promoted.</td></tr>
+            <tr><td>Pretraining, or training across many GPUs</td><td>None. Our training runs are LoRA on one GPU.</td></tr>
+            <tr><td>Our own CUDA kernels</td><td>None. We wrote the WebGPU kernels for the browser; the native 1-bit kernels are PrismML's.</td></tr>
+            <tr><td>A published technical report</td><td>The first is outlined: 1-bit inference in the browser, with the parity method and the variance.</td></tr>
+          </tbody>
+        </table>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="tight" id="tiers">
+    <div class="container">
+      <span class="kicker">Ways to sponsor</span>
+      <div class="items" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">
+        <div class="item"><h4>People</h4><p>$5, $25 or $100 a month, or $250 once, on GitHub Sponsors. It pays for compute and upkeep of the open layer.</p><a class="more" href="{SPONSOR}" rel="noopener">GitHub Sponsors ↗</a></div>
+        <div class="item"><h4>Research sponsor</h4><p>For organisations, from $1,000 a month. A quarterly evaluation report on the models you care about, early access to the benchmarks and models it covers, and your name on each report it funds.</p><a class="more" href="{CONTACT}">write to us ↗</a></div>
+        <div class="item"><h4>Compute partner</h4><p>GPU hours or credits instead of money. Every hour gets a ledger row, and the work it ran is published with a credit to you.</p><a class="more" href="{CONTACT}">write to us ↗</a></div>
+      </div>
+      <p class="small" style="margin-top:14px">Sponsorship is not equity, governance, or a token,
+      and it does not buy a result: the reports say what was measured. Funds go to Aitherium LLC
+      for now and are not tax-deductible. Every gift is an entry in the
+      <a href="transparency.html#support-rail">money record</a>, which carries the chain, not the amounts.</p>
+    </div>
+  </section>
+
+  <section class="ignite" id="support">
+    <div class="container">
+      <h2>Fund the next <em>measurement</em>.</h2>
+      <p>Start on GitHub Sponsors, or write to us about a research sponsorship or a compute
+      partnership. We reply with the plan, the schedule and what the report will cover.</p>
+      <div class="actions"><a class="btn btn-forge" href="{SPONSOR}" rel="noopener">Sponsor on GitHub</a><a class="btn" href="{CONTACT}">foundation@aitherium.org</a><a class="btn" href="transparency.html#support-rail">The money record</a></div>
     </div>
   </section>
 """
@@ -1683,6 +1810,9 @@ def main() -> None:
     page("get-involved.html", "Get involved — Aitherium Foundation",
          "Run a real model on your own machine, run a node, contribute code, join the rooms, support the "
          "foundation.", GET_INVOLVED)
+    page("research.html", "Sponsor the research — Aitherium Foundation",
+         "A small lab that publishes its measurements: 1-bit models in a browser tab, a ternary 27B on "
+         "one consumer GPU, fine-tunes behind a gate that can say no. Sponsor the next report.", RESEARCH)
     page("news.html", "News — Aitherium Foundation",
          "The blog is the record. Selected posts that carry the thesis, in the order they were written.", NEWS)
 
