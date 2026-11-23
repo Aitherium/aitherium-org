@@ -20,9 +20,9 @@ periodic table, and links to the record instead of asserting credibility in pros
 ## Design
 
 Tokens come from the brand's content design system (`.ELEMENT/DESIGN.md` in the
-platform monorepo): the void `#000103`, one cyan `#2AD7D7`, forge orange `#FF8950`
-used once per page, Inter at thin display weights, JetBrains Mono for anything
-measured.
+platform monorepo): the void `#000103`, one sky `#B0DAFF` (with blush `#F9C6DD`
+and the lavender blend in the logo gradient), forge orange `#FF8950` used once
+per page, Inter at thin display weights, JetBrains Mono for anything measured.
 
 **Appearance.** Light is the default; dark is the visitor's explicit choice from the
 menubar switch (kept in `localStorage`, applied by an inline `<head>` script before first

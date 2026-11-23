@@ -20,6 +20,9 @@
   --on-cyan: var(--fk-on-accent);     /* text on that fill */
   --cyan-dim: var(--fk-accent-wash);
   --cyan-line: var(--fk-accent-line);
+  /* the logo gradient — primary fills (sky → lavender → blush) with navy ink */
+  --cyan-grad: var(--fk-gradient);
+  --on-grad: var(--fk-gradient-ink);
   /* ONE accent: what used to be forge/creation/gold/violet/danger are ink levels */
   --forge: var(--fk-accent-ink);
   --creation: var(--fk-ink);
@@ -141,7 +144,7 @@ blockquote p { color: var(--tx); font-size: 1.15rem; font-weight: 300; }
 .nav-links a:hover { color: var(--tx); text-decoration: none; background: var(--raised); }
 .nav-links a[aria-current="page"] { color: var(--cyan); }
 .nav-links a.btn { margin-left: 8px; }
-.nav-links a.btn-primary, .nav-links a.btn-primary:hover { color: var(--on-cyan); background: var(--cyan-fill); }
+.nav-links a.btn-primary, .nav-links a.btn-primary:hover { color: var(--on-grad); background: var(--cyan-grad); }
 .nav-toggle { display: none; background: none; border: 1px solid var(--border); border-radius: var(--r-sm); width: 42px; height: 38px; cursor: pointer; padding: 0; }
 .nav-toggle span { display: block; width: 18px; height: 1px; background: var(--tx); margin: 4px auto; transition: 0.2s var(--ease); }
 @media (max-width: 860px) {
@@ -164,10 +167,10 @@ blockquote p { color: var(--tx); font-size: 1.15rem; font-weight: 300; }
   transition: all 0.2s var(--ease); cursor: pointer; white-space: nowrap;
 }
 .btn:hover { text-decoration: none; border-color: var(--cyan-line); color: var(--cyan); }
-.btn-primary { background: var(--cyan-fill); color: var(--on-cyan); border-color: var(--cyan-fill); }
-.btn-primary:hover { color: var(--on-cyan); box-shadow: 0 0 0 3px var(--cyan-dim); }
-.btn-forge { background: var(--cyan-fill); color: var(--on-cyan); border-color: var(--cyan-fill); }
-.btn-forge:hover { color: var(--on-cyan); box-shadow: 0 0 0 3px var(--cyan-dim); }
+.btn-primary { background: var(--cyan-grad); color: var(--on-grad); border-color: transparent; }
+.btn-primary:hover { color: var(--on-grad); box-shadow: 0 0 0 3px var(--cyan-dim); }
+.btn-forge { background: var(--cyan-grad); color: var(--on-grad); border-color: transparent; }
+.btn-forge:hover { color: var(--on-grad); box-shadow: 0 0 0 3px var(--cyan-dim); }
 .btn .arr { font-family: var(--mono); }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 28px 0 0; }
 

@@ -17,9 +17,9 @@
   --fk-faint:rgba(237,239,245,.35);
   --fk-hairline:rgba(255,255,255,.08);
   --fk-raise:rgba(255,255,255,.025);
-  --fk-accent:#5EC9CC;
-  --fk-accent-glow:rgba(94,201,204,.35);
-  --fk-accent-wash:rgba(94,201,204,.08);
+  --fk-accent:#B0DAFF;
+  --fk-accent-glow:rgba(176,218,255,.35);
+  --fk-accent-wash:rgba(176,218,255,.08);
 
   /* type */
   --fk-sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
