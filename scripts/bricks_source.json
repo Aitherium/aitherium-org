@@ -1,0 +1,1764 @@
+{
+ "_source": "AitherOS/config/ecosystem.yaml (monorepo registry), generated 2026-11-23",
+ "count": 98,
+ "bricks": [
+  {
+   "id": "awdk",
+   "kind": "runtime",
+   "status": "public",
+   "tagline": "Build AI agent fleets — 3 lines, any backend, local or cloud.",
+   "install": "pip install awdk",
+   "instead_of_trusting": "a framework's idea of how your agents should run",
+   "you_check": "one loop you can read, pointed at a backend you already pay for",
+   "pairs_with": [
+    "aitheros",
+    "awskills",
+    "awm",
+    "awnode",
+    "awrun",
+    "awask",
+    "AitherConnect",
+    "awpack",
+    "awembed",
+    "awflow",
+    "awdaemons",
+    "awreport"
+   ],
+   "source": "awdk",
+   "merged_into": null
+  },
+  {
+   "id": "awskills",
+   "kind": "corpus",
+   "status": "public",
+   "tagline": "Portable agent skills — self-contained procedures an agent loads on demand.",
+   "install": "git clone https://github.com/Aitherium/awskills",
+   "instead_of_trusting": "that an agent knows your procedure",
+   "you_check": "the procedure written down, versioned, and loadable by any agent",
+   "pairs_with": [
+    "awdk",
+    "awknowledge"
+   ],
+   "source": "awskills",
+   "merged_into": null
+  },
+  {
+   "id": "awpack",
+   "kind": "corpus",
+   "status": "public",
+   "tagline": "First-party agent packs — the ones we build, versioned and installable on their own.",
+   "install": "git clone https://github.com/Aitherium/awpack",
+   "instead_of_trusting": "that the pack you want shipped inside somebody's SDK, under whatever licence that SDK happens to carry",
+   "you_check": "the pack as its own versioned artifact, with its own licence, that any agent runtime can install",
+   "pairs_with": [
+    "awdk",
+    "awskills",
+    "awsh",
+    "gawbbonet"
+   ],
+   "source": "awpack",
+   "merged_into": null
+  },
+  {
+   "id": "awm",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "A portable, scoped agent memory.",
+   "install": "pip install awm",
+   "instead_of_trusting": "that memory stayed in its lane",
+   "you_check": "tenant:user:project scopes, so a write cannot cross a boundary",
+   "pairs_with": [
+    "awpredict",
+    "awdk",
+    "awgraph",
+    "awembed"
+   ],
+   "source": "AitherOS/packages/awm",
+   "merged_into": null
+  },
+  {
+   "id": "aitheros",
+   "kind": "runtime",
+   "status": "unpublished",
+   "tagline": "One file you run, and the machine has a local AI stack.",
+   "install": "see the repo — one binary per OS from the `aitheros-v*` release",
+   "instead_of_trusting": "that six installers, four registries and a GPU agree with each other",
+   "you_check": "one binary, one --version, one supervised set of surfaces",
+   "pairs_with": [
+    "awdaemons",
+    "awnode",
+    "awdesk",
+    "awgym",
+    "awsh",
+    "awdk",
+    "AitherConnect"
+   ],
+   "source": "AitherOS",
+   "merged_into": null
+  },
+  {
+   "id": "awdaemons",
+   "kind": "runtime",
+   "status": "unpublished",
+   "tagline": "The AitherOS daemons as one file — no Python, no signing, no install.",
+   "install": "see the repo — built by awdk/packaging/build_executable.py --narrow",
+   "instead_of_trusting": "that a machine has the right Python and the right wheels",
+   "you_check": "one file you run, that answers /health",
+   "pairs_with": [
+    "awdk",
+    "awnode",
+    "awsh",
+    "awdesk"
+   ],
+   "source": "awdk",
+   "merged_into": null
+  },
+  {
+   "id": "awdesk",
+   "kind": "runtime",
+   "status": "public",
+   "tagline": "Aither World Desk -- the desktop body of AitherOS Online: tray, avatars, decision cards, the Living Desktop as an overlay.",
+   "install": "see the repo -- Electron app (npm install && npx electron .)",
+   "instead_of_trusting": "that the agent is somewhere behind a browser tab",
+   "you_check": "a tray icon, a face on your desktop, and the decision card that pops when it needs you",
+   "pairs_with": [
+    "awdk",
+    "awsh",
+    "awvoice",
+    "awvision",
+    "awsprite",
+    "awavatar",
+    "AitherConnect",
+    "awdaemons",
+    "awsettings",
+    "awnode",
+    "awtunnel"
+   ],
+   "source": ".DEPLOYMENT/awdesk",
+   "merged_into": null
+  },
+  {
+   "id": "awnode",
+   "kind": "runtime",
+   "status": "public",
+   "tagline": "A lightweight local gateway — bridges your apps to the AI backends you chose.",
+   "install": "pip install awnode",
+   "instead_of_trusting": "a vendor's cloud with every prompt",
+   "you_check": "a local gateway routing to backends you chose",
+   "pairs_with": [
+    "awdk",
+    "aitherkvcache",
+    "awspaces"
+   ],
+   "source": "awnode",
+   "merged_into": null
+  },
+  {
+   "id": "awrun",
+   "kind": "runtime",
+   "status": "public",
+   "tagline": "A priority-aware queue and dispatcher for agentic runs and ad-hoc CI builds. It also judges whether the runner pool is big enough for the queue it is draining, and can ask a host to grow it -- reserving capacity is zero-sum, so a saturated pool needs more of it, not a different share of it.",
+   "install": "pip install awrun",
+   "instead_of_trusting": null,
+   "you_check": null,
+   "pairs_with": [
+    "awdk",
+    "awrelay",
+    "awevolve",
+    "awrise",
+    "awpool",
+    "awflow",
+    "awiam",
+    "awbac",
+    "awdit",
+    "awseal",
+    "awshare"
+   ],
+   "source": "AitherOS/packages/awrun",
+   "merged_into": null
+  },
+  {
+   "id": "awpool",
+   "kind": "runtime",
+   "status": "public",
+   "tagline": "The free half of the elastic work pool: dispatches public-safe work onto the free GitHub-hosted runners of the public aw* mirrors, so their idle CI minutes become compute. awrun remains the paid/self-hosted lane; this is its free twin.",
+   "install": "pip install awpool",
+   "instead_of_trusting": null,
+   "you_check": null,
+   "pairs_with": [
+    "awrun",
+    "awnet",
+    "awdk"
+   ],
+   "source": "AitherOS/packages/awpool",
+   "merged_into": null
+  },
+  {
+   "id": "awedgerunner",
+   "kind": "runtime",
+   "status": "public",
+   "tagline": "Run agent and CI work on edge runners nobody has to rack -- a volunteer's idle GPU, a phone on your own mesh, an edge worker, a free or spot CI runner -- under a lease with a hard budget cap, a named payer and an expiry.",
+   "install": "pip install awedgerunner",
+   "instead_of_trusting": null,
+   "you_check": null,
+   "pairs_with": [
+    "awrun",
+    "awpool",
+    "awnet",
+    "awrise",
+    "awwall",
+    "awtunnel",
+    "awnix",
+    "awiam",
+    "awbac",
+    "awdit",
+    "awseal"
+   ],
+   "source": "AitherOS/packages/awedgerunner",
+   "merged_into": null
+  },
+  {
+   "id": "awgraph",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "A semantic code graph for agents — AST + tree-sitter, call graphs.",
+   "install": "pip install awgraph",
+   "instead_of_trusting": "that grep found everything",
+   "you_check": "an AST + tree-sitter call graph an agent can traverse",
+   "pairs_with": [
+    "awm",
+    "awdk",
+    "awtoll",
+    "awembed"
+   ],
+   "source": "AitherOS/packages/awgraph",
+   "merged_into": null
+  },
+  {
+   "id": "awgit",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Semantic version control on top of git — edit-ops and leases.",
+   "install": "pip install awgit",
+   "instead_of_trusting": "that no one else is editing this file",
+   "you_check": "a lease, refused at commit time if you do not hold it",
+   "pairs_with": [
+    "awgraph",
+    "awrelay"
+   ],
+   "source": "AitherOS/packages/awgit",
+   "merged_into": null
+  },
+  {
+   "id": "awdelphi",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Anonymous multi-round expert panels — a converged answer with a trace.",
+   "install": "pip install awdelphi",
+   "instead_of_trusting": "one agent's confident take on a decision",
+   "you_check": "the round trace, the anonymity, and who dissents",
+   "pairs_with": [
+    "awrelay",
+    "awdk"
+   ],
+   "source": "AitherOS/packages/awdelphi",
+   "merged_into": null
+  },
+  {
+   "id": "awclassify",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Classify any document -- what it is, who may read it, who it is for, what it is about.",
+   "install": "pip install awclassify",
+   "instead_of_trusting": "a filename, a folder, or whoever last touched it",
+   "you_check": "doc_type, visibility, audience and topics, with the evidence lines that decided each",
+   "pairs_with": [
+    "awknowledge",
+    "awkno",
+    "awdk"
+   ],
+   "source": "AitherOS/packages/awclassify",
+   "merged_into": null
+  },
+  {
+   "id": "awdecide",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "One typed-decision contract -- choice / score / bool with a probability -- over a ladder of backends you already run (rules, tiny local models, an LLM's logprobs), fail-closed, with a Brier ledger that resolves every decision against its outcome.",
+   "install": "pip install awdecide",
+   "instead_of_trusting": "a hosted classifier's probability that never learns whether it was right",
+   "you_check": "the decision, its probability, and the calibration curve from your own resolved outcomes",
+   "pairs_with": [
+    "awclassify",
+    "awpredict",
+    "awdk",
+    "awprove",
+    "awgraph",
+    "awtoll",
+    "awrepl"
+   ],
+   "source": "AitherOS/packages/awdecide",
+   "merged_into": null
+  },
+  {
+   "id": "awtoll",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "What every tool call costs you in context, measured from your own transcripts.",
+   "install": "pip install awtoll",
+   "instead_of_trusting": "that your tooling is saving you context",
+   "you_check": "the measured token cost of each tool call, and what the alternative cost",
+   "pairs_with": [
+    "awgraph",
+    "awgit",
+    "awdk"
+   ],
+   "source": "AitherOS/packages/awtoll",
+   "merged_into": null
+  },
+  {
+   "id": "awseal",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Sign an artifact so a stranger can verify it.",
+   "install": "pip install awseal",
+   "instead_of_trusting": "that the artifact came from who you think",
+   "you_check": "an Ed25519 seal — the key that verifies is not the key that forges",
+   "pairs_with": [
+    "awshare",
+    "awdit",
+    "awrena",
+    "awrtifact"
+   ],
+   "source": "AitherOS/packages/awseal",
+   "merged_into": null
+  },
+  {
+   "id": "awshare",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Publish an artifact and fetch it back verified.",
+   "install": "pip install awshare",
+   "instead_of_trusting": "that the download is intact",
+   "you_check": "content-addressed bundles, verified on fetch",
+   "pairs_with": [
+    "awseal",
+    "awrecover",
+    "awclassify",
+    "awrtifact"
+   ],
+   "source": "AitherOS/packages/awshare",
+   "merged_into": null
+  },
+  {
+   "id": "awsuite",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Your Google Workspace as agent tools, and no write happens without a yes.",
+   "install": "pip install awsuite",
+   "instead_of_trusting": "that an agent holding your mailbox will not send on its own",
+   "you_check": "every send, draft, upload and create returns a dry-run until confirm is true",
+   "pairs_with": [
+    "awdk",
+    "awsh",
+    "awpack",
+    "awskills"
+   ],
+   "source": "AitherOS/packages/awsuite",
+   "merged_into": null
+  },
+  {
+   "id": "awdit",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "An append-only audit trail whose gaps are DETECTABLE.",
+   "install": "pip install awdit",
+   "instead_of_trusting": null,
+   "you_check": null,
+   "pairs_with": [
+    "awbac",
+    "awseal"
+   ],
+   "source": "AitherOS/packages/awdit",
+   "merged_into": null
+  },
+  {
+   "id": "awbac",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Role-based access control that fails closed and explains itself.",
+   "install": "pip install awbac",
+   "instead_of_trusting": null,
+   "you_check": null,
+   "pairs_with": [
+    "awdit"
+   ],
+   "source": "AitherOS/packages/awbac",
+   "merged_into": null
+  },
+  {
+   "id": "awiam",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Who is this caller? A directory and session store that fails honestly.",
+   "install": "pip install awiam",
+   "instead_of_trusting": null,
+   "you_check": null,
+   "pairs_with": [
+    "awbac",
+    "awdit"
+   ],
+   "source": "AitherOS/packages/awiam",
+   "merged_into": null
+  },
+  {
+   "id": "awtunnel",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Reach a service that has no public address.",
+   "install": "pip install awtunnel",
+   "instead_of_trusting": null,
+   "you_check": null,
+   "pairs_with": [
+    "awnet",
+    "awnode"
+   ],
+   "source": "AitherOS/packages/awtunnel",
+   "merged_into": null
+  },
+  {
+   "id": "awpermit",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Let an agent through your door with a scope, a spend cap, and someone accountable.",
+   "install": "pip install git+https://github.com/Aitherium/awpermit",
+   "instead_of_trusting": "that an admitted agent will only do what its owner meant",
+   "you_check": "an Ed25519 permit naming the agent, the principal, the door, the actions and the cap",
+   "pairs_with": [
+    "awnest",
+    "awdit",
+    "awbac",
+    "awseal"
+   ],
+   "source": "AitherOS/packages/awpermit",
+   "merged_into": null
+  },
+  {
+   "id": "awnest",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Prove there is a human before you let them into the nest.",
+   "install": "pip install awnest",
+   "instead_of_trusting": "that there is a person on the other end",
+   "you_check": "a verdict with evidence, where \"we could not tell\" is not \"yes\"",
+   "pairs_with": [
+    "awiam",
+    "awbac",
+    "awdit",
+    "awseal",
+    "awrelay",
+    "awgit",
+    "awnet",
+    "awtunnel",
+    "awdk",
+    "awpermit"
+   ],
+   "source": "AitherOS/packages/awnest",
+   "merged_into": null
+  },
+  {
+   "id": "awrena",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Put two agents head to head and get a verdict you can check.",
+   "install": "pip install awrena",
+   "instead_of_trusting": "a leaderboard someone can edit, and votes nobody counted",
+   "you_check": "a scored duel with both answers kept, and a result bound to them",
+   "pairs_with": [
+    "awrelay",
+    "awnest",
+    "awseal",
+    "awnboard"
+   ],
+   "source": "AitherOS/packages/awrena",
+   "merged_into": null
+  },
+  {
+   "id": "awnboard",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "A front gate you can put in front of anything, and hand someone the key to.",
+   "install": "pip install awnboard",
+   "instead_of_trusting": "a share link anyone who sees it can use",
+   "you_check": "an invitation addressed to one person, for one gate, revocable",
+   "pairs_with": [
+    "awnest",
+    "awiam",
+    "awbac",
+    "awdit",
+    "awseal",
+    "awshare",
+    "awtunnel",
+    "awnet",
+    "awdk",
+    "awmail"
+   ],
+   "source": "AitherOS/packages/awnboard",
+   "merged_into": null
+  },
+  {
+   "id": "awcap",
+   "kind": "tool",
+   "status": "planned",
+   "tagline": "Describe a capability once; call it the same way from CLI, Python, MCP and relay.",
+   "install": "not yet published; builds in-tree",
+   "instead_of_trusting": null,
+   "you_check": null,
+   "pairs_with": [
+    "awdk",
+    "awnode",
+    "awrelay",
+    "awm",
+    "awflow",
+    "awgit"
+   ],
+   "source": "AitherOS/packages/awcap",
+   "merged_into": null
+  },
+  {
+   "id": "awexpress",
+   "kind": "tool",
+   "status": "planned",
+   "tagline": "One expression pack of stickers, emoji, captions and sounds, compiled for every app.",
+   "install": "not yet published; builds in-tree",
+   "instead_of_trusting": "that a sticker made for one app still fits the next one's limits",
+   "you_check": "every compiled file measured against that target's published limit, with a report",
+   "pairs_with": [
+    "awpack",
+    "awdiscord",
+    "awdesk",
+    "AitherConnect",
+    "awsh",
+    "awdk",
+    "awrtifact"
+   ],
+   "source": "AitherOS/packages/awexpress",
+   "merged_into": null
+  },
+  {
+   "id": "awscope",
+   "kind": "tool",
+   "status": "planned",
+   "tagline": "One scope graph for work and home, where crossing between them takes consent.",
+   "install": "not yet published; builds in-tree",
+   "instead_of_trusting": null,
+   "you_check": null,
+   "pairs_with": [
+    "awbac",
+    "awnboard",
+    "awdit",
+    "awseal",
+    "awshare"
+   ],
+   "source": "AitherOS/packages/awscope",
+   "merged_into": null
+  },
+  {
+   "id": "awgather",
+   "kind": "tool",
+   "status": "planned",
+   "tagline": "Community events that live in your calendar and your Discord at once.",
+   "install": "not yet published; builds in-tree",
+   "instead_of_trusting": null,
+   "you_check": null,
+   "pairs_with": [
+    "awdiscord",
+    "awrise",
+    "awrelay"
+   ],
+   "source": "AitherOS/packages/awgather",
+   "merged_into": null
+  },
+  {
+   "id": "awplay",
+   "kind": "tool",
+   "status": "planned",
+   "tagline": "Stream a game from your own handheld or PC to your phone, over your own network.",
+   "install": "not yet published; builds in-tree",
+   "instead_of_trusting": null,
+   "you_check": null,
+   "pairs_with": [
+    "awnet",
+    "awtunnel",
+    "awnix"
+   ],
+   "source": "AitherOS/packages/awplay",
+   "merged_into": null
+  },
+  {
+   "id": "awnix",
+   "kind": "base",
+   "status": "public",
+   "tagline": "A Linux you can hand to an agent — immutable base, capabilities included.",
+   "install": "podman build -t awnix:latest -f Containerfile .",
+   "instead_of_trusting": "that the box is what you left it as",
+   "you_check": "an immutable image you built, with atomic rollback",
+   "pairs_with": [
+    "awdk",
+    "awrecover",
+    "awnode"
+   ],
+   "source": "awnix",
+   "merged_into": null
+  },
+  {
+   "id": "awrecover",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Labelled snapshots with an all-or-nothing restore.",
+   "install": "pip install awrecover",
+   "instead_of_trusting": "that the restore worked",
+   "you_check": "a restore that fully lands or does not land at all",
+   "pairs_with": [
+    "awnix",
+    "awshare",
+    "AitherZero"
+   ],
+   "source": "AitherOS/packages/awrecover",
+   "merged_into": null
+  },
+  {
+   "id": "awstorage",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Every drive on every node, indexed, classified and diffed -- so you can see what you own before you delete it.",
+   "install": "pip install awstorage",
+   "instead_of_trusting": "a du you ran last month, and a peers file that says 3 TB free",
+   "you_check": "an inventory snapshot per node with a diff since the last one, and each tree classified re-fetchable or not",
+   "pairs_with": [
+    "awrecover",
+    "awdk",
+    "awnode",
+    "awsh",
+    "awgraph",
+    "awdit",
+    "awseal",
+    "awshare",
+    "awm",
+    "awrise",
+    "awrtifact",
+    "awrelay"
+   ],
+   "source": "AitherOS/packages/awstorage",
+   "merged_into": null
+  },
+  {
+   "id": "awsync",
+   "kind": "tool",
+   "status": "merged",
+   "tagline": "Keep one client in step with a platform — and never confuse \"cannot tell\" with \"fine\".",
+   "install": "ships inside AitherConnect",
+   "instead_of_trusting": null,
+   "you_check": null,
+   "pairs_with": [
+    "awnode",
+    "awrelay",
+    "awrecover",
+    "awshare",
+    "awtunnel",
+    "awm"
+   ],
+   "source": "awconnect/shared/awsync.js",
+   "merged_into": "AitherConnect"
+  },
+  {
+   "id": "awrelay",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Portable agent messaging — findings, alerts, coordination.",
+   "install": "pip install awrelay",
+   "instead_of_trusting": "a SaaS in the middle of your agents",
+   "you_check": "findings, alerts and coordination over your own transport",
+   "pairs_with": [
+    "awgit",
+    "awdk",
+    "awdelphi"
+   ],
+   "source": "AitherOS/packages/awrelay",
+   "merged_into": null
+  },
+  {
+   "id": "awask",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Your agent asks you a question — and acts on your answer.",
+   "install": "pip install awask",
+   "instead_of_trusting": "that anyone read the paragraph where you asked",
+   "you_check": "the ask itself, with a button that steers the session that raised it",
+   "pairs_with": [
+    "awdk",
+    "awrelay",
+    "awmail",
+    "awsh",
+    "awnest",
+    "awrise",
+    "awdiscord"
+   ],
+   "source": "AitherOS/packages/awask",
+   "merged_into": null
+  },
+  {
+   "id": "awmail",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Give an agent an email address — send, and actually receive.",
+   "install": "pip install awmail",
+   "instead_of_trusting": "a mailbox somebody else can read",
+   "you_check": "mail your agents send and receive over your own server",
+   "pairs_with": [
+    "awnboard",
+    "awnest",
+    "awseal",
+    "awdit",
+    "awiam",
+    "awrelay",
+    "awdk",
+    "awshare"
+   ],
+   "source": "AitherOS/packages/awmail",
+   "merged_into": null
+  },
+  {
+   "id": "awdiscord",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Put any agent on Discord as a real bot, with an operator in the loop.",
+   "install": "pip install git+https://github.com/Aitherium/awdiscord.git",
+   "instead_of_trusting": "a self-bot on someone's account, or a bot that acts without asking",
+   "you_check": "slash commands, rate limits, and approval buttons only your operators can press",
+   "pairs_with": [
+    "awdk",
+    "awask",
+    "awrelay",
+    "awmail",
+    "awiam"
+   ],
+   "source": "AitherOS/packages/awdiscord",
+   "merged_into": null
+  },
+  {
+   "id": "awcrowd",
+   "kind": "tool",
+   "status": "planned",
+   "tagline": "Ask your crowd, keep every answer, and ask the answers a question.",
+   "install": "not yet published; builds in-tree",
+   "instead_of_trusting": "a poll count you cannot trace to a single vote",
+   "you_check": "the cited responses behind every answer, with consent and withdrawal per person",
+   "pairs_with": [
+    "awdiscord",
+    "awdata",
+    "awm",
+    "awgraph",
+    "AitherConnect",
+    "awdk",
+    "awask"
+   ],
+   "source": "AitherOS/packages/awcrowd",
+   "merged_into": null
+  },
+  {
+   "id": "mediaforge",
+   "kind": "tool",
+   "status": "unpublished",
+   "tagline": "The creative studio — search the boards, render scenes, keep the character.",
+   "install": "https://mediaforge.aitherium.com",
+   "instead_of_trusting": "a prompt that re-describes the character every time",
+   "you_check": "one roster identity, locked across every slide of a loop",
+   "pairs_with": [
+    "awdk",
+    "AitherConnect",
+    "awkit",
+    "awrelay"
+   ],
+   "source": null,
+   "merged_into": null
+  },
+  {
+   "id": "awnet",
+   "kind": "runtime",
+   "status": "public",
+   "tagline": "The agentic web — agents host a mesh, and agents join one.",
+   "install": "pip install awnet",
+   "instead_of_trusting": null,
+   "you_check": null,
+   "pairs_with": [
+    "awnode",
+    "awdk",
+    "awrelay",
+    "awwall",
+    "awswarm"
+   ],
+   "source": "AitherOS/packages/awnet",
+   "merged_into": null
+  },
+  {
+   "id": "awspaces",
+   "kind": "runtime",
+   "status": "planned",
+   "tagline": "A place, not a page: every human gets a Space -- a hand-made page, files and a companion agent that is theirs -- and Spaces link to Spaces. Early-2000s internet (Neocities, Newgrounds, Neopets, RuneScape) with local-first AI underneath.",
+   "install": "planned -- no package yet",
+   "instead_of_trusting": null,
+   "you_check": null,
+   "pairs_with": [
+    "awdk",
+    "awnode",
+    "awsprite",
+    "awshare",
+    "awstorage",
+    "awrelay",
+    "awnboard",
+    "awiam"
+   ],
+   "source": "AitherOS/apps/AitherGenesis/routers/myspace.py",
+   "merged_into": null
+  },
+  {
+   "id": "awswarm",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Run one model too big for any single GPU across a pool of small ones.",
+   "install": "pip install awswarm",
+   "instead_of_trusting": "that a model either fits your GPU or it doesn't run at all",
+   "you_check": "a placement plan and an acquisition-probability estimate before you spend on a run",
+   "pairs_with": [
+    "awnet",
+    "awrun",
+    "awdk"
+   ],
+   "source": "AitherOS/packages/awswarm",
+   "merged_into": null
+  },
+  {
+   "id": "awcache",
+   "kind": "runtime",
+   "status": "planned",
+   "tagline": "Let a second node skip its prefill because a first node already paid for it.",
+   "install": "builds in-tree -- not on PyPI yet; `pip install awcache` 404s today",
+   "instead_of_trusting": "that every node must recompute the same prompt prefix from scratch",
+   "you_check": "a content-addressed prefix manifest, and the R2 + acceptance record on any cross-model map",
+   "pairs_with": [
+    "awnet",
+    "awnode",
+    "aitherkvcache",
+    "awrtifact",
+    "awswarm"
+   ],
+   "source": "AitherOS/packages/awcache",
+   "merged_into": null
+  },
+  {
+   "id": "awfind",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "A portable search client — query, results, ranking.",
+   "install": "pip install awfind",
+   "instead_of_trusting": "one vendor's idea of the web",
+   "you_check": "results from whichever providers you configured",
+   "pairs_with": [
+    "awdk",
+    "awbrowse",
+    "awsh",
+    "awembed",
+    "awgraph",
+    "awm",
+    "awgit",
+    "awindex"
+   ],
+   "source": "AitherOS/packages/awfind",
+   "merged_into": null
+  },
+  {
+   "id": "awindex",
+   "kind": "tool",
+   "status": "unpublished",
+   "tagline": "A curated, git-backed map of the internet — .aither keywords and trust you can check.",
+   "install": "pip install awindex",
+   "instead_of_trusting": "a crawler's ranking, or a site that merely looks professional",
+   "you_check": "who vouched, what the bot fetched, and whether the owner proved control",
+   "pairs_with": [
+    "awfind",
+    "awresearch",
+    "awbrowse",
+    "awdk"
+   ],
+   "source": "AitherOS/packages/awindex",
+   "merged_into": null
+  },
+  {
+   "id": "awbrowse",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "A portable browser client — navigate, console, network, DOM, screenshot.",
+   "install": "pip install awbrowse",
+   "instead_of_trusting": "that the page said what you were told",
+   "you_check": "the render, the DOM and the requests it made",
+   "pairs_with": [
+    "awdk",
+    "awfind",
+    "awsh",
+    "awprove"
+   ],
+   "source": "AitherOS/packages/awbrowse",
+   "merged_into": null
+  },
+  {
+   "id": "awprove",
+   "kind": "tool",
+   "status": "unpublished",
+   "tagline": "Drive a page as the real user, check what rendered, and get a test that goes red if it stops being true.",
+   "install": "builds in-tree -- not on PyPI yet; `pip install awprove` 404s today",
+   "instead_of_trusting": "that an HTTP 200 means the user can actually do the thing",
+   "you_check": "the rendered page a real user sees -- and a self-test that fails the moment it stops being true",
+   "pairs_with": [
+    "awbrowse",
+    "awvision",
+    "awscreen",
+    "awdk",
+    "awsh"
+   ],
+   "source": "AitherOS/packages/awprove",
+   "merged_into": null
+  },
+  {
+   "id": "awdeck",
+   "kind": "tool",
+   "status": "planned",
+   "tagline": "An outline becomes a narrated video -- and the file says which voice really spoke it.",
+   "install": "builds in-tree (pip install -e .); not on PyPI yet",
+   "instead_of_trusting": "that the narration came out of the voice you asked for",
+   "you_check": "the .deck.json beside the mp4, naming the voice REQUESTED and the voice SERVED",
+   "pairs_with": [
+    "awvoice",
+    "awsh",
+    "awdk",
+    "mediaforge",
+    "awrtifact"
+   ],
+   "source": "AitherOS/packages/awdeck",
+   "merged_into": null
+  },
+  {
+   "id": "awvoice",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Hear and speak — transcribe audio, synthesize a voice.",
+   "install": "pip install awvoice",
+   "instead_of_trusting": "that a cloud vendor may hold your audio",
+   "you_check": "a transcript and a wav from a service you host",
+   "pairs_with": [
+    "awdk",
+    "awbrowse",
+    "awrelay",
+    "awdesk",
+    "awask",
+    "awsh",
+    "awdeck"
+   ],
+   "source": "AitherOS/packages/awvoice",
+   "merged_into": null
+  },
+  {
+   "id": "awvision",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "See an image — describe it, ask it a question, compare two.",
+   "install": "pip install awvision",
+   "instead_of_trusting": "a filename and a caption somebody wrote",
+   "you_check": "what a model actually reports about the pixels",
+   "pairs_with": [
+    "awdk",
+    "awbrowse",
+    "awscreen",
+    "awtax",
+    "awdesk",
+    "awnode",
+    "awcams"
+   ],
+   "source": "AitherOS/packages/awvision",
+   "merged_into": null
+  },
+  {
+   "id": "awcams",
+   "kind": "tool",
+   "status": "unpublished",
+   "tagline": "Private camera recording and one-line event summaries, on storage you own.",
+   "install": "builds in-tree -- not on PyPI yet; `pip install awcams` 404s today",
+   "instead_of_trusting": "a camera vendor's cloud with every frame of your home",
+   "you_check": "segments on your own disk, pruned on a cap you set, and an event list you can read",
+   "pairs_with": [
+    "awvision",
+    "awnode"
+   ],
+   "source": "AitherOS/packages/awcams",
+   "merged_into": null
+  },
+  {
+   "id": "awscreen",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "See this machine — what is on screen, and where to click it.",
+   "install": "pip install awscreen",
+   "instead_of_trusting": "a selector that was true when the page was written",
+   "you_check": "the elements actually rendered, by what they look like",
+   "pairs_with": [
+    "awdk",
+    "awvision",
+    "awbrowse",
+    "awpredict",
+    "awrun"
+   ],
+   "source": "AitherOS/packages/awscreen",
+   "merged_into": null
+  },
+  {
+   "id": "awforge",
+   "kind": "tool",
+   "status": "planned",
+   "tagline": "A render pipeline you drive from an agent — grade, master, animate, train.",
+   "install": "builds in-tree -- no PyPI package yet; published when it is",
+   "instead_of_trusting": "a creative cloud with your footage, your faces and your style",
+   "you_check": "a pipeline on your own GPU, driven by tools you can read",
+   "pairs_with": [
+    "awdk",
+    "awsh",
+    "awnode",
+    "awkit"
+   ],
+   "source": "AitherOS/packages/awforge",
+   "merged_into": null
+  },
+  {
+   "id": "awkit",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Render an agent panel from a tool result — one component, any React app.",
+   "install": "git clone https://github.com/Aitherium/awkit",
+   "instead_of_trusting": null,
+   "you_check": null,
+   "pairs_with": [
+    "awdk",
+    "awnode",
+    "awiam",
+    "awbeads"
+   ],
+   "source": "AitherOS/apps/packages/awkit",
+   "merged_into": null
+  },
+  {
+   "id": "awbeads",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "A spatial canvas for a page — arrange things, connect them, and keep the arrangement.",
+   "install": "git clone https://github.com/Aitherium/awbeads",
+   "instead_of_trusting": "that a layout your users built survives the next deploy",
+   "you_check": "the arrangement as data you can read back, diff, and hand to another surface",
+   "pairs_with": [
+    "awkit",
+    "awsh",
+    "awnboard"
+   ],
+   "source": "AitherOS/apps/packages/bead-space",
+   "merged_into": null
+  },
+  {
+   "id": "awsprite",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Hatch a companion that grows only from what you teach it, then take it home.",
+   "install": "pip install awsprite",
+   "instead_of_trusting": "a chatbot with a face that resets every session",
+   "you_check": "a knowledge base you can list, edit, and watch shape what it becomes",
+   "pairs_with": [
+    "awdk",
+    "awm",
+    "awnode",
+    "awsh"
+   ],
+   "source": "AitherOS/packages/awsprite",
+   "merged_into": null
+  },
+  {
+   "id": "awbonsai",
+   "kind": "runtime",
+   "status": "public",
+   "tagline": "Run a real model in the visitor's own browser — no server round trip, no upload.",
+   "install": "git clone https://github.com/Aitherium/awbonsai",
+   "instead_of_trusting": "that inference always means a request left the machine",
+   "you_check": "a WebGPU model answering on the tab's own GPU, with a consent record logged before it ever loaded",
+   "pairs_with": [
+    "awkit",
+    "awsprite",
+    "AitherConnect",
+    "awasp"
+   ],
+   "source": "AitherOS/apps/packages/awbonsai",
+   "merged_into": null
+  },
+  {
+   "id": "awasp",
+   "kind": "runtime",
+   "status": "planned",
+   "tagline": "Stream a multi-gigabyte model onto a device that cannot hold it all at once.",
+   "install": "builds in-tree",
+   "instead_of_trusting": "that a loader which works on a laptop will work on a phone",
+   "you_check": "the peak bytes in flight, and a refusal issued before the first range GET",
+   "pairs_with": [
+    "awbonsai",
+    "awrtifact",
+    "awkit"
+   ],
+   "source": "AitherOS/apps/packages/awasp",
+   "merged_into": null
+  },
+  {
+   "id": "awknowledge",
+   "kind": "corpus",
+   "status": "public",
+   "tagline": "How to run a coding agent so the result survives — the laws, with evidence.",
+   "install": "read it — https://aitherium.github.io/awknowledge/",
+   "instead_of_trusting": null,
+   "you_check": null,
+   "pairs_with": [
+    "awskills",
+    "awkno",
+    "awclassify"
+   ],
+   "source": "awknowledge",
+   "merged_into": null
+  },
+  {
+   "id": "awbrain",
+   "kind": "runtime",
+   "status": "public",
+   "tagline": "Your history as a wiki of linked markdown — claims pinned to the evidence.",
+   "install": "pip install awbrain",
+   "instead_of_trusting": null,
+   "you_check": null,
+   "pairs_with": [
+    "awknowledge",
+    "awm",
+    "awseal",
+    "awkno",
+    "awnix",
+    "awnode",
+    "awdk"
+   ],
+   "source": "AitherOS/packages/awbrain",
+   "merged_into": null
+  },
+  {
+   "id": "gawbbonet",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "GobboNet campaigns with a real agent brain — scoped memory, graph recall.",
+   "install": "pip install gawbbonet",
+   "instead_of_trusting": "the model to keep a 300-message campaign coherent by itself",
+   "you_check": "campaign facts recalled from scoped memory you can list and edit",
+   "pairs_with": [
+    "awdk",
+    "awm"
+   ],
+   "source": "AitherOS/packages/gawbbonet",
+   "merged_into": null
+  },
+  {
+   "id": "aitherkvcache",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Near-optimal KV cache quantization for LLM inference — sub-byte compression.",
+   "install": "pip install aither-kvcache",
+   "instead_of_trusting": "a vendor's quantisation defaults",
+   "you_check": "sub-byte KV cache kernels you can benchmark yourself",
+   "pairs_with": [
+    "awnode"
+   ],
+   "source": "aitherkvcache",
+   "merged_into": null
+  },
+  {
+   "id": "awrtifact",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Deliberately chunk artifacts into GitHub release assets — the productized aitherkvcache mirror lane.",
+   "install": "pip install awrtifact",
+   "instead_of_trusting": "a hand-rolled split script and a hand-edited worker manifest",
+   "you_check": "byte-verified parts in a release, served with Range + CORS, sizes asserted by a live gate",
+   "pairs_with": [
+    "awdk",
+    "awnode",
+    "aitherkvcache",
+    "awgit",
+    "awseal",
+    "awshare",
+    "awrecover",
+    "awstorage"
+   ],
+   "source": "AitherOS/packages/awrtifact",
+   "merged_into": null
+  },
+  {
+   "id": "AitherZero",
+   "kind": "corpus",
+   "status": "public",
+   "tagline": "PowerShell 7+ automation framework — numbered, self-describing scripts.",
+   "install": "git clone https://github.com/Aitherium/AitherZero",
+   "instead_of_trusting": "a pile of scripts nobody has numbered",
+   "you_check": "numbered, discoverable automation with declarative playbooks",
+   "pairs_with": [
+    "awrecover"
+   ],
+   "source": ".PRODUCTS/.AITHERZERO",
+   "merged_into": null
+  },
+  {
+   "id": "AitherConnect",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Browser extension — federated AI search, page context, and the Living OS overlay.",
+   "install": "https://chromewebstore.google.com/detail/awconnect/peeojgjhjficedkncdejbfnacooodbak",
+   "instead_of_trusting": "what a page tells your browser to do",
+   "you_check": "a federated search and desktop bridge you host",
+   "pairs_with": [
+    "awdk"
+   ],
+   "source": "AitherOS/apps/awconnect-next/public-repo",
+   "merged_into": null
+  },
+  {
+   "id": "awreason",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "A portable reasoning client — sessions, phases, thoughts, and the chain that produced the answer.",
+   "install": "pip install awreason",
+   "instead_of_trusting": "a confident paragraph",
+   "you_check": "the phases it went through, and every tool call it made to get there",
+   "pairs_with": [
+    "awdk",
+    "awfind",
+    "awbrowse",
+    "awm"
+   ],
+   "source": "AitherOS/packages/awreason",
+   "merged_into": null
+  },
+  {
+   "id": "awrecurse",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Answer a question over a context far larger than the window — recursively, with the trace kept.",
+   "install": "pip install awrecurse",
+   "instead_of_trusting": "that everything you pasted in was actually read",
+   "you_check": "which slices it opened, and what it concluded from each",
+   "pairs_with": [
+    "awreason",
+    "awm",
+    "awfind",
+    "awembed"
+   ],
+   "source": "AitherOS/packages/awrecurse",
+   "merged_into": null
+  },
+  {
+   "id": "awprism",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Turn a failure into ranked hypotheses — and say what would confirm each one.",
+   "install": "pip install awprism",
+   "instead_of_trusting": "the first explanation that fits",
+   "you_check": "the ranked alternatives, and the observation that separates them",
+   "pairs_with": [
+    "awreason",
+    "awrepl",
+    "awgraph",
+    "awdit"
+   ],
+   "source": "AitherOS/packages/awprism",
+   "merged_into": null
+  },
+  {
+   "id": "awrepl",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "A REPL an agent can actually use — state that survives between turns.",
+   "install": "pip install awrepl",
+   "instead_of_trusting": "what the agent believes the value is",
+   "you_check": "the value, printed from the live session",
+   "pairs_with": [
+    "awprism",
+    "awdk",
+    "awnix",
+    "awembed"
+   ],
+   "source": "AitherOS/packages/awrepl",
+   "merged_into": null
+  },
+  {
+   "id": "awreport",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "File a bug report that has already scrubbed your secrets and collapsed the duplicate.",
+   "install": "pip install awreport",
+   "instead_of_trusting": "that the report you pasted carried no token in it",
+   "you_check": "a redacted report, and the duplicate it merged into instead of filing twice",
+   "pairs_with": null,
+   "source": "AitherOS/packages/awreport",
+   "merged_into": null
+  },
+  {
+   "id": "awresearch",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Ask a research question, get a cited report you can check.",
+   "install": "pip install awresearch",
+   "instead_of_trusting": "a summary of pages nobody opened",
+   "you_check": "every claim against the source it came from",
+   "pairs_with": [
+    "awfind",
+    "awbrowse",
+    "awreason",
+    "awgraph",
+    "awgym"
+   ],
+   "source": "AitherOS/packages/awresearch",
+   "merged_into": null
+  },
+  {
+   "id": "awfocus",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "See, search and steer every Claude session from one command.",
+   "install": "pip install awfocus",
+   "instead_of_trusting": "twelve terminal tabs and a bad memory",
+   "you_check": "one command that names every session, finds any transcript, and opens or steers the one you want",
+   "pairs_with": [
+    "awrelay",
+    "awgit",
+    "awm",
+    "awgraph"
+   ],
+   "source": "AitherOS/packages/awfocus",
+   "merged_into": null
+  },
+  {
+   "id": "awgym",
+   "kind": "runtime",
+   "status": "public",
+   "tagline": "An ARC training gym — a game a world model can watch, and six roles that play through it.",
+   "install": "pip install awgym",
+   "instead_of_trusting": "that a world model learned anything from the games it saw",
+   "you_check": "transitions captured from real play, fed back, and the retrodiction score falling on grids it never saw",
+   "pairs_with": [
+    "awdk",
+    "awm",
+    "awrelay",
+    "awgit",
+    "awgraph",
+    "awfocus",
+    "awrun"
+   ],
+   "source": "AitherOS/packages/awgym",
+   "merged_into": null
+  },
+  {
+   "id": "awpredict",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Predict what your environment does next, and how surprised you were.",
+   "install": "pip install git+https://github.com/Aitherium/awpredict.git",
+   "instead_of_trusting": "a model because it trained without erroring",
+   "you_check": "its prediction against a self-updating lookup, on the rows that are actually novel",
+   "pairs_with": [
+    "awm"
+   ],
+   "source": "AitherOS/packages/awpredict",
+   "merged_into": null
+  },
+  {
+   "id": "awevolve",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Point an agent at a file and a command that scores it, and let it improve.",
+   "install": "pip install awevolve",
+   "instead_of_trusting": "that your optimisation loop is finding anything",
+   "you_check": "every version it kept, the score that version earned, and the edit that produced it",
+   "pairs_with": [
+    "awdk",
+    "awrun",
+    "awgit",
+    "awm",
+    "awpredict"
+   ],
+   "source": "AitherOS/packages/awevolve",
+   "merged_into": null
+  },
+  {
+   "id": "awsh",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Your terminal answers you -- type a question where a command would go.",
+   "install": "npm i -g @aitherium/awsh",
+   "instead_of_trusting": "that you already know the name of the command",
+   "you_check": "what it decided your line meant, before it acts on it",
+   "pairs_with": [
+    "awdk",
+    "awfind",
+    "awbrowse",
+    "awembed",
+    "awdesk",
+    "awvoice",
+    "awrelay"
+   ],
+   "source": ".PRODUCTS/.AITHERSHELL/cli",
+   "merged_into": null
+  },
+  {
+   "id": "awlab",
+   "kind": "tool",
+   "status": "planned",
+   "tagline": "Run one experiment, keep the score, and let a loop decide against it.",
+   "install": "planned -- no package yet (AitherLab.py is 751 lines / 6 imports; the lift is the build)",
+   "instead_of_trusting": "that a change improved something because the diff looked right",
+   "you_check": "a leaderboard row with the score, the run that produced it, and the version it scored",
+   "pairs_with": [
+    "awevolve",
+    "awrise",
+    "awdk",
+    "awdata"
+   ],
+   "source": "AitherOS/packages/awlab",
+   "merged_into": null
+  },
+  {
+   "id": "awmine",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Mine what your agents did -- outcomes, lessons and procedures out of the transcripts they left behind.",
+   "install": "pip install git+https://github.com/Aitherium/awmine.git",
+   "instead_of_trusting": "that a session's lesson survived the session",
+   "you_check": "a row per outcome, a candidate per lesson, and the transcript line each one came from",
+   "pairs_with": [
+    "awtoll",
+    "awm",
+    "awdata",
+    "awdecide",
+    "awskills",
+    "awrise"
+   ],
+   "source": "AitherOS/packages/awmine",
+   "merged_into": null
+  },
+  {
+   "id": "awrise",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Wake an agent on a schedule, let it do one thing, and put it back to sleep.",
+   "install": "pip install awrise",
+   "instead_of_trusting": "that a scheduled agent ran at all, and ran exactly once",
+   "you_check": "a durable record of every wake -- fired, skipped, overlapped or timed out -- each with its reason",
+   "pairs_with": [
+    "awdk",
+    "awrun",
+    "awrelay",
+    "awm",
+    "awask",
+    "awdesk",
+    "awsh",
+    "awdecide"
+   ],
+   "source": "AitherOS/packages/awrise",
+   "merged_into": null
+  },
+  {
+   "id": "awkno",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "The man page for the Aither World — every brick, stack and law, offline.",
+   "install": "pip install awkno",
+   "instead_of_trusting": "that the docs site is up, or that you remember the family",
+   "you_check": "the whole ecosystem in your terminal, with no network at all",
+   "pairs_with": [
+    "awskills",
+    "awfind",
+    "awm"
+   ],
+   "source": "AitherOS/packages/awkno",
+   "merged_into": null
+  },
+  {
+   "id": "awwall",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Say what a workload may reach, and watch everything else fail closed.",
+   "install": "pip install awwall",
+   "instead_of_trusting": "that a service only talks to the hosts you think it talks to",
+   "you_check": "an explicit egress allowlist, where a denial names the rule that denied it",
+   "pairs_with": [
+    "awiam",
+    "awbac",
+    "awnest",
+    "awnboard",
+    "awdit",
+    "awnet",
+    "awtunnel",
+    "awnode",
+    "awdk"
+   ],
+   "source": "AitherOS/packages/awwall",
+   "merged_into": null
+  },
+  {
+   "id": "awrouter",
+   "kind": "runtime",
+   "status": "public",
+   "tagline": "OpenRouter for your own fleet: pick a model backend by cost/latency/ capability, fail over, fit the context window, stream. Standalone, OpenAI-compatible, no Aither-specifics required to be valuable.",
+   "install": "pip install awrouter",
+   "instead_of_trusting": null,
+   "you_check": null,
+   "pairs_with": [
+    "awdk",
+    "awsh",
+    "awnode"
+   ],
+   "source": "AitherOS/packages/awrouter",
+   "merged_into": null
+  },
+  {
+   "id": "awembed",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Train an embedding model that knows your corpus, and prove it beats the big one.",
+   "install": "pip install awembed",
+   "instead_of_trusting": "a general-purpose embedder that has never seen your code",
+   "you_check": "a held-out split of whole directories, scored teacher vs student vs int8",
+   "pairs_with": [
+    "awdk",
+    "awgraph",
+    "awm",
+    "awfind",
+    "awrecurse",
+    "awrepl",
+    "awsh",
+    "awskills"
+   ],
+   "source": "AitherOS/packages/awembed",
+   "merged_into": null
+  },
+  {
+   "id": "awdata",
+   "kind": "corpus",
+   "status": "planned",
+   "tagline": "Open labelled corpora you can train and measure against, with the code that built them.",
+   "install": "git clone https://github.com/Aitherium/awdata",
+   "instead_of_trusting": "a benchmark someone else curated, on a domain that is not yours",
+   "you_check": "the corpus, its label prevalences, and the script that reproduces it",
+   "pairs_with": [
+    "awembed",
+    "awgraph",
+    "awfind",
+    "awgym",
+    "awknowledge"
+   ],
+   "source": "awdata",
+   "merged_into": null
+  },
+  {
+   "id": "awmod",
+   "kind": "tool",
+   "status": "planned",
+   "tagline": "Wire the agent harness you already use into a fleet you already run.",
+   "install": "planned -- no package yet",
+   "instead_of_trusting": "a bespoke integration per harness, written once and left to rot",
+   "you_check": "the adapter your harness actually loads, and the tools it lists",
+   "pairs_with": [
+    "awdk",
+    "awsh",
+    "awnet",
+    "awrelay",
+    "awm",
+    "awgraph",
+    "awembed",
+    "awrepl",
+    "awrecurse",
+    "awpredict"
+   ],
+   "source": null,
+   "merged_into": null
+  },
+  {
+   "id": "awlog",
+   "kind": "tool",
+   "status": "planned",
+   "tagline": "Ask your logs what is actually failing, instead of grepping them.",
+   "install": "ships with the AitherOS install; run `awlog --help`",
+   "instead_of_trusting": "a green dashboard, or a log directory nobody has opened",
+   "you_check": "the ranked list of what your services are actually writing, right now",
+   "pairs_with": [
+    "awgraph",
+    "awm",
+    "awrelay",
+    "awgit"
+   ],
+   "source": "AitherOS/dev/tools/awlog.py",
+   "merged_into": null
+  },
+  {
+   "id": "awtax",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Turn any tax PDF -- returns, W-2, 1099, statements, even scans -- into structured data you can check.",
+   "install": "pip install awtax",
+   "instead_of_trusting": "a closed tax app's sealed file you can never read again",
+   "you_check": "a plain, provider-neutral schema of every figure, with the page it came from",
+   "pairs_with": [
+    "awvision",
+    "awpack",
+    "awskills",
+    "awdk",
+    "awknowledge"
+   ],
+   "source": "AitherOS/packages/awtax",
+   "merged_into": null
+  },
+  {
+   "id": "awflow",
+   "kind": "runtime",
+   "status": "public",
+   "tagline": "A deterministic workflow runtime — chain agent calls with journal replay and budget control.",
+   "install": "pip install aitherium-awflow",
+   "instead_of_trusting": null,
+   "you_check": null,
+   "pairs_with": [
+    "awdk",
+    "awrun",
+    "awask",
+    "awrelay",
+    "awm",
+    "awgraph"
+   ],
+   "source": "AitherOS/packages/awflow",
+   "merged_into": null
+  },
+  {
+   "id": "awsettings",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "Your agent's permissions and config, following you to the next machine.",
+   "install": "pip install awsettings",
+   "instead_of_trusting": "that you will remember to re-approve the same thing on every box you work from",
+   "you_check": "one profile, unioned rather than overwritten, with the credentials left behind",
+   "pairs_with": [
+    "awdk",
+    "awsh",
+    "awnix",
+    "awiam",
+    "awm",
+    "awseal",
+    "awshare",
+    "awresume",
+    "awdesk"
+   ],
+   "source": "AitherOS/packages/awsettings",
+   "merged_into": null
+  },
+  {
+   "id": "awresume",
+   "kind": "tool",
+   "status": "planned",
+   "tagline": "The coding sessions you had open, reopened after the reboot.",
+   "install": "not published yet (pending a public repo)",
+   "instead_of_trusting": "that you will remember which twelve terminals were open, and what each one was doing",
+   "you_check": "a snapshot taken before the machine went down, and a verdict on whether it went down cleanly",
+   "pairs_with": [
+    "awsettings",
+    "awsh",
+    "awrecover",
+    "awdk"
+   ],
+   "source": ".PRODUCTS/.AITHERRESUME",
+   "merged_into": null
+  },
+  {
+   "id": "awavatar",
+   "kind": "tool",
+   "status": "public",
+   "tagline": "One character spec in, a rigged, animated, multi-style avatar pack out.",
+   "install": "pip install awavatar",
+   "instead_of_trusting": "a cloud 3D vendor's opaque task id",
+   "you_check": "a manifest with a sha256, a licence and a rig-audit verdict per file",
+   "pairs_with": [
+    "awrtifact",
+    "awdk",
+    "awsprite",
+    "awrun",
+    "awdesk"
+   ],
+   "source": "AitherOS/packages/awavatar",
+   "merged_into": null
+  },
+  {
+   "id": "awsaga",
+   "kind": "tool",
+   "status": "planned",
+   "tagline": "Start a world from a pack and take one turn the continuity checker can refuse.",
+   "install": "not on PyPI yet (pending publish)",
+   "instead_of_trusting": "that your story continues coherently without a check",
+   "you_check": "every dead character, bilocation, and timeline gap the checker flags before proceeding",
+   "pairs_with": [
+    "awdk",
+    "awnode",
+    "awsprite",
+    "mediaforge",
+    "gawbbonet"
+   ],
+   "source": ".PRODUCTS/.SAGA/saga_engine",
+   "merged_into": null
+  },
+  {
+   "id": "awiris",
+   "kind": "tool",
+   "status": "planned",
+   "tagline": "Hand it three reference images and get one style card and one critique back.",
+   "install": "not on PyPI yet (pending publish)",
+   "instead_of_trusting": "that your character stays the same person across 40 pages of comic",
+   "you_check": "a style card that locks the rig, and a critique of how close the latest render is",
+   "pairs_with": [
+    "mediaforge",
+    "awdk",
+    "awsprite",
+    "awkit"
+   ],
+   "source": "AitherOS/agents/Iris",
+   "merged_into": null
+  },
+  {
+   "id": "awgov",
+   "kind": "tool",
+   "status": "planned",
+   "tagline": "One policy decision for every agent tool call -- allow, deny with the lane to use, or needs-owner.",
+   "install": "not yet published; builds in-tree",
+   "instead_of_trusting": null,
+   "you_check": null,
+   "pairs_with": [
+    "awbac",
+    "awpermit",
+    "awdit",
+    "awdk",
+    "awdecide",
+    "awrun",
+    "awrise"
+   ],
+   "source": "AitherOS/packages/awgov",
+   "merged_into": null
+  }
+ ]
+}
