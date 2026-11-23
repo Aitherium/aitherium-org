@@ -23,6 +23,9 @@ ROOT = Path(__file__).resolve().parent.parent
 SNAP = json.loads((ROOT / "scripts" / "bricks.json").read_text(encoding="utf-8"))
 MEASURED = SNAP["measured"]
 BRICKS = SNAP["bricks"]
+#: The registry describes 98 bricks; only the `public` ones have a repo + docs page.
+#: Every count printed below picks the right one -- a "98 public" legend was false.
+PUBLIC_BRICKS = sum(1 for b in BRICKS if b.get("status") == "public")
 
 BLOG = "https://blog.aitherium.com"
 GH = "https://github.com/Aitherium"
@@ -52,6 +55,37 @@ SYMBOLS = {
     "awfocus": "Fo", "awpredict": "Pd", "awsh": "Sh", "awkno": "Ko", "awembed": "Em",
     "awtax": "Tx", "awsettings": "Sg", "awavatar": "Av",
 }
+
+
+def _fill_symbols(bricks: list[dict]) -> None:
+    """Give every brick in the snapshot a UNIQUE two-letter symbol.
+
+    The map above is hand-picked for the original 49. A brick added to the
+    registry must render without a KeyError, so the remainder is derived
+    deterministically (first letter + next letter, then a-z) rather than
+    hand-edited -- the same rule as the periodic table itself.
+    """
+    used = set(SYMBOLS.values())
+    for b in bricks:
+        bid = b["id"]
+        if bid in SYMBOLS:
+            continue
+        letters = [c for c in bid if c.isalpha()]
+        first = letters[0].upper() if letters else "B"
+        alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+        candidates = [first + letters[i].upper() for i in range(1, min(len(letters), 6))]
+        # 52 one-letter tails, then every pair -- the first pass can exhaust a
+        # crowded initial (30 A-prefixed symbols were already taken on 2026-11-23).
+        candidates += [first + c for c in alphabet]
+        candidates += [a + b for a in alphabet for b in alphabet]
+        for sym in candidates:
+            if sym not in used:
+                SYMBOLS[bid] = sym
+                used.add(sym)
+                break
+
+
+_fill_symbols(BRICKS)
 KIND_ORDER = {"base": 0, "runtime": 1, "corpus": 2, "tool": 3}
 
 
@@ -288,7 +322,7 @@ def periodic_table() -> str:
       <span style="--k:var(--cyan)">runtime</span>
       <span style="--k:var(--tx)">corpus</span>
       <span style="--k:var(--tx-2)">tool</span>
-      <span style="--k:var(--tx-dim)">{len(bricks)} public · measured {MEASURED}</span>
+      <span style="--k:var(--tx-dim)">{PUBLIC_BRICKS} public · {len(bricks)} registered · measured {MEASURED}</span>
     </div>
     <ul class="pt">
 {chr(10).join(cells)}
@@ -1397,7 +1431,7 @@ TRANSPARENCY = f"""  <section class="hero" style="padding-bottom:40px">
         <table>
           <thead><tr><th>Surface</th><th>What it shows</th><th>State</th></tr></thead>
           <tbody>
-            <tr><td><a href="{GH}" rel="noopener">Public repositories</a></td><td>90 public repos on the org: source, issues, and the full change record. {len(BRICKS)} of them are registered bricks with docs pages.</td><td class="st live">live · 2026-10-27</td></tr>
+            <tr><td><a href="{GH}" rel="noopener">Public repositories</a></td><td>90 public repos on the org: source, issues, and the full change record. {PUBLIC_BRICKS} of them are public bricks with docs pages, out of {len(BRICKS)} registered bricks.</td><td class="st live">live · 2026-10-27</td></tr>
             <tr><td><a href="{BLOG}" rel="noopener">The blog</a></td><td>321 published field reports, measurements and corrections. This site points at it rather than duplicating it.</td><td class="st live">live · 2026-10-27</td></tr>
             <tr><td><a href="{PAGES}/awknowledge/" rel="noopener">The codex</a></td><td>The operating doctrine, its nineteen laws and the evidence behind each.</td><td class="st live">live</td></tr>
             <tr><td><a href="{GH}/aitherium-org" rel="noopener">This site</a></td><td>Plain HTML in a public repo. The brick table is rendered from a dated snapshot of the registry, committed alongside the pages.</td><td class="st live">live</td></tr>
