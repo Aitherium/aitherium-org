@@ -11,7 +11,7 @@
 
    Contrast (WCAG 2.x, light): ink on surface 18.9:1 · dim on surface 4.62:1,
    on ground 4.53:1 · accent-ink on surface 5.1:1, on ground 4.8:1 · ink on the
-   accent fill 5.8:1. The accent FILL (#1E9EA2) is 3.25:1 on white, so it is
+   accent fill 5.8:1. The accent FILL (#009DB0) is 3.25:1 on white, so it is
    used for fills, rules and marks; text in the accent uses --fk-accent-ink.
    ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -26,13 +26,13 @@
   --fk-dim: rgba(14,17,22,.64);
   --fk-faint: rgba(14,17,22,.60);
   --fk-hairline: rgba(14,17,22,.10);
-  --fk-accent: #1E9EA2;                  /* fills, rules, the mark */
+  --fk-accent: #009DB0;                  /* fills, rules, the mark */
   --fk-accent-ink: #137A7E;              /* the accent as TEXT */
   --fk-on-accent: #0E1116;               /* text on an accent fill */
-  --fk-accent-glow: rgba(30,158,162,.22);
-  --fk-accent-wash: rgba(30,158,162,.08);
-  --fk-accent-line: rgba(30,158,162,.40);
-  --fk-selection: rgba(30,158,162,.22);
+  --fk-accent-glow: rgba(0,157,176,.22);
+  --fk-accent-wash: rgba(0,157,176,.08);
+  --fk-accent-line: rgba(0,157,176,.40);
+  --fk-selection: rgba(0,157,176,.22);
   --fk-scrim: rgba(14,17,22,.40);
   --fk-shadow: rgba(14,17,22,.18);
 }
