@@ -47,13 +47,13 @@
   --fk-dim: rgba(237,239,245,.55);
   --fk-faint: rgba(237,239,245,.35);
   --fk-hairline: rgba(255,255,255,.08);
-  --fk-accent: #5EC9CC;
-  --fk-accent-ink: #5EC9CC;
+  --fk-accent: #00E5FF;
+  --fk-accent-ink: #00E5FF;
   --fk-on-accent: #050507;
-  --fk-accent-glow: rgba(94,201,204,.35);
-  --fk-accent-wash: rgba(94,201,204,.08);
-  --fk-accent-line: rgba(94,201,204,.35);
-  --fk-selection: rgba(94,201,204,.28);
+  --fk-accent-glow: rgba(0,229,255,.35);
+  --fk-accent-wash: rgba(0,229,255,.08);
+  --fk-accent-line: rgba(0,229,255,.35);
+  --fk-selection: rgba(0,229,255,.28);
   --fk-scrim: rgba(5,5,7,.86);
   --fk-shadow: rgba(0,0,0,.6);
 }

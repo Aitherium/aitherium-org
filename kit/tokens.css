@@ -17,9 +17,9 @@
   --fk-faint:rgba(237,239,245,.35);
   --fk-hairline:rgba(255,255,255,.08);
   --fk-raise:rgba(255,255,255,.025);
-  --fk-accent:#5EC9CC;
-  --fk-accent-glow:rgba(94,201,204,.35);
-  --fk-accent-wash:rgba(94,201,204,.08);
+  --fk-accent:#00E5FF;
+  --fk-accent-glow:rgba(0,229,255,.35);
+  --fk-accent-wash:rgba(0,229,255,.08);
 
   /* type */
   --fk-sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
@@ -45,10 +45,10 @@
   --tx-muted:var(--fk-faint);
   --border:var(--fk-hairline);
   --accent:var(--fk-accent);
-  --accent-a04:rgba(94,201,204,.04);
-  --accent-a10:rgba(94,201,204,.10);
-  --accent-a30:rgba(94,201,204,.30);
-  --accent-a50:rgba(94,201,204,.50);
+  --accent-a04:rgba(0,229,255,.04);
+  --accent-a10:rgba(0,229,255,.10);
+  --accent-a30:rgba(0,229,255,.30);
+  --accent-a50:rgba(0,229,255,.50);
   --accent-glow:var(--fk-accent-glow);
   --cyan:var(--fk-accent);
   --ink:var(--fk-ink);
