@@ -87,3 +87,6 @@ html[data-theme] .fk-theme { display: inline-flex; }
 .fk-about .fk-mark .eye { fill: var(--fk-bg); }
 /* on a phone the menubar has no room to spare: the switch drops its ring */
 @media (max-width: 760px) { .fk-theme { width: 22px; height: 22px; border: 0; } }
+
+/* 2026-11-24: accent is #00E5FF (the Ai mark). Restamped because Cloudflare had
+   cached the previous theme.css under its old ?v= URL. */
