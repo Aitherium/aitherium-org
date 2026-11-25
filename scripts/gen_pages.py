@@ -36,6 +36,19 @@ BUILT_ON_SRC = "https://aitherium.com/ecosystem.json"
 RELAY = "https://relay.aitherium.com"
 CONTACT = "mailto:foundation@aitherium.org"
 DISCORD = "https://discord.gg/kKhgRm9wH"
+
+# The sibling domains, the same list aitherium.com renders
+# (.ELEMENT/BRAND_CENTER.yaml family_sites there). Names only: this site makes no
+# claim about what those sites say. Measured 2026-11-24; a domain that did not
+# answer is not listed (aionyn.com has no usable TLS certificate, so its link is
+# the subdomain that serves).
+FAMILY_SITES = (
+    ("aitherium.org", "https://aitherium.org/"),
+    ("openaw.org", "https://www.openaw.org/"),
+    ("wesyn.org", "https://wesyn.org/"),
+    ("aionyn", "https://aionyn.aitherium.com/"),
+    ("eusyra.com", "https://eusyra.com/"),
+)
 SPONSOR = "https://github.com/sponsors/Aitherium"
 SPONSOR_PAGE = "https://aitherium.com/sponsor/"
 CODEX_PATH = f"{PAGES}/awknowledge/path"
@@ -220,11 +233,14 @@ def _about() -> str:
         f'<span class="r">{esc(role)}</span></a>'
         for name, role, href, mono in FAMILY)
     pages = " · ".join(f'<a href="{href}">{label.lower()}</a>' for href, label in NAV)
+    family_sites = " · ".join(
+        f'<a href="{href}" rel="noopener">{esc(name)}</a>' for name, href in FAMILY_SITES)
     return f"""<footer class="fk-about" id="fk-about" aria-labelledby="fk-about-h">
   <div class="fk-about-hd">{MARK}<h2 id="fk-about-h">About this OS</h2></div>
   <p class="fk-brandlines"><span>Aitherium · the element of creation</span><span>Aither — the medium creation moves through</span></p>
   <div class="fk-family">{family}</div>
-  <p class="fk-colophon">the foundation: {pages} · <a href="{OS_URL}">sign on</a><br>
+  <p class="fk-colophon">the family: {family_sites}<br>
+  the foundation: {pages} · <a href="{OS_URL}">sign on</a><br>
   the world: <a href="{GH}" rel="noopener">github</a> · <a href="{PAGES}/awknowledge/" rel="noopener">the codex</a> ·
   <a href="{RELAY}" rel="noopener">the rooms</a> · <a href="{DISCORD}" rel="noopener">the collective on discord</a> ·
   <a href="https://wizzense.github.io/" rel="noopener">the builder · wizzense</a> · <a href="https://aitherium.com/trust/" rel="noopener">trust &amp; security</a> · <a href="{CONTACT}">contact</a><br>
